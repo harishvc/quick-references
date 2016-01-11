@@ -1,3 +1,3 @@
-#Quick references
+#Quick References
 
-* [Java Script](http://github.com/harishvc/quick-reference/javascript)
+* [JavaScript](http://github.com/harishvc/quick-references/javascript)

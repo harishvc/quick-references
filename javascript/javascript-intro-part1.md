@@ -19,10 +19,10 @@ console.log(a, "a type =", typeof a)  //Harish 5 , a type=String :boom:
 ````
 
 ##Scope, Lifetime &amp; Strict mode
-* If you assign a value to a variable that has *not been declared*, it will *automatically become a global variable*
-* Lifetime of a JavaScript variable starts when it is *declared*.
+* If you assign a value to a variable that has *not been declared*, it will **automatically become a global variable**
+* Lifetime of a JavaScript variable starts when it is **declared**.
   * Local variables are deleted when the function is completed
-  * Global variables are deleted when you *close the page*
+  * Global variables are deleted when you **close the page**
 * Strict mode will trigger code execution in strict mode. Variables need to declared before using
 ````javascript
 //example 1: Automatically Global

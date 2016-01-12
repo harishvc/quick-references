@@ -1,6 +1,6 @@
 #Quick reference to JavaScript
 
-*(Introduction)[https://github.com/harishvc/quick-references/blob/master/javascript/javascript-intro-part1.md]
+* [Introduction](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-intro-part1.md)
 
 
 ##References

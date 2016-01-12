@@ -1,7 +1,7 @@
 #Quick reference to JavaScript
 
-* [Introduction](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-intro-part1.md)
-Scope, Lifetime, Strict mode, Data types, `typeof` &amp; Hoisting  
+* [Introduction](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-intro-part1.md)   
+   Scope, Lifetime, Strict mode, Data types, `typeof` &amp; Hoisting    
 * Closures  
 
 ##References

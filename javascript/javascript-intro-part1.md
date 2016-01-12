@@ -1,9 +1,7 @@
-#Quick reference to JavaScript
-
-#Introduction
+#Quick reference to JavaScript (Part I)
 
 ##Data types  &amp; `typeof`
-````
+````javascript
 var a = 5.001
 console.log("a type =", typeof a)  //number
 a = "Harish"
@@ -26,7 +24,7 @@ console.log(a, "a type =", typeof a)  //Harish 5 , a type=String :boom:
   * Local variables are deleted when the function is completed
   * Global variables are deleted when you *close the page*
 * Strict mode will trigger code execution in strict mode. Variables need to declared before using
-````
+````javascript
 //example 1: Automatically Global
 function test() {
 	a = 5  //Automatically Global!
@@ -63,7 +61,7 @@ console.log("a=",a);
 * When comparing a string with a number, JavaScript will convert the string to a number
   * An empty string converts to 0
   * A non-numeric string converts to NaN which is always false
-````
+````javascript
 var a = 5   
 console.log(a==5);     //true
 console.log(a=="5");   //true convert string to number  :boom:
@@ -71,7 +69,7 @@ console.log(a==="5");  //false
 ````
 
 ##Bitwise Operations
-````
+````javascript
 console.log(5 & 1);      //0101 & 0001 = 1  AND
 console.log(5 | 1);      //0101 | 0001 = 5  OR
 console.log(~5);        //~0101 = 10        NOT
@@ -82,10 +80,10 @@ console.log( 5 << 1);   //1010 = 10         Left Shift shifting in zeros from th
 ````
 
 ##Hoisting
-* Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope*
+* Hoisting is JavaScript's default behavior of **moving declarations to the top of the current scope**  
 * Hoisting applies to variable declarations and to function declarations
-````
-console.log("x=",x);  //undefined
+````javascript
+console.log("x=",x);  //undefined  , Hoisting in action!
 var x;
 x = 5
 console.log("x=",x);  //5

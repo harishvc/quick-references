@@ -1,4 +1,5 @@
 #Quick reference to JavaScript (Part I)
+Scope, Lifetime, Strict mode, Data types, ````typeof```` & Hoisting
 
 ##Data types  &amp; `typeof`
 ````javascript

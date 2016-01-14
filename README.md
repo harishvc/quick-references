@@ -10,3 +10,5 @@
   * [Python interview questions and answers](http://www.ilian.io/python-interview-question-and-answers/)  
 
 * [JavaScript](https://github.com/harishvc/quick-references/tree/master/javascript)  
+  * [Introduction](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-intro-part1.md)   
+    Scope, Lifetime, Strict mode, Data types, `typeof` &amp; Hoisting    

@@ -1,7 +1,31 @@
 #Quick reference to JavaScript (Part I)
 Scope, Lifetime, Strict mode, Data types, ````typeof```` & Hoisting
 
-##Data types  &amp; `typeof`
+##JavaScript is case sensitive
+````javascript
+var a = 5;
+console.log(A); //Uncaught ReferenceError
+````
+
+
+##Data types
+* JavaScript has one complex data type, the **Object data type**. 
+  * Object data types are **mutable (can be changed) and they are addressed by reference** 
+* JavaScript has **five simple data types: Number, String, Boolean, Undefined, and Null**. 
+  * Simple (primitive) data types are **immutable (cannot be changed) and they are addressed by value**  
+````javascript
+var x = 5
+var y = x;
+x = 1;
+console.log(x,y); //1,5  reference by value
+
+var people = {Name:"Harish", Height:6}
+var y = people;
+people.Name = "test";
+console.log(people.Name,y.Name);   // test test   , reference by address
+````
+
+##Simple data types &amp; `typeof`
 ````javascript
 var a = 5.001
 console.log("a type =", typeof a)  //number

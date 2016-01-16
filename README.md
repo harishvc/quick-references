@@ -10,5 +10,11 @@
   * [Python interview questions and answers](http://www.ilian.io/python-interview-question-and-answers/)  
 
 * [JavaScript](https://github.com/harishvc/quick-references/tree/master/javascript)  
-  * [Introduction](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-intro-part1.md)   
-    Scope, Lifetime, Strict mode, Data types, `typeof` &amp; Hoisting    
+  * [Introduction](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-intro-part1.md)
+    Scope, Lifetime, Strict mode, Data types, `typeof` Hoisting &amp; AMD
+  * [Functions](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-functions-part2.md)
+    Declaration, expression, hoisting, self-invoking and nested functions
+  * [Closures](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-closures-part3.md)
+    Examples, use cases, callbacks
+  * [this](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-this-part4.md)
+    Examples and links for future reading

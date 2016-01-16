@@ -78,10 +78,8 @@ console.log(foo);  //8
 ````
 
 
-
-
 ##References
-* (JavaScript Function Definitions@W3 Schools)[http://www.w3schools.com/js/js_function_definition.asp]
-* (Closure discussion on Stack Overflow)(http://stackoverflow.com/questions/111102/how-do-javascript-closures-work)
-* (JavaScript Closures Demystified)[http://www.sitepoint.com/javascript-closures-demystified/]
+* [JavaScript Function Definitions@W3 Schools](http://www.w3schools.com/js/js_function_definition.asp)
+* [Closure discussion on Stack Overflow](http://stackoverflow.com/questions/111102/how-do-javascript-closures-work)
+* [JavaScript Closures Demystified](http://www.sitepoint.com/javascript-closures-demystified/)
 

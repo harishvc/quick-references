@@ -14,6 +14,7 @@ console.log(a) //25.555555555555557
 * Stored in a variable
 * Also referred to as **anonymous** function (a function without a name)
 * Function expessions create anonymous fucntions adding debugging complexity
+* It's a **closure!**
 ````javascript
 var a = toCelsius //No () , refers to function definition
 console.log(a(78)) //25.555555555555557

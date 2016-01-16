@@ -120,3 +120,4 @@ var y=5;
 * [W3 Schools](http://www.w3schools.com/js/)
 * [JavaScript shift operator](http://stackoverflow.com/questions/1822350/what-is-the-javascript-operator-and-how-do-you-use-it)
 * [JavaScript operators](http://web.eecs.umich.edu/~bartlett/jsops.html)
+* [JavaScript Objects in Detail](http://javascriptissexy.com/javascript-objects-in-detail/)

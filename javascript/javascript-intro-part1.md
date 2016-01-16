@@ -1,4 +1,4 @@
-#Quick reference to JavaScript (Part I)
+#Quick reference to JavaScript
 Scope, Lifetime, Strict mode, Data types, ````typeof```` & Hoisting
 
 ##JavaScript is case sensitive
@@ -115,6 +115,12 @@ console.log("x=",x);  //5
 console.log("x+y=",x+y); //Error: NaN (non-configurable and non-writable property)
 var y=5;
 ````
+
+##Asynchronous module definition (AMD) 
+AMD is a JavaScript specification that defines an API for defining code modules and their dependencies so modules can be loaded asynchronously if desired.
+Major benefit is **performance**  - only loading modules when needed. Interested? Check out [AMD versus CJS. What’s the best format?](http://unscriptable.com/2011/09/30/amd-versus-cjs-whats-the-best-format/)
+
+
 
 ##References
 * [W3 Schools](http://www.w3schools.com/js/)

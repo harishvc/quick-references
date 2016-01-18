@@ -1,4 +1,4 @@
-#Quick reference to JavaScript ````this````
+#Quick reference to JavaScript &amp; DOM Elements
 
 ##Example 1
 ````

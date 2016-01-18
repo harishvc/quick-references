@@ -17,4 +17,6 @@
   * [Closures](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-closures-part3.md)  
     Examples, use cases, callbacks
   * [this](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-this-part4.md)  
-    Examples and links for future reading
+    Examples and links for future reading  
+  * [DOM](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-dom-manipulate-part5.md)    
+    Dynamically change the DOM

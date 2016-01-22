@@ -51,11 +51,13 @@ print(list(map(lambda x: x**2,a))) #[2, 4, 6, 8, 10]
 ````
 
 ###Example 5:
-Given a list create a new list of squares of only even numbers
+Given a list create a new list of squares with only even numbers
 ````python
 a = [1,2,3,4,5]
 print(a)   #[1,2,3,4,5]
-print(list(filter(lambda z: z is not None,map(lambda x: x**2 if (x%2==0) else None,a)))) #[4,16]
+#1. create a new list using map
+#2. pass the new list using filter and condition even number
+print(list(filter(lambda x: x%2 == 0,map(lambda x: x**2,a))))
 ````
 
 ###Example 6:

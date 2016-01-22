@@ -50,7 +50,7 @@ print(list(map(lambda x: x**2,a))) #[2, 4, 6, 8, 10]
 ````
 
 ###Example 5:
-Given a list create a new list of squares of even numbers
+Given a list create a new list of squares of only even numbers
 ````python
 a = [1,2,3,4,5]
 print(a)   #[1,2,3,4,5]
@@ -63,10 +63,6 @@ Given a list integers create a list of characters
 print (list(map(chr,[65,66,67,68,69])))             
 #['A', 'B', 'C', 'D', 'E']
 ````
-
-
-
-
 
 
 

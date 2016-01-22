@@ -1,5 +1,3 @@
-input = "Hello World!"
-vowels ="aeiou"
-z = "".join([x for x in input if x not in vowels])
-print(input)  #Hello World!
-print(z)      #Hll Wrld!
+matrix = [ list(range(0,5)), list(range(5,10)), list(range(10,15)) ]
+print(matrix)
+print([x for row in matrix for x in row ])

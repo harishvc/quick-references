@@ -1,5 +1,5 @@
 #Python Topics
-List Comprehension,lambda,map and filter
+List Comprehension, lambda, map, filter and generator
 
 **List comprehension is an elegant way to define and create list in Python**
 
@@ -66,6 +66,44 @@ Given a list integers create a list of characters
 print (list(map(chr,[65,66,67,68,69])))             
 #['A', 'B', 'C', 'D', 'E']
 ````
+
+**Generators are much similar to iterators except that they consume constant memory and are executed on demand 
+making them a critical ingredient for optimization and in memory intense tasks
+###Example 7: Print the first n event numbers **on demand**
+```python
+n = 10
+z = (x for x in range(n) if x%2 == 0)  #() generator initialize
+print(next(z))  #0
+print(next(z))  #2
+print(next(z))  #4
+```
+
+###Example 8: Get file contents on demand
+```python
+def gen():
+	filename = open("12345.txt","r")
+	for readline in filename:
+		print("Generator invoked!")
+		yield readline
+	filename.close()
+	print("file handle closed")
+
+for output in gen():
+	print(output)
+
+#output
+Generator invoked!
+1
+Generator invoked!
+2
+Generator invoked!
+3
+Generator invoked!
+4
+Generator invoked!
+5
+file handle closed
+```
 
 
 

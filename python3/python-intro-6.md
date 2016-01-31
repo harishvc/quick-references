@@ -1,5 +1,5 @@
 #Python Topics
-List Comprehension, lambda, map, filter and generator
+List Comprehension, lambda, map, filter, generator and error handling
 
 **List comprehension is an elegant way to define and create list in Python**
 
@@ -105,6 +105,19 @@ Generator invoked!
 file handle closed
 ```
 
+###Example 9: Error handling and reporting
+````python
+try:
+	a = 1
+	print("Hello world",b)
+except Exception as e:
+	print("something happened!!!", str(e))
+finally:
+	print("all done!!!")
+#output
+something happened!!! name 'b' is not defined
+all done!!!
+````
 
 
 

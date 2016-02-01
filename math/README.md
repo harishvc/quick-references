@@ -1,7 +1,7 @@
 #Math Fundamentals
 
 ##Fundamental Theorem of Arithmetic
-1. Any integer greater than 1 is either a prime number, or can be written as a unique product of prime numbers**
+* Any integer greater than 1 is either a prime number, or can be written as a unique product of prime numbers**
 ````
 2 = Prime
 3 = Prime
@@ -11,9 +11,9 @@
 7 = Prime
 8 = 2 x 2 x 2
 ````
-2. Prime numbers are the basic building blocks of all numbers
-3. Product of prime numbers is unique - only one set of prime numbers can generate the product
-   - Can be used as **hash key** but Time complexity to find prime numbers is high!
+* Prime numbers are the basic building blocks of all numbers
+* Product of prime numbers is unique - only one set of prime numbers can generate the product
+  * Can be used as **hash key** but Time complexity to find prime numbers is high!
 ````
 15 = 3 x 5 
 42 = 2 x 3 x 7

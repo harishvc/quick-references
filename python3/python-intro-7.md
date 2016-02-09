@@ -1,6 +1,14 @@
 #Python Problems
 Simple problems to reinforce fundamentals
 
+##Find quotient and remainder
+```python
+a = 5
+b = 2
+q = a//b  #2
+r = a%b   #1
+```
+
 
 ##Sort list by length of characters
 ````python

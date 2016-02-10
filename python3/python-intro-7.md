@@ -9,6 +9,27 @@ q = a//b  #2
 r = a%b   #1
 ```
 
+##Convert character to integer
+```python
+a = '1'
+
+#Solution 1:
+b = int(a)
+print(b,type(b))      #1 <class 'int'>
+
+#Solution 2:
+#LIMITATION: Works for only single digits
+print(a,type(a))      #1 <class 'str'>
+b = ord(a) - ord('0') 
+print(b,type(b))      #1 <class 'int'>
+#
+#
+#Explanation
+#ord('0') = 48
+#ord('1') = 49
+#ord('2') = 50
+#Subtracing ASCII value of character from the ASCII value of character 0 returns the difference - AKA result as int
+````
 
 ##Sort list by length of characters
 ````python

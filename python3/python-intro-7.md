@@ -30,6 +30,12 @@ print(b,type(b))      #1 <class 'int'>
 #ord('2') = 50
 #Subtracing ASCII value of character from the ASCII value of character 0 returns the difference - AKA result as int
 ````
+##Convert integer to character
+````python
+a = chr(48)
+print(a,type(a))  #0 <class 'str'>
+````
+
 
 ##Sort list by length of characters
 ````python

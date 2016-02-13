@@ -7,4 +7,4 @@
   * [List Comprehension, lambda, map, filter, generator and error handling](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-6.md)
   * [Simple problems to reinforce fundamentals](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-7.md)
   * [Python interview questions and answers](http://www.ilian.io/python-interview-question-and-answers/)  
-
+  * [Fun with Python List & String](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-8.md)

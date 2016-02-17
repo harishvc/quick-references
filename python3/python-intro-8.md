@@ -56,7 +56,11 @@ for x in input:
 	print(x,end=",") 
 #H,e,l,l,o, ,W,o,r,l,d,!,
 ````
-
-
+###Split a split into K chunks
+```python
+def splitString(a,size,chunksize):
+   new_input = [ a[start:start+chunksize] for start in range(0,size,chunksize)]	
+   return new_input
+```
 
 

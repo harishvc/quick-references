@@ -1,8 +1,10 @@
 #Quick References
 
 * Bits & bytes
-  * [Fun with bits & bytes](https://github.com/harishvc/quick-references/blob/master/bits-bytes/README.md)
+  * [Fun with bits & bytes](https://github.com/harishvc/quick-references/blob/master/bits-bytes/README.md)  
 
+* Permuation and Combination  
+  * [Fun with Permuation and Combination](https://github.com/harishvc/quick-references/blob/master/permutation-combination/README.md)  
 
 * Python  
   * [Python standard library reference (part 1/5)](https://github.com/harishvc/challenges/blob/master/python-intro.py)  

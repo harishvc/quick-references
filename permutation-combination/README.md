@@ -1,8 +1,7 @@
 #Fun with Permuation and Combination
 
 ##Permutation
-* Combinations where **order does matter** is a Permutation. Example: lock combination  
-  - A Permutation is an ordered Combination  
+Combinations where **matters** is a Permutation. Example: lock combination. A Permutation is an **ordered Combination**    
 * Two type of Permutations  
   - Repetition is allowed  
   - Repetition is not allowed
@@ -20,7 +19,7 @@
     n=total number of things to choose from, r=#slots/spots/openings  
 
 ##Combination
-Combinations where **order does NOT matter** is a Combination. Example lottery ticket
+Combinations where **order does NOT matter** is a Combination. Example lottery ticket.
 * Two types of Combinations  
   - Repetition is allowed  
   - Repetition is not allowed    
@@ -35,9 +34,6 @@ Combinations where **order does NOT matter** is a Combination. Example lottery t
   - #combinations = **n!/(n-r)! * r!**  
     n=total number of things to choose from, r=#slots/spots/openings  
   
-
-
-
 
 ##References
 * [Combinations and Permutations](https://www.mathsisfun.com/combinatorics/combinations-permutations.html)

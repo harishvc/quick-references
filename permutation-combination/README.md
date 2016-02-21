@@ -24,7 +24,7 @@ Combinations where **order does NOT matter** is a Combination. Example lottery t
   - Repetition is allowed  
   - Repetition is not allowed    
 * Combinations with Repetition  
-  Example: Pick 3 scoops from 5 different ice-cream flavors. `(5+3-1)!/(3!*(5-1)!)  
+  Example: Pick 3 scoops from 5 different ice-cream flavors. `(5+3-1)!/(3!*(5-1)!)`  
   -#combinations = **(n+r-1)!/r! * (n-1)!**  
 * Combinations without Repetition  
   Example: Lottery, Committee members   

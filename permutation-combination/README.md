@@ -13,7 +13,7 @@ Combinations where **matters** is a Permutation. Example: lock combination. A Pe
   - #Permutations with Repetition = **n^r**  
     n=total number of things to choose from, r=#slots/spots/openings 
 * Permutations without Repetition  
-  Example: #permutations of choosing 3 pool balls (1...16) or P(16,3)? 
+  - Example: #permutations of choosing 3 pool balls (1...16) or P(16,3)?   
   - #permutations = `16x15x14`
   - #Permutations without Repetition = **n!/(n-r)!**  
     n=total number of things to choose from, r=#slots/spots/openings  
@@ -28,7 +28,7 @@ Combinations where **order does NOT matter** is a Combination. Example lottery t
   - Example: Pick 3 scoops from 5 different ice-cream flavors. `(5+3-1)!/(3!*(5-1)!)`  
   - #combinations = **(n+r-1)!/r! * (n-1)!**  
 * Combinations without Repetition  
-  Example: Lottery, Committee members   
+  - Example: Lottery, Committee members   
   - #Combinations for getting 123 = 1   
   - Example: `150 choose 1 = 150!/(150-1)!*1!`
   - #combinations = **n!/(n-r)! * r!**  

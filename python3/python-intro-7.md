@@ -81,4 +81,16 @@ print(a[-n:]+a[:-n])
 #[4,5,1,2,3]
 ````
 
-
+##Print values in a list
+````python
+a = [3,4,1,7]
+size = 4
+done = False
+current = 0
+while not done:
+	print(a[current])
+	current += 1
+	#one line if statement
+        #variable = value_when_true if condition else value_when_false
+	done = True if current == size  else False
+````

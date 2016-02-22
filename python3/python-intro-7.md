@@ -45,6 +45,17 @@ print(a)
 ['Hi', 'Hello', 'World!']
 ````
 
+##Find #rows and #cols in a matrix
+````python
+row = 4
+col = 3
+matrix=[[0 for x in range(col)] for y in range(row)]
+print(matrix)
+print("#rows=",len(matrix))     #4
+print("#cols=",len(matrix[0]))  #3
+````
+
+
 ##Rotate a matrix by 90 degrees clockwise
 ````python
 #source: http://stackoverflow.com/questions/8421337/rotating-a-two-dimensional-array-in-python

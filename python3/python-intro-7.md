@@ -107,7 +107,7 @@ while not done:
 ````
 
 ##Double ended queue
-Problem: Add and pop elements in constant time while still retaining order
+Problem: Add and pop elements in constant time while still retaining order  
 Solution: Deques support thread-safe and memory efficient appends and pops from either side of the queue 
 with O(1) performance
 ```python

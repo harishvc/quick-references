@@ -54,6 +54,6 @@ time taken= 3006  ms
 ````
 
 
-#References
-*[Primer on Python Decorators](https://realpython.com/blog/python/primer-on-python-decorators/)
-*[Understanding Python Decorators in 12 Easy Steps!](http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/)   
+#References  
+* [Primer on Python Decorators](https://realpython.com/blog/python/primer-on-python-decorators/)   :thumbsup:    
+* [Understanding Python Decorators in 12 Easy Steps!](http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/)     

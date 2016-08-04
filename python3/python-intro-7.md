@@ -20,12 +20,12 @@ print(b,type(b))      #1 <class 'int'>
 #Solution 2:
 #LIMITATION: Works for only single digits
 print(a,type(a))      #1 <class 'str'>
-b = ord(a) - ord('0') 
+b = ord(a) - ord('0') # subtract ascii value of '1' from ascii value of '0' , result is an integer of value 1
 print(b,type(b))      #1 <class 'int'>
 #
 #
 #Explanation
-#ord('0') = 48
+#ord('0') = 48    #ORD returns ascii value of CHAR
 #ord('1') = 49
 #ord('2') = 50
 #Subtracing ASCII value of character from the ASCII value of character 0 returns the difference - AKA result as int

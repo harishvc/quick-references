@@ -15,3 +15,8 @@
 * [W3 Schools](http://www.w3schools.com/js/)
 * [JavaScript shift operator](http://stackoverflow.com/questions/1822350/what-is-the-javascript-operator-and-how-do-you-use-it)
 * [JavaScript operators](http://web.eecs.umich.edu/~bartlett/jsops.html)
+* [16 JavaScript Concepts JavaScript Professionals Must Know Well](http://javascriptissexy.com/16-javascript-concepts-you-must-know-well/)  :boom:  
+* [21 Essential JavaScript Interview Questions](https://www.codementor.io/javascript/tutorial/21-essential-javascript-tech-interview-practice-questions-answers)  
+* [Master the JavaScript Interview: What is a Closure?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36#.kors07ukf)  
+* [10 Interview Questions Every JavaScript Developer Should Know](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95#.xp1rku6cz)  
+

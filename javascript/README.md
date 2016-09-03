@@ -4,7 +4,7 @@
    Scope, Lifetime, Strict mode, Data types, `typeof` Hoisting &amp; AMD    
 * [Functions](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-functions-part2.md)  
   Declaration, expression, hoisting, self-invoking and nested functions
-* [Hoisting & Scope](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-functions-part2.md)  
+* [Hoisting & Scope](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-functions-part6.md)  
   Hosting and scope with examples  
 * [Closures](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-closures-part3.md)  
   Examples, use cases, callbacks

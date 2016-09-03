@@ -51,7 +51,7 @@ function logIt(){
 logIt();
 ````
 
-##Example 5: ````NaN```
+##Example 5: ````NaN````
 ````javascript
 var a = 1;
 function myadd(){

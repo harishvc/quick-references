@@ -1,7 +1,7 @@
 #Quick reference to JavaScript
 Scope, Lifetime, Strict mode, Data types, ````typeof```` & Hoisting
 
-##JavaScript is case sensitive
+##JavaScript is **case sensitive**
 ````javascript
 var a = 5;
 console.log(A); //Uncaught ReferenceError

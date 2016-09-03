@@ -21,7 +21,7 @@ console.log(a(78)) //25.555555555555557
 ````
 
 ##Function Hoisting
-* Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope
+* Hoisting is JavaScript's default behavior of moving **declarations** to the top of the **current scope**
 * Hoisting applies to variable declarations and to function declarations
 ````javascript
 var a = toCelsius //No () , refers to function definition
@@ -33,7 +33,7 @@ function toCelsius(fahrenheit) {
 ````
 
 ##Self-invoking Functions
-Immediately invoke a function as soon as it's defined.
+Immediately invoke a function as soon as it's defined - **solution to avoid Closure**
 ````javascript
 (function () {
     var x = "Hello from JavaScript!";      // I will invoke myself

@@ -35,7 +35,7 @@ var findsum1 = mysum1(5)
 console.log(findsum1())  //20  when 10 is expected!
 ````
 
-##Example 3: Fixing Example 2
+##Example 3: Fixing example 2
 ````javascript
 //Immediately Invoke Function Expression - IIFE
 function mysum2(a) {
@@ -78,7 +78,7 @@ window.addEventListener("load", function() {
 });
 ````
 
-##Example 6: Using Closure to create **private variables*
+##Example 6: Using Closure to create **private variables**
 ````javascript
 function ContactInformation(){
   var location = "123 Elm Street"

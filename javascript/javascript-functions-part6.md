@@ -7,6 +7,9 @@
 * Always declare your local variables before you use them
 * Variable scope is either **global or local** function since Java Script **does not have block-level scope** 
 * JavaScript functions are **first class citizens** can be constructed at runtime, assigned to variables and returned by other functions. 
+* If you use `var ` during variable declaration, the scope of the variable is
+**limited to the current scope** (e.g. function). 
+* If you `don't use var` the variable **scope bubbles up** until it encounters a variable by the given name or the global object (window, if you are doing it in the browser), where it then attaches. *Traversing up the scope chain is a good thing, but adding it to the global scope if it doesn't find anything is a pitfall*.
 
 
 ##Example 1
@@ -40,12 +43,22 @@ function newI() {
 newI()
 ````
 
-##Eample 4: ````undefined````
+##Example 4: ````undefined````
 ````javascript
+//Variation 1
+var text = 'outside';
+   function logIt(){
+     console.log(text);   //outside , scope of text follows up the scope chain 
+     text = 'inside';
+   };
+   logIt();
+
+
+//Variation 2
 //https://www.interviewcake.com/question/python/js-scope
 var text = 'outside';
 function logIt(){
-    console.log(text);   //undefined - local text is hoisted but no value
+    console.log(text);   //undefined - text scope is local, hoisted to the top of the function and undefined by default
     var text = 'inside';
 };
 logIt();

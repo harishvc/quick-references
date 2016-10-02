@@ -1,9 +1,9 @@
 
 #MySQL JOIN Introduction
 
-Download the SQL to get started
+[Download the SQL](https://github.com/harishvc/quick-references/blob/master/mysql/sql/test.sql) to get started
 
-Schema
+##Schema
 ```
 CREATE TABLE DEPARTMENT 
 (

@@ -1,0 +1,83 @@
+-- MySQL dump 10.13  Distrib 5.7.14, for osx10.11 (x86_64)
+--
+-- Host: localhost    Database: test1002
+-- ------------------------------------------------------
+-- Server version	5.7.14
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `DEPARTMENT`
+--
+
+DROP TABLE IF EXISTS `DEPARTMENT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `DEPARTMENT` (
+  `ID` int(11) NOT NULL,
+  `NAME` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `DEPARTMENT`
+--
+
+LOCK TABLES `DEPARTMENT` WRITE;
+/*!40000 ALTER TABLE `DEPARTMENT` DISABLE KEYS */;
+INSERT INTO `DEPARTMENT` VALUES (1,'HR'),(2,'Engineering'),(3,'Marketing'),(4,'Sales'),(5,'Logistics');
+/*!40000 ALTER TABLE `DEPARTMENT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `EMP`
+--
+
+DROP TABLE IF EXISTS `EMP`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `EMP` (
+  `ID` int(11) NOT NULL,
+  `MGR_ID` int(11) NOT NULL,
+  `DEPT_ID` int(11) NOT NULL,
+  `NAME` varchar(30) DEFAULT NULL,
+  `SAL` int(11) NOT NULL,
+  `DOJ` date DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `MGR_ID` (`MGR_ID`),
+  KEY `DEPT_ID` (`DEPT_ID`),
+  CONSTRAINT `emp_ibfk_1` FOREIGN KEY (`MGR_ID`) REFERENCES `EMP` (`ID`),
+  CONSTRAINT `emp_ibfk_2` FOREIGN KEY (`DEPT_ID`) REFERENCES `DEPARTMENT` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `EMP`
+--
+
+LOCK TABLES `EMP` WRITE;
+/*!40000 ALTER TABLE `EMP` DISABLE KEYS */;
+INSERT INTO `EMP` VALUES (1,1,2,'Hash',100,'2012-01-01'),(2,1,2,'Robo',100,'2012-01-01'),(3,2,1,'Privy',50,'2012-05-01'),(4,1,1,'Inno',50,'2012-05-01'),(5,2,2,'Anno',80,'2012-02-01'),(6,1,2,'Darl',80,'2012-02-11'),(7,1,3,'Pete',70,'2012-04-16'),(8,7,3,'Meme',60,'2012-07-26'),(9,2,4,'Tomiti',70,'2012-07-07'),(10,9,4,'Bhuti',60,'2012-08-24');
+/*!40000 ALTER TABLE `EMP` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-10-02 15:43:41

@@ -1,7 +1,7 @@
 
 #MySQL Query Introduction
 
-[Download the SQL](https://github.com/harishvc/quick-references/blob/master/mysql/sql/test.sql) to get started
+[Download the sample data to get started](https://github.com/harishvc/quick-references/blob/master/mysql/sql/test.sql)
 
 ##Schema
 ```

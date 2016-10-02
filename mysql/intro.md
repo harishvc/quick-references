@@ -1,9 +1,9 @@
 
 #MySQL Query Introduction
 
-Download the SQL to get started
+[Download the SQL](https://github.com/harishvc/quick-references/blob/master/mysql/sql/test.sql) to get started
 
-Schema
+##Schema
 ```
 CREATE TABLE DEPARTMENT 
 (
@@ -52,7 +52,6 @@ mysql> describe department;
 
 ##Reference
  * https://dwbi.org/database/sql/72-top-20-sql-interview-questions-with-answers
-```
 
 ##Question 1: Find Employees with hourly salary in range 80-100 (inclusive)
 ```
@@ -159,8 +158,6 @@ select dept_id, count(dept_id) as 'Head Count' from emp GROUP BY dept_id  HAVING
 +---------+------------+
 1 row in set (0.01 sec)
 ```
-
-
 
 
 ##TODO

@@ -87,11 +87,11 @@ describe emp;
 * Example:  
   ``` 
   var sqlText = "SELECT * FROM customers WHERE phone = '" + phoneInput + "';"   
-  phoneInput is provided by user via Browser   
-  phoneInput = 1' or 1=1;--   
-  resulting query 1=1 is always true    
-  -- comments out rest of the SQL   
-  ```
+  ``` 
+  -  phoneInput is provided by user via Browser   
+  -  phoneInput = 1' or 1=1;--   
+  -  resulting query 1=1 is always true    
+  -  -- comments out rest of the SQL   
 * Prepare SQL statements **not build dynamic SQL**
 * Validate input
 * Sanitize input - escape special characters like " '

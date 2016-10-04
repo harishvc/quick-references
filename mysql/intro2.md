@@ -86,11 +86,11 @@ describe emp;
 * Source: https://www.interviewcake.com/article/javascript/sql
 * Example:  
   ``` 
-   var sqlText = "SELECT * FROM customers WHERE phone = '" + phoneInput + "';"   
-   #phoneInput is provided by user via Browser   
-   #phoneInput = 1' or 1=1;--   
-   #resulting query 1=1 is always true    
-   #-- comments out rest of the SQL   
+  var sqlText = "SELECT * FROM customers WHERE phone = '" + phoneInput + "';"   
+  phoneInput is provided by user via Browser   
+  phoneInput = 1' or 1=1;--   
+  resulting query 1=1 is always true    
+  -- comments out rest of the SQL   
   ```
 * Prepare SQL statements **not build dynamic SQL**
 * Validate input

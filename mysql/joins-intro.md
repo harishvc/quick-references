@@ -1,7 +1,7 @@
 
 #MySQL JOIN Introduction
 
-[Download the SQL](https://github.com/harishvc/quick-references/blob/master/mysql/sql/test.sql) to get started
+[Download the sample data to get started](https://github.com/harishvc/quick-references/blob/master/mysql/sql/test.sql) 
 
 ##Schema
 ```
@@ -11,18 +11,14 @@ ID INT NOT NULL PRIMARY KEY,
 NAME VARCHAR(30)   
 ); 
 
-describe emp;
-+---------+-------------+------+-----+---------+-------+
-| Field   | Type        | Null | Key | Default | Extra |
-+---------+-------------+------+-----+---------+-------+
-| ID      | int(11)     | NO   | PRI | NULL    |       |
-| MGR_ID  | int(11)     | NO   | MUL | NULL    |       |
-| DEPT_ID | int(11)     | NO   | MUL | NULL    |       |
-| NAME    | varchar(30) | YES  |     | NULL    |       |
-| SAL     | int(11)     | NO   |     | NULL    |       |
-| DOJ     | date        | YES  |     | NULL    |       |
-+---------+-------------+------+-----+---------+-------+
-6 rows in set (0.00 sec)
+mysql> describe department;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| ID    | int(11)     | NO   | PRI | NULL    |       |
+| NAME  | varchar(30) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
 
 #
 #
@@ -40,14 +36,18 @@ FOREIGN KEY (MGR_ID) REFERENCES EMP (ID),
 FOREIGN KEY (DEPT_ID) REFERENCES DEPARTMENT (ID)
 ); 
 
-mysql> describe department;
-+-------+-------------+------+-----+---------+-------+
-| Field | Type        | Null | Key | Default | Extra |
-+-------+-------------+------+-----+---------+-------+
-| ID    | int(11)     | NO   | PRI | NULL    |       |
-| NAME  | varchar(30) | YES  |     | NULL    |       |
-+-------+-------------+------+-----+---------+-------+
-2 rows in set (0.00 sec)
+describe emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| ID      | int(11)     | NO   | PRI | NULL    |       |
+| MGR_ID  | int(11)     | NO   | MUL | NULL    |       |
+| DEPT_ID | int(11)     | NO   | MUL | NULL    |       |
+| NAME    | varchar(30) | YES  |     | NULL    |       |
+| SAL     | int(11)     | NO   |     | NULL    |       |
+| DOJ     | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
 ```
 
 ##Reference
@@ -57,7 +57,11 @@ mysql> describe department;
 ##Inner Join (emulate INTERSECT operator)
 Question 1: List employees and departments they belong 
 ```
-select emp.name as Employee, department.name as 'Employee Department' from emp INNER JOIN department ON department.id=emp.dept_id order by emp.name;
+select emp.name as Employee, department.name as 'Employee Department' 
+from emp 
+INNER JOIN department 
+ON department.id=emp.dept_id 
+order by emp.name;
 +----------+---------------------+
 | Employee | Employee Department |
 +----------+---------------------+
@@ -79,7 +83,11 @@ select emp.name as Employee, department.name as 'Employee Department' from emp I
 ##Left Outer Join (emulate MINUS operator)
 Question: Find the department with no employees 
 ```
-select department.name as Department from department LEFT OUTER JOIN emp on department.id=emp.dept_id where emp.name is NULL;
+select department.name as Department 
+from department 
+LEFT OUTER JOIN emp 
+on department.id=emp.dept_id 
+where emp.name is NULL;
 +------------+
 | Department |
 +------------+

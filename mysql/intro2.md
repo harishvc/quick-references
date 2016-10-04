@@ -82,17 +82,20 @@ describe emp;
     * if data changes, view data change!
 
 
-##SQL Injection
-#https://www.interviewcake.com/article/javascript/sql
-* Example:
+##SQL Injection  
+* Source: https://www.interviewcake.com/article/javascript/sql
+* Example:  
+  ``` 
    var sqlText = "SELECT * FROM customers WHERE phone = '" + phoneInput + "';"
    #phoneInput is provided by user via Browser
-   what is phoneInput = 1' or 1=1;--
-   Here 1=1 is always be true and -- comments out rest of the SQL
-* Prepare SQL statements and **not build dynamic SQL**
+   #phoneInput = 1' or 1=1;--
+   #resulting query 1=1 is always true 
+   #-- comments out rest of the SQL
+  ```
+* Prepare SQL statements **not build dynamic SQL**
 * Validate input
 * Sanitize input - escape special characters like " '
 * Limit database access
 * Don't log messages for end-users . Log messages to log files on the server with severity level.
 
-   
+

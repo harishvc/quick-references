@@ -11,11 +11,12 @@
   * [Python Lambda](https://github.com/harishvc/challenges/blob/master/lambda.py) :rocket:   
 
 ##Excercises
+  * [Python3 - Fundamentals (part 1)](https://github.com/harishvc/challenges/blob/master/python-intro4.py)  
   * [Exercise 1: Simple problems to reinforce fundamentals - part1](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-7.md)
   * [Exercise 2: Simple problems to reinforce fundamentals - part2](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-12.md)      
   * [Exercise 3: List comprehension, lambda, map, filter, generator and error handling](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-6.md)  
   * [Exercise 4: List & String](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-8.md) 
+ 
   
 ##Notes & Reference
-  * [Notes: Python 3.x (part 5/5)](https://github.com/harishvc/challenges/blob/master/python-intro4.py)  
   * [Python interview questions and answers](http://www.ilian.io/python-interview-question-and-answers/)  

@@ -1,4 +1,5 @@
 #Python Problems
+
 Simple problems to reinforce fundamentals
 
 ##Find quotient and remainder
@@ -25,7 +26,8 @@ print(b,type(b))      #1 <class 'int'>
 #
 #
 #Explanation
-#ord('0') = 48    #ORD returns ascii value of CHAR
+#ord('a') = 97 #ORD takes a character and returns the ascii value of the character
+#ord('0') = 48    
 #ord('1') = 49
 #ord('2') = 50
 #Subtracing ASCII value of character from the ASCII value of character 0 returns the difference - AKA result as int
@@ -36,6 +38,14 @@ a = chr(48)
 print(a,type(a))  #0 <class 'str'>
 ````
 
+##Sort list in reverse
+````python
+a = ["Hello","World!","Hi"]
+a.sort(reverse=True)
+print(a)
+['World!', 'Hi', 'Hello']
+````
+
 
 ##Sort list by length of characters
 ````python
@@ -44,6 +54,15 @@ a.sort(key=len)
 print(a)
 ['Hi', 'Hello', 'World!']
 ````
+
+##Sort a string
+````python
+z = 'sderfga'
+z2 = list(z)  #convert to list
+z2.sort()     #sort list, sort() is in place , returns None
+print("".join(z2))  #join converts list to string based on delimiter provided
+````
+
 
 ##Find #rows and #cols in a matrix
 ````python

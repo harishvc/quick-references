@@ -1,4 +1,4 @@
-#Python3 Quick Reference
+#Python3: Fundamentals (part 1)
 
 
 ## Explain nonlocal?

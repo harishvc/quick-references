@@ -1,5 +1,27 @@
 #Python3: Fundamentals (part 1)
 
+## Python Pros & Cons
+  - PROS
+    - Python is a **dynamically typed language** 
+      bind variable name to objects of different types during execution time
+    - Python is **strongly typed language**
+      can't concatenate string and int without converting
+    - Vast inbuilt library & external libraries
+    - `return` more than one value
+    - Elegant code , no `;`
+  - CONS
+    - Indentation Horror (stick to tab or space but not both!)
+    - Thread and concurrency modules are still evolving
+    - Return type of function not included in function definition
+    - variable type not included during declaration 
+    - Python2 to Python3 changes
+
+
+## Few difference between Python2 and Python3
+  - All string are `unicode`
+    _Unicode is an international encoding standard for use with different languages and scripts, by which each letter, digit, or symbol is assigned a unique numeric value_
+  - `print()` is a function not a statement
+  - Division of integers now returns `float` 
 
 ## Explain nonlocal?
   - `nonlocal` was introduced in Python3

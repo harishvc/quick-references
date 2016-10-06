@@ -23,6 +23,10 @@
   - `print()` is a function not a statement
   - Division of integers now returns `float` 
 
+## What is CPython?
+  CPython is the default, most widely used implementation of the Python programming language. It is written in C. CPython is a source code interpreter.
+
+
 ## Explain nonlocal?
   - `nonlocal` was introduced in Python3
   - `nonlocal` identifier makes a variable refer to a value in the **nearest enclosing scope excluding globals**

@@ -1,4 +1,4 @@
-#Python3: Fundamentals (part 3)
+#Python3: Concurrency Fundamentals (part 1)
 
 
 ## Concurrency
@@ -31,12 +31,12 @@
   - Wait for certain condition
 
 ## Lock & Unlock
-    Using Python `acquire()` you can lock the critical section and then `release()` when complete. Locks use `Binary Semaphore` with a default value 1. The value reduces to 0 
-    after acquire and 1 after release.
+  - Using Python `acquire()` you can lock the critical section and then `release()` when complete. 
+  - Locks use `Binary Semaphore` with a default value 1. The value reduces to 0 after acquire and 1 after release.
  
 ## Reference
-    - http://www.geeksforgeeks.org/mutex-vs-semaphore/
-    - https://www.quora.com/What-is-the-difference-between-a-mutex-and-a-semaphore
-    - http://www.geeksforgeeks.org/mutex-vs-semaphore/
-    - http://www.laurentluce.com/posts/python-threads-synchronization-locks-rlocks-semaphores-conditions-events-and-queues/
+  - http://www.geeksforgeeks.org/mutex-vs-semaphore/
+  - https://www.quora.com/What-is-the-difference-between-a-mutex-and-a-semaphore
+  - http://www.geeksforgeeks.org/mutex-vs-semaphore/
+  - http://www.laurentluce.com/posts/python-threads-synchronization-locks-rlocks-semaphores-conditions-events-and-queues/
  

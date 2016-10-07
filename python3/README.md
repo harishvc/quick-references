@@ -13,7 +13,7 @@
 ##Excercises
   * [Python3 - Fundamentals (part 1)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4.md)  
   * [Python3 - Fundamentals (part 2)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4b.md)  
-  * [Python3 - Concurrency Fundamentals](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4c.md)  
+  * [Python3 - Concurrency Fundamentals (part 1)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4c.md)  
   * [Exercise 1: Simple problems to reinforce fundamentals - part1](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-7.md)
   * [Exercise 2: Simple problems to reinforce fundamentals - part2](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-12.md)      
   * [Exercise 3: List comprehension, lambda, map, filter, generator and error handling](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-6.md)  

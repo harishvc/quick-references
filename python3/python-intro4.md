@@ -225,6 +225,22 @@ a = {2,3,4}
 AttributeError: 'frozenset' object has no attribute 'add'
 ```
 
+## How do you debug?
+  - `pdb` is a command line debugger available by default
+  - `pudb` is a graphical debugger that show the stack information & supports remote debugging
+  - Debug information can be printed from the program
+  - 
+  ````python
+  $>python -m pdb test.py   #you can then step, print stack etc
+    help
+
+  import pdb
+  def test():
+    ...
+    pdb.set_trace()
+    ...
+    ...
+  ````
 
 ##References
 - https://jeffknupp.com/blog/2013/02/14/drastically-improve-your-python-understanding-pythons-execution-model/

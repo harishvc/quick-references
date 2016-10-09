@@ -1,18 +1,19 @@
 #Quick reference to JavaScript
 Scope, Lifetime, Strict mode, Data types, ````typeof```` & Hoisting
 
-##JavaScript is **case sensitive**
+## Is JavaScript **case sensitive**?
+Yes, JavaScript is case-sensitive.
 ````javascript
 var a = 5;
 console.log(A); //Uncaught ReferenceError
 ````
 
-
-##Data types
+## Explain Data types
 * JavaScript has one complex data type, the **Object data type**. 
   * Object data types are **mutable (can be changed) and they are addressed by reference** 
-* JavaScript has **five simple data types: Number, String, Boolean, Undefined, and Null**. 
-  * Simple (primitive) data types are **immutable (cannot be changed) and they are addressed by value**  
+* JavaScript has **six simple data types: Number, String, Boolean, Undefined, Null and Symbol**. 
+  * Simple (primitive) data types are **immutable (cannot be changed) and they are addressed by value**
+  * Number is of type float by default
 ````javascript
 var x = 5
 var y = x;
@@ -24,6 +25,39 @@ var y = people;
 people.Name = "test";
 console.log(people.Name,y.Name);   // test test   , reference by address
 ````
+## How do you achieve block level scope?
+Since ES6 block level scope is achieved by using `let` in addition to global and function level scope
+
+
+## Is JavaScript loosely typed? Explain.
+Yes, Javascript is a dynamic loosely typed language.
+````javascript
+// Dynamic - variable names can be used to refer to different data types
+a = "123";
+a = True;
+
+//Loosely typed - variable type not needed explicitly
+a = 1 + 2;
+console.log(a); //3   JS figures out the values are number
+
+a = "123" + 4
+consolve.log(a) //1234 JS figures out the values are strings and concatenates them!
+````
+
+## What is Coercion?
+Converting a value from one type to another is often called "type casting," when done **explicitly**, 
+and "coercion" when done **implicitly** (forced by the rules of how a value is used).
+````javascript
+var a = 10
+typeof(a)  //number
+var b = a + ""
+console.log(b) //"10"
+typeof(b) //string
+````
+
+
+Reference:
+ - https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch4.md
 
 ##Simple data types &amp; `typeof`
 ````javascript

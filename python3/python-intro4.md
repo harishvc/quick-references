@@ -14,6 +14,7 @@
     - Thread and concurrency modules are still evolving
     - Return type of function not included in function definition
     - variable type not included during declaration 
+    - Global Interpreter Lock (GIL) - CPython's limitation)
     - Python2 to Python3 changes
 
 

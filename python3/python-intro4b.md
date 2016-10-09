@@ -26,9 +26,9 @@ with open(filename, "r") as fp:
 ````
 
 
-## Explain *args and **kwargs  
-  - * (aesteric) variable name (*foo, *bar, *args - * matters but not name) handles ALL input arguments (when #input arguments is known ahead of time), here input arguments are stored in a list
-  - ** (aesteric) variable name (**foo, **bar, **args - ** matters but not name) handle ALL key value input argument
+## Explain `*args` and `**kwargs`  
+  - * (aesteric) variable name (`*foo, *bar, *args - * matters but not name`) handles ALL input arguments, here input arguments are stored in a list
+  - ** (aesteric) variable name (`**foo, **bar, **args - ** matters but not name`) handle ALL key value input argument, here input arguments are stored in a dictionary
 ```python
 #Example 1
 def test1(f_arg, *foo):
@@ -61,6 +61,18 @@ key3 --> !
 Reference:
 1. https://pythontips.com/2013/08/04/args-and-kwargs-in-python-explained/
 ````
+
+## Explain GIL (Global Interpreter Lock)  
+  - Cpython, Python's implementation in C enforces GIL
+  - In CPython GIL, is a mutex that prevents multiple native threads from executing Python bytecodes at once. This lock is necessary mainly because CPython's memory management is not thread-safe.
+  - Potentially blocking or long-running operations, such as I/O, image processing, and NumPy number crunching, happen outside the GIL. Therefore it is only in multithreaded programs that spend a lot of time inside the GIL, interpreting CPython bytecode, that the GIL becomes a bottleneck.
+  
+Reference:
+  1. http://programmers.stackexchange.com/questions/186889/why-was-python-written-with-the-gil
+  2. https://wiki.python.org/moin/GlobalInterpreterLock
+  3. http://blog.domanski.me/how-celery-fixed-pythons-gil-problem/
+
+
 
 ## Explain function decorator
   - Function decorators wrap a function and modify the behaviour

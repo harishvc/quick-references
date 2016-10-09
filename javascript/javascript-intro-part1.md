@@ -8,6 +8,11 @@ var a = 5;
 console.log(A); //Uncaught ReferenceError
 ````
 
+## Is JavaScript single threaded and synchronous?
+Yes, Javascript is single threaded and synchronous. JavaScript executes one command at any given time sequentially.
+Web Browsers are asynchronous and they maintain an event queue. JavaScript processes the next command in the event queue after it current stack is empty!  
+ 
+
 ## Explain Data types
 * JavaScript has one complex data type, the **Object data type**. 
   * Object data types are **mutable (can be changed) and they are addressed by reference** 
@@ -53,11 +58,10 @@ typeof(a)  //number
 var b = a + ""
 console.log(b) //"10"
 typeof(b) //string
-````
-
 
 Reference:
  - https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch4.md
+````
 
 ##Simple data types &amp; `typeof`
 ````javascript

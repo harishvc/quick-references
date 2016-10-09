@@ -26,7 +26,43 @@ with open(filename, "r") as fp:
 ````
 
 
-## Explain function decorators?
+## Explain *args and **kwargs  
+  - * (aesteric) variable name (*foo, *bar, *args - * matters but not name) handles ALL input arguments (when #input arguments is known ahead of time), here input arguments are stored in a list
+  - ** (aesteric) variable name (**foo, **bar, **args - ** matters but not name) handle ALL key value input argument
+```python
+#Example 1
+def test1(f_arg, *foo):
+    print("first normal arg:", f_arg)
+    for arg in foo:
+        print("another arg from *foo :", arg)
+test1('hello','world','!')
+
+output -
+first normal arg: hello
+another arg from *foo : world
+another arg from *foo : !
+
+#Example 2
+def test2(f_arg,**bar):
+    print("first normal arg:", f_arg)
+    for key,value in bar.items():
+        print(key, "-->", value)
+
+a = {"key1":"hello","key2":"world","key3":"!"}
+test2(1,key1="Hello",key2="World",key3="!")
+
+output -
+first normal arg: 1
+key1 --> Hello
+key2 --> World
+key3 --> !
+
+
+Reference:
+1. https://pythontips.com/2013/08/04/args-and-kwargs-in-python-explained/
+````
+
+## Explain function decorator
   - Function decorators wrap a function and modify the behaviour
   - Function decorators come in handly, when you can't modify the function (for what ever reason)
   - Example: check login before accessing page, time taken for a function to run

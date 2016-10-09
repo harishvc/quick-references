@@ -85,12 +85,10 @@ StopIteration
 ````
 
 ## What is a generator?
-  - A Generator is an iterator and implemented using one or more `yield` statements
-**
+  - A Generator is an iterator and implemented using one or more `yield` statements  
 ````python
 #generator function
 def something(a):
-  a = [1,2,3,4,5]
   for i in a:
     yield i
 
@@ -101,7 +99,7 @@ print(next(myiterator))  #3
 ```
 
 ##Iterator vs Generator
-  - Generators & Iterators  consume **constant memory** and are **executed on demand** making them a critical ingredient for optimization and in memory intense tasks - **iterators on demand
+  - Generators & Iterators  consume **constant memory** and are **executed on demand** making them a critical ingredient for optimization and in memory intense tasks
   - Generator is a type of iterator
   - Generator is the easiest way to implement iteration on an object
 
@@ -185,7 +183,7 @@ a = "Ryan"
 # string object "Harish" continues to exit and will be cleared by the garbage collector.
 ````
 
-## what is a Tuple?
+## Explain Tuple
   - A tuple is **an immutable list** enclosed in `( )`
   - Tuples are for grouping of **different types of objects** (strictly speaking) 
   - Tuples have no method
@@ -207,14 +205,14 @@ TypeError: 'tuple' object does not support item assignment
 ```
 
 ## What is a set? frozen set vs set?
-  - Set is an **unordered collection of unique and immutable objects**
+  - Set is an **unordered collection of unique and mutable objects**
   - Set is enclosed by `{ }`
-  - Sets are lists with **no duplicate entries**
+  - Sets are lists with **no duplicate entries and no index**
   - Sets **don't support index**
-  - Sets are immutable - add, remove
+  - Sets are mutable - add, remove
   - Sets are passed by reference
   - Sets don't retain order (since they don't support index)
-  - Frozen set are like sets except that they are immutable
+  - **Frozen set are like sets except that they are immutable**
 ```python
 a = {2,3,4}
 >>> a[0] = 6  #TypeError: 'set' object does not support indexing

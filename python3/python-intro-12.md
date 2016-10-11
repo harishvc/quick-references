@@ -8,7 +8,7 @@
     * [Q4: Get more information about python modules](#q4-get-more-information-about-python-modules)
     * [Q5: String concatenation](#q5-string-concatenation)
     * [Q6: One line if else statement](#q6-one-line-if-else-statement)
-    * [Q7: Time now is epoch milliseconds](#q7-time-now-in-epoch-milliseconds)
+    * [Q7: What is epoch time?](#q7-what-is-epoch-time?)
     * [Q8: Find if substring exists in a string](#q8-find-if-substring-exists-in-a-string)
     * [Q9: What is the data type?](#q9-What-is-the-data-type?)
     * [Q10: Iterate Dictionary](#q10-Iterate-Dictionary)
@@ -53,28 +53,16 @@
     else:
 	a = 0
 
-##Q7:Time formatting
-    #Time now in epoch milliseconds
-    #Python 2.7.x
-    import datetime
-    print int(datetime.datetime.now().strftime("%s")) * 1000    
+##Q7:What is epoch time?
+    Epoch time (or UNIX time) is #seconds since January 1, 1970.	
 
     #Python 3.4.x
     import time
-    print(int(time.time()) *1000)
+    print(int(time.time())  #epoch time
 
-    #Convert time stamp to epoch
-    #Python 3.4.x
-    import datetime
-    import pytz
-    timestampZ = "2015-10-23T13:40:00-08:00"
-    tz_UTC = pytz.timezone('US/Pacific')
-    timestamp, _, zone= timestampZ.rpartition("-")
-    time_format = "%Y-%m-%dT%H:%M:%S"
-    naive_timestamp = datetime.datetime.strptime(timestamp, time_format)
-    aware_timestamp = tz_UTC.localize(naive_timestamp)
-    epoch = aware_timestamp.strftime("%s")
-    print(int(epoch))
+    #How to convert epoch time to human readable time?
+    print(time.strftime("%Z - %Y/%m/%d, %H:%M:%S", time.localtime(time.time())))
+    #PDT - 2016/10/10, 15:54:39
 
 ##Q8: Find if substring exists in a string
     a = "Hello world" #string

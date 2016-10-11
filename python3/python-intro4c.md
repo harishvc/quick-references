@@ -60,6 +60,12 @@
   - Do not call external/third-party functions inside Critical Section without testing
   - Develop scripts that monitor thread state
 
+## What is a race condition?
+  - When multiple threads access the same resources could produce unanticiated outcomes.
+  - Identify the critical section and apply concurrency primitives on the critical section
+  - Random sleep in on waiting threads so the kernal doesn't wake up all the waiting threads
+
+
 ##  Muli-threading Support & Global Interpreter Lock (GIL)
   - Cpython, Python's implementation in C enforces GIL since CPython's memory management is not thread-safe
   - In CPython threads there are no priorities and no thread groups. Threads cannot be stopped and suspended, resumed or interrupted. 
@@ -85,7 +91,12 @@
   - Concurrency is a program-structuring technique in which there are multiple threads of control. Here threads share and modify shared resources. Concurrent program can execute on a single processor or on multiple physical processors.
   - Concurrency is hard to implement and slow since it involves Kernal transition (mutex,semaphores) and by definition block other threads.
 
- 
+## Examples
+  - [Lock objects introduction](https://github.com/harishvc/quick-references/blob/master/python3/concurrency/locks-1.py)  
+  - [Lock objects (read & write)](https://github.com/harishvc/quick-references/blob/master/python3/concurrency/locks-2.py)
+  - [Conditional Variables (producer and consumer)](https://github.com/harishvc/quick-references/blob/master/python3/concurrency/conditional-variables.py)
+  - [Queue object (producer and consumer)](https://github.com/harishvc/quick-references/blob/master/python3/concurrency/using-queue.py)  
+
 ## References
   - http://www.geeksforgeeks.org/mutex-vs-semaphore/
   - https://www.quora.com/What-is-the-difference-between-a-mutex-and-a-semaphore

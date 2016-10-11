@@ -86,9 +86,12 @@
   - Concurrency is hard to implement and slow since it involves Kernal transition (mutex,semaphores) and by definition block other threads.
 
  
-## Reference
+## References
   - http://www.geeksforgeeks.org/mutex-vs-semaphore/
   - https://www.quora.com/What-is-the-difference-between-a-mutex-and-a-semaphore
   - http://www.geeksforgeeks.org/mutex-vs-semaphore/
   - http://www.laurentluce.com/posts/python-threads-synchronization-locks-rlocks-semaphores-conditions-events-and-queues/
   - http://linuxgazette.net/107/pai.html
+  - http://programmers.stackexchange.com/questions/186889/why-was-python-written-with-the-gil
+  - https://wiki.python.org/moin/GlobalInterpreterLock
+  - http://blog.domanski.me/how-celery-fixed-pythons-gil-problem/

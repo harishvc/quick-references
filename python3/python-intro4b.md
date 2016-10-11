@@ -63,15 +63,7 @@ Reference:
 ````
 
 ## Explain GIL (Global Interpreter Lock)  
-  - Cpython, Python's implementation in C enforces GIL
-  - In CPython GIL, is a mutex that prevents multiple native threads from executing Python bytecodes at once. This lock is necessary mainly because CPython's memory management is not thread-safe.
-  - Potentially blocking or long-running operations, such as I/O, image processing, and NumPy number crunching, happen outside the GIL. Therefore it is only in multithreaded programs that spend a lot of time inside the GIL, interpreting CPython bytecode, that the GIL becomes a bottleneck.
-  
-Reference:
-  1. http://programmers.stackexchange.com/questions/186889/why-was-python-written-with-the-gil
-  2. https://wiki.python.org/moin/GlobalInterpreterLock
-  3. http://blog.domanski.me/how-celery-fixed-pythons-gil-problem/
-
+  - Cpython, Python's implementation in C enforces GIL since CPython's memory management is not thread-safe. In order to support multi-threaded Python programs, there's a global lock (GIL)that must be acquired by the current thread before it can safely access Python objects. [More detailed notes on GIL](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4c.md) :notes: :thumbsup:
 
 
 ## Explain function decorator

@@ -124,3 +124,26 @@ SELECT * FROM EMP WHERE ID = 5 UNION ALL SELECT * FROM EMP WHERE ID = 5;
 
 ```
 
+## Self Joins
+* Self Join is the act of joining one table with itself
+* Self Join is often very useful to convert a hierarchical structure into a flat structure
+````
+SELECT e.name EMPLOYEE, m.name MANAGER 
+FROM EMP e, EMP m 
+WHERE e.mgr_id = m.id;
++----------+---------+
+| EMPLOYEE | MANAGER |
++----------+---------+
+| Hash     | Hash    |
+| Robo     | Hash    |
+| Privy    | Robo    |
+| Inno     | Hash    |
+| Anno     | Robo    |
+| Darl     | Hash    |
+| Pete     | Hash    |
+| Meme     | Pete    |
+| Tomiti   | Robo    |
+| Bhuti    | Tomiti  |
++----------+---------+
+10 rows in set (0.00 sec)
+````

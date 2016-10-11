@@ -194,13 +194,30 @@ HAVING count(dept_id) > 2;
 ```
 
 ##Question 7: Find the Kth highest salary
-`limit` takes 2 optional parameters -  start index and #rows to include
+`limit` takes 2 parameters -  start index (starting 0,optional) and #rows to include.
+if K = 4, then start index = 3
 ```
-SELECT * from emp order by sal desc limit 3,1;
+select * from emp order by sal desc,doj ;
++----+--------+---------+--------+-----+------------+
+| ID | MGR_ID | DEPT_ID | NAME   | SAL | DOJ        |
++----+--------+---------+--------+-----+------------+
+|  1 |      1 |       2 | Hash   | 100 | 2012-01-01 |
+|  2 |      1 |       2 | Robo   | 100 | 2012-01-01 |
+|  5 |      2 |       2 | Anno   |  80 | 2012-02-01 |
+|  6 |      1 |       2 | Darl   |  80 | 2012-02-11 |
+|  7 |      1 |       3 | Pete   |  70 | 2012-04-16 |
+|  9 |      2 |       4 | Tomiti |  70 | 2012-07-07 |
+|  8 |      7 |       3 | Meme   |  60 | 2012-07-26 |
+| 10 |      9 |       4 | Bhuti  |  60 | 2012-08-24 |
+|  3 |      2 |       1 | Privy  |  50 | 2012-05-01 |
+|  4 |      1 |       1 | Inno   |  50 | 2012-05-01 |
++----+--------+---------+--------+-----+------------+
+
+select * from emp order by sal desc,doj limit 3,1;
 +----+--------+---------+------+-----+------------+
 | ID | MGR_ID | DEPT_ID | NAME | SAL | DOJ        |
 +----+--------+---------+------+-----+------------+
-|  5 |      2 |       2 | Anno |  80 | 2012-02-01 |
+|  6 |      1 |       2 | Darl |  80 | 2012-02-11 |
 +----+--------+---------+------+-----+------------+
 ```
 

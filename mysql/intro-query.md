@@ -132,18 +132,20 @@ Observation: "Hash" is not listed
 ```
 
 
-##Question: Get head count in each deparment
+##Question: Find the head count in each department :thumbsup:
 ```
-select dept_id, count(dept_id) as 'Head Count' 
-from emp GROUP BY dept_id;
-+---------+------------+
-| dept_id | Head Count |
-+---------+------------+
-|       1 |          2 |
-|       2 |          4 |
-|       3 |          2 |
-|       4 |          2 |
-+---------+------------+
+mysql> select d.id, d.name, count(e.name) 
+    -> from emp e, department d
+    -> where e.dept_id = d.id 
+    -> group by d.name, d.id;
++----+-------------+---------------+
+| id | name        | count(e.name) |
++----+-------------+---------------+
+|  2 | Engineering |             4 |
+|  1 | HR          |             2 |
+|  3 | Marketing   |             2 |
+|  4 | Sales       |             2 |
++----+-------------+---------------+
 4 rows in set (0.01 sec)
 ```
 
@@ -309,23 +311,6 @@ mysql> select id,name from department
 3 rows in set (0.00 sec)
 ```
 
-
-## Find the head count in each department
-```
-mysql> select d.name, count(e.name) 
-    -> from emp e, department d
-    -> where e.dept_id = d.id 
-    -> group by d.name;
-+-------------+---------------+
-| name        | count(e.name) |
-+-------------+---------------+
-| Engineering |             4 |
-| HR          |             2 |
-| Marketing   |             2 |
-| Sales       |             2 |
-+-------------+---------------+
-4 rows in set (0.00 sec)
-```
 
 
 ## Question: Find the direct reports each manager has?

@@ -87,36 +87,8 @@ console.log(a, "a type =", typeof a)  //Harish 5 , a type=String :boom:
   * Local variables are deleted when the function is completed
   * Global variables are deleted when you **close the page**
 * Strict mode will trigger code execution in strict mode. Variables need to declared before using
-````javascript
-//example 1: Automatically Global
-function test() {
-	a = 5  //Automatically Global!
-	console.log("a=",a);   //5
-}
-test();
-console.log("a=",a);       //5
+* More examples on [Hoisting & Scope](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-functions-part6.md)
 
-//example 2: Local
-function test() {
-	var a = 5  //Local
-	console.log("a=",a);   //5
-}
-test();
-console.log("a=",a);       //Error: a not defined
-
-//example 3: Explict Global
-var a = 5 //Explict Global
-function test() {
-	console.log("a=",a);   //5
-}
-test();
-console.log("a=",a);       //5
-
-//example 4: strict mode
-"use strict";
-a = 5   //Error: a is not defined
-console.log("a=",a);
-````
 
 ##Comparison && Logical operators
 * ````==```` compare by value

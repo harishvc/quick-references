@@ -1,7 +1,7 @@
 #Quick reference to JavaScript
 
 * [Introduction](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-intro-part1.md)   
-   Scope, Lifetime, Strict mode, Data types, `typeof`     
+   Coercion, data types, Scope, `typeof`, `==`, `===`     
 * [Functions](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-functions-part2.md)  
   Declaration, expression, self-invoking and nested functions
 * [Hoisting & Scope](https://github.com/harishvc/quick-references/blob/master/javascript/javascript-functions-part6.md)  

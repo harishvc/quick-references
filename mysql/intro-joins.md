@@ -1,4 +1,3 @@
-
 #MySQL JOIN Introduction
 
 [Download the sample data to get started](https://github.com/harishvc/quick-references/blob/master/mysql/sql/test.sql) 
@@ -81,7 +80,8 @@ order by emp.name;
 
 
 ##Left Outer Join (emulate MINUS operator)
-Question: Find the department with no employees 
+
+###Question: Find the department with no employees 
 ```
 select department.name as Department 
 from department 
@@ -95,6 +95,26 @@ where emp.name is NULL;
 +------------+
 1 row in set (0.00 sec)
 ```
+
+###Question: Find the head count in each department
+```
+mysql> select d.name, count(e.name) from department d
+    -> LEFT JOIN emp e
+    -> ON e.dept_id = d.id
+    -> GROUP BY d.name;
++-------------+---------------+
+| name        | count(e.name) |
++-------------+---------------+
+| Engineering |             4 |
+| HR          |             2 |
+| Logistics   |             0 |
+| Marketing   |             2 |
+| Sales       |             2 |
++-------------+---------------+
+5 rows in set (0.01 sec)
+```
+
+
 
 ##RIGHT Outer Join (emulate MINUS operator)
 

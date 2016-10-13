@@ -348,3 +348,16 @@ mysql> select substring(doj,6,2) as 'Anniversary Month', count(*)
 
 ```
 
+## What is the weekly salary of the Marketing & Sales team?
+```
+#create a view for dept_id 3 & 4
+mysql> create view sales_marketing_team as select * from emp where dept_id in (4,3);
+
+mysql> select sum(sal) from sales_marketing_team;
++----------+
+| sum(sal) |
++----------+
+|      260 |
++----------+
+1 row in set (0.00 sec)
+```

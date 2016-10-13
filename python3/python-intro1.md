@@ -10,7 +10,7 @@ a[::-1] #'!dlroW olleH'  reverse string
 ```
 
 ## List
-Lists are mutable. Operations include `append`, `insert`, `pop`,`remove`, `del` , `sort` and split
+Lists are mutable. Operations include `append`, `insert`, `pop`,`remove`, `del` , `sort`, `index` and split
 
 ````python
 a = []
@@ -21,6 +21,7 @@ a.append(1)     #1,1
 a.append(2)     #1,2
 a.append(3)     #1,2,3
 a.append(2)     #1,2,3,2
+a.index(2)      #2 returns the index position of the first occurance of 2
 a.remove(2)     #1,2,3  remove first occurance
 a.insert(3,0)   #insert at position 3 or append 
 del a           #remove a, a is not defined
@@ -54,7 +55,7 @@ for d in days:
 ````
 
 ## Set
-Set is a mutable collection on unique values. Set don't have index. 
+Set is a **unordered mutable collection on unique values**. Set have **no index**. 
 Set operations include `add`, `clear`, `remove`, `pop`, `discard`, `del`, `len`
 ````
 a = set()
@@ -65,6 +66,11 @@ a.pop()           #1 pop  random value
 a.remove(3)       #2  remove a specific value
 a.discard(999)    #2  remove a value that may not exist
 len(a)            #1
+#
+a[0]
+...
+TypeError: 'set' object does not support indexing
+#
 a.clear()         #{}  remove all values
 del a             #remove a, such that `a` not defined
 ````

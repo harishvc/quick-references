@@ -32,7 +32,7 @@ a();              //#1 undefined , #2 Harish Chakravarthy
 var a = person;
 a.firstName = "Hello";
 a.lastName  = "World"; 
-a.fullName();    //Hello Workd printed twice on console
+a.fullName();    //Hello World printed twice on console
 
 //Example 4
 function Person (name) {

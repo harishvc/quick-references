@@ -20,17 +20,6 @@ var a = toCelsius //No () , refers to function definition
 console.log(a(78)) //25.555555555555557
 ````
 
-##Function Hoisting
-* Hoisting is JavaScript's default behavior of moving **declarations** to the top of the **current scope**
-* Hoisting applies to variable declarations and to function declarations
-````javascript
-var a = toCelsius //No () , refers to function definition
-console.log(a(78))
-
-function toCelsius(fahrenheit) {
-    return (5/9) * (fahrenheit-32);
-  }
-````
 
 ##Self-invoking Functions
 Immediately invoke a function as soon as it's defined - **solution to avoid Closure**

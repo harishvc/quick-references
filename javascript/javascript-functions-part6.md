@@ -14,7 +14,7 @@
    *Traversing up the scope chain is a good thing, but adding it to the global scope if it doesn't find anything is a pitfall*.
 
 
-## Explain Hoisting (examples set 1)
+## Hoisting (example 1)
 ````javascript
 //Example 1
 console.log(a)         //ReferenceError: a not defined  (NOT in memory)
@@ -40,7 +40,7 @@ function b(){
 }
 ````
 
-## Explain Hoisting (examples set 2)
+## Hoisting (example 2)
 ````javascript
 //Example 1
 function b() {
@@ -115,28 +115,42 @@ console.log(a1);
 1
 ````
 
+## Hoisting (example 3)
+```
+//example 1: Automatically Global
+function test() {
+	a = 5  //Automatically Global!
+	console.log("a=",a);   //5
+}
+test();
+console.log("a=",a);       //5
 
-## Example 1
+//example 2: Local
+function test() {
+	var a = 5  //Local
+	console.log("a=",a);   //5
+}
+test();
+console.log("a=",a);       //Error: a not defined
+
+//example 3: Explict Global
+var a = 5 //Explict Global
+function test() {
+	console.log("a=",a);   //5
+}
+test();
+console.log("a=",a);       //5
+
+//example 4: strict mode
+"use strict";
+a = 5   //Error: a is not defined
+console.log("a=",a);
+```
+
+
+##Hoisting (example 4)
 ````javascript
-var a = toCelsius //No () , refers to function definition
-console.log(a(78))
-
-function toCelsius(fahrenheit) {
-    return (5/9) * (fahrenheit-32);
-  }
-````
-
-##Example 2: Self-invoking Functions
-Immediately invoke a function as soon as it's defined - **solution to avoid Closure**
-````javascript
-(function () {
-    var x = "Hello from JavaScript!";      // I will invoke myself
-    console.log(x)
-})();
-````
-
-##Example 3: Access to global variables
-````javascript
+//Access to global variables
 var count = 3
 for(i=1;i<count;i++){
   console.log(i)   //1,2
@@ -147,7 +161,27 @@ function newI() {
 newI()
 ````
 
-##Example 4: ````undefined````
+##Function definition & execution
+````javascript
+var a = toCelsius //No () , refers to function definition
+console.log(a(78)) //execution
+
+function toCelsius(fahrenheit) {
+    return (5/9) * (fahrenheit-32);
+  }
+````
+
+##Self-invoking functions
+Immediately invoke a function as soon as it's defined - **solution to avoid Closure**
+````javascript
+(function () {
+    var x = "Hello from JavaScript!";      // I will invoke myself
+    console.log(x)
+})();
+````
+
+
+##````undefined````
 ````javascript
 //Variation 1
 var text = 'outside';
@@ -168,7 +202,7 @@ function logIt(){
 logIt();
 ````
 
-##Example 5: ````NaN````
+##````NaN````
 ````javascript
 var a = 1;
 function myadd(){

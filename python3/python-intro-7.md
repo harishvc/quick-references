@@ -125,26 +125,26 @@ while not done:
 	done = True if current == size  else False
 ````
 
-##Double ended queue
-Problem: Add and pop elements in constant time while still retaining order  
-Solution: Deques support thread-safe and memory efficient appends and pops from either side of the queue 
-with O(1) performance
+##Random
 ```python
-from collections import deque
-q = deque(maxlen=3)
-q.append(1)
-q.append(2)
-q.append(3)
-q.append(4) #since maxlen is provided, first value in the queue is removed!
-print("input >>>", q)             #input >>> deque([2, 3, 4], maxlen=3)
-q.pop()
-print("pop >>>", q)               #pop >>> deque([2, 3], maxlen=3) 
-q.popleft()
-print("pop left >>>", q)          #pop left >>> deque([3], maxlen=3)
-q.extend([5])
-print("add to right >>>", q)      #add to right >>> deque([3, 5], maxlen=3)
-q.extendleft([6])
-print("add to left >>>", q)       #add to left >>> deque([6, 3, 5], maxlen=3)
+import random
+#Generate random number
+print(random.random())       #0.3445306949766974              
+print(random.random())       #0.1388425726388408
 
+#Randomely pick a number from given values
+a = [4,5,2,1]
+print(random.choice(a))      #2
+print(random.choice(a))      #1
+
+#Shuffle given list
+print(a)                     #[4,5,2,1]
+random.shuffle(a)           
+print(a)                     #[1, 5, 2, 4] 
+
+#pick a value from a given range
+start = 1
+end = 6
+random.randrange(start,end)  #1,2,3,4,5
 ````
 

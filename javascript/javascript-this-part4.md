@@ -2,7 +2,7 @@
 
 
 ##````this````
-* ````this```` keyword refers and contains the value of the **current context object**
+* ````this```` keyword refers to the object in the **current context**
 * ````this```` is used in JavaScript similar to the way we use **pronouns in natural languages**
 * ````this```` keyword is used for precision and makes the code **unambiguous**, just as the *pronouns*
 
@@ -10,6 +10,16 @@
 
 ##Examples 
 ````javascript
+
+var box = {outerWidth: 50};
+function width(){
+    console.log(this.outerWidth);
+    //console.log(window.outerWidth);
+}
+width.apply(box);  //50
+width(); //1200 - window.outerWidth
+
+
 var person = {
     firstName: "Harish",
     lastName: "Chakravarthy",

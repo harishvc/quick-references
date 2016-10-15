@@ -15,6 +15,20 @@
 
 
 ## Hoisting (example 1)
+```
+function a() {
+	v1 = 25   //global!
+	console.log(v1);
+}
+
+function b(){
+	console.log(v1)  //global v1
+}
+a();  //25
+b();  //25
+```
+
+## Hoisting (example 2)
 ````javascript
 //Example 1
 console.log(a)         //ReferenceError: a not defined  (NOT in memory)
@@ -40,7 +54,7 @@ function b(){
 }
 ````
 
-## Hoisting (example 2)
+## Hoisting (example 3)
 ````javascript
 //Example 1
 function b() {
@@ -115,7 +129,7 @@ console.log(a1);
 1
 ````
 
-## Hoisting (example 3)
+## Hoisting (example 4)
 ```
 //example 1: Automatically Global
 function test() {
@@ -148,7 +162,7 @@ console.log("a=",a);
 ```
 
 
-##Hoisting (example 4)
+##Hoisting (example 5)
 ````javascript
 //Access to global variables
 var count = 3

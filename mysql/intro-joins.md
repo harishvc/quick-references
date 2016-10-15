@@ -167,3 +167,21 @@ WHERE e.mgr_id = m.id;
 +----------+---------+
 10 rows in set (0.00 sec)
 ````
+
+## Find employees who have the highest salary in each department
+``` 
+ select e1.name, e1.dept_id, d.name, e1.sal 
+ from emp e1, (select dept_id, max(sal) as msal from emp group by dept_id) e2, department d
+ where e1.dept_id = e2.dept_id and e1.sal=e2.msal and d.id = e1.dept_id;
++--------+---------+-------------+-----+
+| name   | dept_id | name        | sal |
++--------+---------+-------------+-----+
+| Hash   |       2 | Engineering | 100 |
+| Robo   |       2 | Engineering | 100 |
+| Privy  |       1 | HR          |  50 |
+| Inno   |       1 | HR          |  50 |
+| Pete   |       3 | Marketing   |  70 |
+| Tomiti |       4 | Sales       |  70 |
++--------+---------+-------------+-----+
+6 rows in set (0.00 sec)
+```

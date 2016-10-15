@@ -72,8 +72,12 @@ function addListener(button) {
 }
 window.addEventListener("load", function() {
     for (var i = 1; i < 4; i++) {
+        //solution 1
         var button = document.getElementById("button" + i);
         button.addEventListener("click",addListener(button.id));
+
+        //soluton 2 
+        //document.getElementById('button' +i).onclick = addListener(button.id);
     }
 });
 ````

@@ -23,8 +23,37 @@
 
 ## 10,000 ns to ms?
 ```
+1. A millisecond is one thousandth of a second
+2. A nanosecond is one billionth of a second
+3. 1 ms = 10^6 ns
+
 10,000/10^6 = 0.01 ms 
+
+Reference:
+http://www.calculateme.com/Time/Seconds/ToMilliseconds.htm
 ```
+
+## How much time will it take to down a 256 KB File?
+```
+Let's assume you are connected to a high speed network at 10 Mbps
+
+256 Kb = 2^8 * 10^3 * 2^3  = 2^11 * 10^3  = 2*2^10*10^3 = 2048 * 10^3 bits
+10 Mbps = 10 * 10^6 bits
+
+Time taken to download =  2048 * 10^3 / 10^7 = 0.21s
+
+Reference:
+http://www.t1shopper.com/tools/calculate/downloadcalculator.php
+```
+
+## How much space will 10M entires each of 8KB take?
+```
+#space/entry = 8 KB = 2^3 * 2^10  =  2^13 bytes
+#entries = 10 M = 10 * 10^6 =  10 * 2^20 
+#total space = 2^13 * 10 * 2^20 = 2^3 * 10 *2^30 = 80 * 2^30 = 80G  
+```
+
+
 
 ##How much space does 256 Billion 32 bit integers take?
 ```

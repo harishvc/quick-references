@@ -1,32 +1,36 @@
 ## OSI Layer
-OSI (Open Systems Interconnection) is **reference model** for how applications can communicate over a network. A reference model is a **conceptual framework** for understanding relationships. 
-	- Layer 1: Physical Layer. Provides the hardware means of sending and receiving data on a carrier network. 
-	- Layer 2: The data link layer. Ethernet is the main data link layer in use.
-	- Layer 3: Network layer. Handles routing of the data. IP is the network layer for the Internet.
-	- Layer 4: Transport layer.On the Internet, TCP and UDP provide these services for most applications.
-	- Layer 5: Session layer. Services include authentication and reconnection.
-	- Layer 6: Presenation layer. This layer is usually part of an **operating system (OS)** and converts incoming and outgoing data from one presentation format to another 
-	- Layer 7: Application layer. 
+Open Systems Interconnection (OSI)) is **reference model** that shows how  applications communicate over a network. A reference model is a **conceptual framework** for understanding relationships. 
+* Layer 1: Physical Layer provides the hardware for sending and receiving data 
+* Layer 2: The data link layer. Ethernet is the main data link layer
+* Layer 3: Network layer handles routing of the data. IP is the network layer for the Internet.
+* Layer 4: Transport layer. On the internet, TCP and UDP provide these services for most applications.
+* Layer 5: Session layer. Services include authentication and reconnection.
+* Layer 6: Presenation layer. This layer is usually part of an **operating system (OS)** and converts incoming and outgoing data from one presentation format to another 
+* Layer 7: Application layer.
 
 
 ## What is ASCII?
-American Standard Code for Information Interchange, or ASCII code, was created in 1963 by the "American Standards Association" . There are 256 ASCII characters (from 0 to 255) which include control characters, printable characters and extended characters. [More information about ASCII](http://www.theasciicode.com.ar/ascii-printable-characters/capital-letter-a-uppercase-ascii-code-65.html)
+American Standard Code for Information Interchange (ASCII), was created in 1963 by the "American Standards Association" . There are 256 ASCII characters (from 0 to 255) which include control characters, printable characters and extended characters. [More information about ASCII](http://www.theasciicode.com.ar/ascii-printable-characters/capital-letter-a-uppercase-ascii-code-65.html)
 ```
+#python3.x
 $>ord('A')  #get ASCII for letter 'A'
 65
 ```
 
 ## What is character encoding?
-	-A byte is 8 bits and can only have 256 distinct values!  How can all the languages then be represented? This need has lead to several encodings charset. 
-	-A popular charset is **Unicode**  that gives each character a codepoint in format ```u+xxxx```.  It has the ambition to contain all characters (and popular icons) used in the **entire world**.
-	- **UTF-8, UTF-16 and UTF-32 are encodings** that apply the Unicode character table. But they each have a slightly different way on how to encode them. UTF-8 will only use 1 byte when encoding an ASCII character, for other characters, it will use the first bit to indicate that a 2nd byte will follow.
-	- A charset is the set of characters you can use
-	- Encoding is the way these characters are stored into memory
+* A charset is the set of characters you can use
+* Encoding is how these characters are stored into memory
+* A byte is 8 bits and can only have 256 distinct values!  
+* How can all the languages then be represented? This need has lead to several encodings and charsets. 
+* A popular charset is **Unicode**  that gives each character a codepoint in format ```u+xxxx```.  It has the ambition to contain all characters (and popular icons) used in the **entire world**.
+* **UTF-8, UTF-16 and UTF-32 are encodings** apply the Unicode character table and have a slightly different way on how to encode them. 
+* UTF-8 will only use 1 byte when encoding an ASCII character, for other characters, it will use the first bit to indicate that a 2nd byte will follow.
 
 
 
 ## What is Data Serialization?
-Data serialization is the concept of converting structured data into a format that allows it to be shared or stored in such a way that its original structure to be recovered. In some cases, the secondary intention of data serialization is to minimize the size of the serialized data which then minimizes disk space or bandwidth requirements. 
+* Data serialization is the concept of converting structured data into a format that allows it to be shared or stored in such a way that its original structure to be recovered. 
+* In some cases, the secondary intention of data serialization is to minimize the size of the serialized data which then minimizes disk space or bandwidth requirements. 
 
 In python you can use `pickle` or `json`. `pickle` stores in binary format while `json` stores in human readable format.
 ```
@@ -45,19 +49,22 @@ print(z)
 ```
 
 # What is JSON?
-JavaScript Object Notation (JSON) is a format that encodes objects in a string. Serialization means to convert an object into that string, and deserialization is its inverse operation.
+* JavaScript Object Notation (JSON) is a format that encodes objects in a string. 
+* Serialization means to convert an object into that string, and deserialization is its inverse operation.
 
 ## JSON vs XML?
-XML
-	- XML is a language
-	- Generalized markup
-	- Create new datatypes
-	- XPath/XQuery for extracting information in deeply nested structures
-	- Relatively wordy compared to JSON
-JSON
-	- Simple syntax, which results in less "markup" overhead compared to XML
-	- Handful of different data types are supported
-	- JSON generally better for server to client communication - browser understands JSON natively!
+
+### XML
+* XML is a language
+* Generalized markup
+* Create new datatypes
+* XPath/XQuery for extracting information in deeply nested structures
+* Relatively wordy compared to JSON
+
+### JSON
+* Simple syntax, which results in less "markup" overhead compared to XML
+* Handful of different data types are supported
+* JSON generally better for server to client communication - browser understands JSON natively!
 
 ## Parse JSON feed
 ```
@@ -80,58 +87,85 @@ f2299d98b8f3c86f90b1f80fca1822f504188656 clean up 2
 ```
 
 ## Cookie vs Cache  (```chrome://net-internals```)
-Cookie
-	- Cookie is a very small encrypted text file which is stored on the client’s machine by the web site using the browser and is sent back to the server each time a page is requested
-	- Cookies expire afer a specific time (determined by the application setting the cookie)
-	- Browser preference can be modified to handle cookie - block site, remove after browser is closed
-Cache
-	- Use by browsers to make the loading of web pages faster
-	- Cache is kept in the client’s machine until they are removed manually by the user.
+
+### Cookie
+* Cookie is a very small encrypted text file which is stored on the client’s machine by the web site using the browser and is sent back to the server each time a page is requested
+* Cookies expire afer a specific time (determined by the application setting the cookie)
+* Browser preference can be modified to handle cookie - block site, remove after browser is closed
+
+### Cache
+* Use by browsers to make the loading of web pages faster
+* Cache is kept in the client’s machine until they are removed manually by the user.
 
 
-## What happens when a web page is requested (internet works)?
-   Browser > DNS Routing > TCP SYC > IP Routing > Border firewall > Border gateway > IP Address is NAT >> Load balancer > Server farm >> Server responds with SYN ACK > client sends ACK > Browser next sends an "HTTP GET" request 
-   - http://programmers.stackexchange.com/questions/211176/in-need-of-a-more-technical-answer-for-an-interview-question-about-how-the-inter
-    - http://www.howtogeek.com/138771/htg-explains-how-latency-can-make-even-fast-internet-connections-feel-slow/
+## What happens when a web page is requested?
+* http://programmers.stackexchange.com/questions/211176/in-need-of-a-more-technical-answer-for-an-interview-question-about-how-the-inter
+* http://www.howtogeek.com/138771/htg-explains-how-latency-can-make-even-fast-internet-connections-feel-slow/
 
 
 ## HTTP status codes, HTTP redirect
-200 - Ok
-301 - permament redirection (retains SEO juice!)
-302 - temporary redirection
+200 - Ok  
+301 - permament redirection (retains SEO juice!)  
+302 - temporary redirection  
 304 - not modified
-404 - Page not found
-500 - Error
+403 - Directory index listing not allowed    
+404 - Page not found  
+500 - Server Error  
 
 
-## What is a recommended page load time?
-"Server response time is the time it takes for a server to return the initial HTML, factoring out the network transport time. Because we only have so little time, this time should be kept at a minimum - ideally within 200 milliseconds, and preferably even less!"
-- https://www.searchenginenews.com/sample/update/entry/you-have-200-ms-to-load-your-page
+##  What is a recommended page load time?
+* Page Load Time consists of two components: 1) network and server response time and 2) browser time   
+* **Server response time** is the time it takes for a server to return the initial HTML, factoring out the network time
+* Under a second (on desktops) and less than 200 ms on mobile
 
 
 ## How can you improve the page load time?
-https://moz.com/learn/seo/page-speed
+* https://moz.com/learn/seo/page-speed
 
-## What is HTTP pipelining & persistence?
+## What is HTTP pipelining & persistence?  
+
+### Pipelining
+* HTTP pipelining is a technique in which multiple HTTP requests are sent on a single TCP connection without waiting for the corresponding responses.
+* Pipelining of requests results in a dramatic improvement
+* Pipelining was introduced in HTTP/1.1
+
+### Persistence
+* HTTP persistent connection, also called **HTTP keep-alive** is the idea of using a single TCP connection to send and receive multiple HTTP requests/responses, as opposed to opening a new connection.
+* Lower CPU and memory usage (because fewer connections are open simultaneously)
+* Reduced latency in subsequent requests (no handshaking)
+```
+Connection: keep-alive
+```
+
 
 ## Unix commands for trouble shooting
-   - ```ping```
+* ```ping```  
+Check connectivity between client and server (or between two locations). Operates at Level3 of OSI  
 
-   - ```nslookup```
 
-   - ```traceroute```
+* ```nslookup```    
+Query the Domain Name System (DNS) to obtain domain name or IP address  
 
-   - ```top```
 
-   - ```netstat```
+* ```traceroute```   
+Diagnostic tool for displaying the route (path) from source to destination. Useful in measuring transit delays of packets  
 
-   - ``ps``
+
+* ```top```  
+Provides a snapshot of all the processes running on the machine, CPU, Memory, I/O and lot of useful metrics
+
+
+* ```netstat```  
+Statistics on all network activity on the machine - open ports, protocols, connection state 
+
+
+* ```ps```   
+List all processes running on the machine - PID, time, CMD
 
   
-## References
- - [Back of the envelope calculations](
-http://highscalability.com/blog/2011/1/26/google-pro-tip-use-back-of-the-envelope-calculations-to-choo.html)
-- http://www.yegor256.com/2015/11/16/json-vs-xml.html
+## References  
+* [Back of the envelope calculations](http://highscalability.com/blog/2011/1/26/google-pro-tip-use-back-of-the-envelope-calculations-to-choo.html)
+* http://www.yegor256.com/2015/11/16/json-vs-xml.html
 
 
 

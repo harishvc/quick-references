@@ -139,28 +139,22 @@ Connection: keep-alive
 
 
 ## Unix commands for trouble shooting
-* ```ping```  
-Check connectivity between client and server (or between two locations). Operates at Level3 of OSI  
+```ping```  Check connectivity between client and server (or between two locations). Operates at Level3 of OSI  
 
 
-* ```nslookup```    
-Query the Domain Name System (DNS) to obtain domain name or IP address  
+```nslookup``` Query the Domain Name System (DNS) to obtain domain name or IP address  
 
 
-* ```traceroute```   
-Diagnostic tool for displaying the route (path) from source to destination. Useful in measuring transit delays of packets  
+```traceroute``` Diagnostic tool for displaying the route (path) from source to destination. Useful in measuring transit delays of packets  
 
 
-* ```top```  
-Provides a snapshot of all the processes running on the machine, CPU, Memory, I/O and lot of useful metrics
+```top```  Provides a snapshot of all the processes running on the machine, CPU, Memory, I/O and lot of useful metrics
 
 
-* ```netstat```  
-Statistics on all network activity on the machine - open ports, protocols, connection state 
+```netstat``` Statistics on all network activity on the machine - open ports, protocols, connection state 
 
 
-* ```ps```   
-List all processes running on the machine - PID, time, CMD
+```ps``` List all processes running on the machine - PID, time, CMD
 
   
 ## References  

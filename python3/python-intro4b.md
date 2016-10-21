@@ -4,15 +4,56 @@
   - `with` keyword is used when working with **unmanaged resources (like file streams)**. 
   - `with` ensures that resource is "cleaned up" when the code that uses it finishes running,  
      even if exceptions are thrown.
-  - **syntactic sugar** for try/finally blocks.
+  - **syntactic sugar** for try/except blocks.
   - **guaranteed to close the file** no matter how the nested block exits
-```python
+
+````python
 filename = "README.md"
+#
+#using with
 with open(filename, "r") as fp:
-  #print(fp.read()) #print entire file
   for line in fp:
     print(line)
+#no except
+print("done!")
+
+#not using with
+try:
+    fp = open(filename, "r")
+    for line in fp:
+	print(line)
+except Exception as e:
+	print("oops!")
+finally:
+	print("done!")
 ````
+
+## Print Nth line
+```
+with open(filename) as f:
+	#readlines() returns a list with entries in each line (as values)
+	print(f.readlines()[N-1])
+```
+
+## Read N bytes at a time
+```
+bytes2Read = 2
+with open(filename) as f:   #"Hello World!"
+	#read() returns all entries as string
+	z = f.read(bytes2Read)
+	while z:
+		print(">>", z, "<<<")  #str
+		z = f.read(bytes2Read)
+
+#output
+>> He <<<
+>> ll <<<
+>> o  <<<
+>> Wo <<<
+>> rl <<<
+>> d! <<<
+```
+
 
 ## Explain `zip()`
   ```zip()``` takes multiple lists and transform them into a single list of tuples

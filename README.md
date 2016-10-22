@@ -5,7 +5,7 @@
 * Permuation and Combination  
   * [Fun with Permuation and Combination](https://github.com/harishvc/quick-references/blob/master/permutation-combination/README.md)  
 * Python  
-  * [Python fundamentals and fun problems](https://github.com/harishvc/quick-references/blob/master/python3/README.md)  
+  * [Python fundamentals, Concurrency and fun problems](https://github.com/harishvc/quick-references/blob/master/python3/README.md)  
 *  JavaScript
   * [JavaScript introduction & fun problems](https://github.com/harishvc/quick-references/blob/master/javascript/README.md)
 * MySQL

@@ -137,6 +137,22 @@ f2299d98b8f3c86f90b1f80fca1822f504188656 clean up 2
 Connection: keep-alive
 ```
 
+## HTTP headers
+```
+$>curl -I http://foo.com
+HTTP/1.1 200 OK
+Date: Thu, 20 Oct 2016 06:17:38 GMT
+Server: Apache
+Last-Modified: Tue, 18 Oct 2016 01:04:55 GMT
+Accept-Ranges: bytes
+Cache-Control: max-age=12345
+Expires: Fri, 21 Oct 2016 06:17:38 GMT
+Vary: Accept-Encoding
+Content-Type: text/html
+```
+
+* https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers
+
 
 ## Unix commands for trouble shooting
 ```ping```  Check connectivity between client and server (or between two locations). Operates at Level3 of OSI  

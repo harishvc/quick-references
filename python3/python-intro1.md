@@ -93,9 +93,22 @@ if key in a.keys():             #Check if key exists
 if value in a.values():          #Check if value exists
     print("value exists")
 #
+#SORT by key & value
+a = {'aaa': 7, 'bbb': 1, 'zzz': 3}
 #
-z = a.setdefault('a',1)          #1 insert key 'a' with value 1 if key 'a' does not exist and returns the value of key 'a'
-z = a.setdefault('a',4)          #1 key 'a' exists, ignore new value
+#sort by key
+for k in sorted(a):
+	print(k,a[k])
+#
+#sort by value in descending order
+for k in sorted(a,key=a.get,reverse=True):
+	print(k,a[k])
+#
+#
+#
+a = {}
+myreturn = a.setdefault('z',1)          #1 insert key 'z' with value 1 if key 'z' does not exist and returns the value of key 'z'
+myreturn = a.setdefault('z',4)          #1 key 'z' exists, ignore new value
 #
 #
 import collections

@@ -1,5 +1,5 @@
 ## OSI Layer
-Open Systems Interconnection (OSI)) is **reference model** that shows how  applications communicate over a network. A reference model is a **conceptual framework** for understanding relationships. 
+  Open Systems Interconnection (OSI)) is **reference model** that shows how  applications communicate over a network. A reference model is a **conceptual framework** for understanding relationships. 
 * Layer 1: Physical Layer provides the hardware for sending and receiving data 
 * Layer 2: The data link layer. Ethernet is the main data link layer
 * Layer 3: Network layer handles routing of the data. IP is the network layer for the Internet.
@@ -13,7 +13,7 @@ Open Systems Interconnection (OSI)) is **reference model** that shows how  appli
 American Standard Code for Information Interchange (ASCII), was created in 1963 by the "American Standards Association" . There are 256 ASCII characters (from 0 to 255) which include control characters, printable characters and extended characters. [More information about ASCII](http://www.theasciicode.com.ar/ascii-printable-characters/capital-letter-a-uppercase-ascii-code-65.html)
 ```
 #python3.x
-$>ord('A')  #get ASCII for letter 'A'
+$> ord('A')  #get ASCII for letter 'A'
 65
 ```
 
@@ -113,6 +113,14 @@ f2299d98b8f3c86f90b1f80fca1822f504188656 clean up 2
 500 - Server Error  
 
 
+## HTTP request methods
+* GET
+* PUT
+* HEAD
+* PUT
+* OPTIONS
+* CONNECT
+
 ##  What is a recommended page load time?
 * Page Load Time consists of two components: 1) network and server response time and 2) browser time   
 * **Server response time** is the time it takes for a server to return the initial HTML, factoring out the network time
@@ -167,12 +175,52 @@ Content-Type: text/html
 ```top```  Provides a snapshot of all the processes running on the machine, CPU, Memory, I/O and lot of useful metrics
 
 
-```netstat``` Statistics on all network activity on the machine - open ports, protocols, connection state 
+```netstat``` shows network status on a specific machine
+```
+#show all sockets
+$>netstat -a
+
+#list open listining ports
+$>netstat -a | grep LISTEN
+tcp4       0      0  *.17500                *.*                    LISTEN     
+tcp6       0      0  *.17500                *.*                    LISTEN 
+
+$>lsof -i :17500
+COMMAND PID     USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+Dropbox 326 harishvc  114u  IPv6 0x266b01c2d53a2611      0t0  TCP *:17500 (LISTEN)
+Dropbox 326 harishvc  118u  IPv4 0x266b01c2d4e27000      0t0  TCP *:17500 (LISTEN)
+Dropbox 326 harishvc  121u  IPv4 0x266b01c2d495d3bv      0t0  UDP *:17500
+```
+
 
 
 ```ps``` List all processes running on the machine - PID, time, CMD
 
-  
+```uptime``` List sytem uptime, users and load average
+
+
+```lsof``` List of open files
+```
+#List all open files
+$>lsof 
+
+#List all files with connections 'LISTENING & ESTABLISHED’
+#there are several UDP states - unbounded , idle
+$>lsof -i
+
+#list all the running process of open files of TCP Port ranges from 1-1024
+$>lsof -i TCP:1-1024
+
+#list all active processes listening on port 80
+$>lsof  -i :80
+
+#List all open file of a user
+$> lsof -u #pid#
+
+#List all open file of a process
+$> lsof -p #pid#
+```
+
 ## References  
 * [Back of the envelope calculations](http://highscalability.com/blog/2011/1/26/google-pro-tip-use-back-of-the-envelope-calculations-to-choo.html)
 * http://www.yegor256.com/2015/11/16/json-vs-xml.html

@@ -107,19 +107,26 @@ f2299d98b8f3c86f90b1f80fca1822f504188656 clean up 2
 200 - Ok  
 301 - permament redirection (retains SEO juice!)  
 302 - temporary redirection  
-304 - not modified
+304 - not modified  
 403 - Directory index listing not allowed    
 404 - Page not found  
 500 - Server Error  
 
 
 ## HTTP request methods
-* GET
-* PUT
-* HEAD
-* PUT
-* OPTIONS
-* CONNECT
+* GET     - Request data from a specific source
+* PUT     - Submit data to a specific source to process
+* HEAD    - Same as GET but returns headers no other content
+* PUT     - uploads a specific URI
+* DELETE  - delete a specific URI
+* OPTIONS - Shows all the request methods HTTP supports
+* CONNECT - Converts the request connection to a transparent TCP/IP tunnel
+
+
+##Explain TCP Flags
+
+There are 6 TCP flags. [More information about TCP Flags](http://www.firewall.cx/networking-topics/protocols/tcp/136-tcp-flag-options.html)  
+
 
 ##  What is a recommended page load time?
 * Page Load Time consists of two components: 1) network and server response time and 2) browser time   

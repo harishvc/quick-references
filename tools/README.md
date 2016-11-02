@@ -74,14 +74,15 @@ File names are listed only once even when the pattern can occurs more than once
     ~/projects/5.py  
   
 
-###List all the files that contain the pattern `TODO`  from a tar.gz archive
-//Several options at http://stackoverflow.com/questions/13983365/grep-from-tar-gz-without-extracting-faster-one     
+### List all the files that contain the pattern `TODO`  from a tar.gz archive
+[Several options posted on Stackoveflow](http://stackoverflow.com/questions/13983365/grep-from-tar-gz-without-extracting-faster-one)   
+```    
     $>tar -zxvf projects.tar 
     $>for file in ./projects/*
         do
-        awk 'BEGIN{IGNORECASE=1} /TODO/ {print FILENAME;nextfile}' $file
+           awk 'BEGIN{IGNORECASE=1} /TODO/ {print FILENAME;nextfile}' $file
         done
-
+```
 
 ## Unix commands for trouble shooting
 ```ping```  Check connectivity between client and server (or between two locations). Operates at Level3 of OSI  

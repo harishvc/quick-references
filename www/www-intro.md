@@ -166,71 +166,10 @@ Vary: Accept-Encoding
 Content-Type: text/html
 ```
 
-* https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers
-
-
-## Unix commands for trouble shooting
-```ping```  Check connectivity between client and server (or between two locations). Operates at Level3 of OSI  
-
-
-```nslookup``` Query the Domain Name System (DNS) to obtain domain name or IP address  
-
-
-```traceroute``` Diagnostic tool for displaying the route (path) from source to destination. Useful in measuring transit delays of packets  
-
-
-```top```  Provides a snapshot of all the processes running on the machine, CPU, Memory, I/O and lot of useful metrics
-
-
-```netstat``` shows network status on a specific machine
-```
-#show all sockets
-$>netstat -a
-
-#list open listining ports
-$>netstat -a | grep LISTEN
-tcp4       0      0  *.17500                *.*                    LISTEN     
-tcp6       0      0  *.17500                *.*                    LISTEN 
-
-$>lsof -i :17500
-COMMAND PID     USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
-Dropbox 326 harishvc  114u  IPv6 0x266b01c2d53a2611      0t0  TCP *:17500 (LISTEN)
-Dropbox 326 harishvc  118u  IPv4 0x266b01c2d4e27000      0t0  TCP *:17500 (LISTEN)
-Dropbox 326 harishvc  121u  IPv4 0x266b01c2d495d3bv      0t0  UDP *:17500
-```
-
-
-
-```ps``` List all processes running on the machine - PID, time, CMD
-
-```uptime``` List sytem uptime, users and load average
-
-
-```lsof``` List of open files
-```
-#List all open files
-$>lsof 
-
-#List all files with connections 'LISTENING & ESTABLISHED’
-#there are several UDP states - unbounded , idle
-$>lsof -i
-
-#list all the running process of open files of TCP Port ranges from 1-1024
-$>lsof -i TCP:1-1024
-
-#list all active processes listening on port 80
-$>lsof  -i :80
-
-#List all open file of a user
-$> lsof -u #pid#
-
-#List all open file of a process
-$> lsof -p #pid#
-```
-
 ## References  
 * [Back of the envelope calculations](http://highscalability.com/blog/2011/1/26/google-pro-tip-use-back-of-the-envelope-calculations-to-choo.html)
 * http://www.yegor256.com/2015/11/16/json-vs-xml.html
+* [More information about headers](https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers)
 
 
 

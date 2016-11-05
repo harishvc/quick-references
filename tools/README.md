@@ -1,6 +1,6 @@
 #UNIX Command Line Tools
 
-`awk, find, sort, uniq, grep, sed`
+`awk, find, sort, uniq, grep, sed, uptime`
 
 
 ##AWK: Quick Reference
@@ -143,6 +143,14 @@ $> lsof -u #pid#
 $> lsof -p #pid#
 ```
 
+##Find load average
+```uptime```  tell you how busy your system’s CPU, disk, and other resources are.    
+<i>To understand the load average number, you need to know how many CPUs your system has.   
+A load average of 6.03 would indicate a system with a single CPU was massively overloaded, but it would be fine on a computer with 8 CPUs.</i>
+
+
 ##Additional Resources
 * [grep vs awk : 10 examples of pattern search](http://www.theunixschool.com/2012/09/grep-vs-awk-examples-for-pattern-search.html)
+* [Understanding the Load Average on Linux and Other Unix-like Systems](http://www.howtogeek.com/194642/understanding-the-load-average-on-linux-and-other-unix-like-systems/)  
+
 

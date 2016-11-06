@@ -28,6 +28,15 @@ finally:
 	print("done!")
 ````
 
+##Skip first line in a file
+```
+with open(filename,"r") as f:
+	next(f)  #skip first line
+	for line in f:
+	   print(line)
+```
+
+
 ## Print Nth line
 ```
 with open(filename) as f:

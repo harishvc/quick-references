@@ -57,3 +57,10 @@ c 3
 x 5
 ````
 
+# Find the key with max value
+```python
+d= {'a':2,'x':5,'c':3}
+print(max(d,key=d.get))  #x
+```
+
+

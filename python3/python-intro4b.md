@@ -36,6 +36,16 @@ with open(filename,"r") as f:
 	   print(line)
 ```
 
+##Read input stream
+```
+import sys
+try:
+   for line in sys.stdin:  #input stream
+     #do something
+except Exception as e:
+   print("oops! just handled exception")
+```
+
 
 ## Print Nth line
 ```

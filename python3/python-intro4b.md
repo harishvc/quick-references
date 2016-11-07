@@ -38,6 +38,8 @@ with open(filename,"r") as f:
 
 ##Read input stream
 ```
+#$>cat something.txt | python a.py
+
 import sys
 try:
    for line in sys.stdin:  #input stream

@@ -1,4 +1,4 @@
-#Python 3.5.x Quick Reference (Sort)
+#Python 3.5.x Quick Reference (Sort, Max, Min)
 
 ## Sort list in descending order
 ````python

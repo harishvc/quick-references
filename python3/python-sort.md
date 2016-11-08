@@ -57,10 +57,17 @@ c 3
 x 5
 ````
 
-# Find the key with max value
+## Find max and min key
+```python
+>>> d= {'a':200,'x':5,'c':3,'z':1}
+>>> min(d)
+'a'
+>>> max(d)
+'z'
+```
+
+## Find the key with max value
 ```python
 d= {'a':2,'x':5,'c':3}
 print(max(d,key=d.get))  #x
 ```
-
-

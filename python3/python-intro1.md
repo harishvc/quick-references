@@ -63,6 +63,7 @@ a.add(1)          #1
 a.add(2)          #1,2
 a.add(3)          #1,2,3 
 a.pop()           #1 pop  random value
+next(iter(a))     #1 get first value in a set
 a.remove(3)       #2  remove a specific value
 a.discard(999)    #2  remove a value that may not exist
 len(a)            #1

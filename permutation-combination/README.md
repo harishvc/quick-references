@@ -1,7 +1,7 @@
 #Fun with Permuation and Combination
 
 ##Permutation
-Combinations where **matters** is a Permutation. Example: lock combination. A Permutation is an **ordered Combination**    
+Combinations where **order matters** is a Permutation. Example: lock combination. A Permutation is an **ordered Combination**    
 * Two type of Permutations  
   - Repetition is allowed  
   - Repetition is not allowed

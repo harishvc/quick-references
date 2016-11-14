@@ -61,13 +61,13 @@ def outside():
 
 ## yield vs return
   - `return` returns control to its caller, that's it. Any work done by the function and stored in local variables is lost. A new call to the function creates everything from scratch.
-  - `yield` transfer of control is temporary and voluntary, and our function expects to regain it in the future - all the work done by the function is **retained!**
+  - `yield` transfer of control is temporary and voluntary, and our function expects to regain it in the future - all the work done by the function is __retained!__
   - `yield` is used with generators
 
 ## What is a iterator?
   - In Python an iterator is an object which implements the iterator protocol. 
   - The iterator protocol consists of two methods. 
-  - The __iter__() method, which must return the iterator object and the next() method, which returns the next element from a sequence.
+  - The __iter()__ method, which must return the iterator object and the __next()__ method, which returns the next element from a sequence.
   - Iterators simplify code
 ```python
 a = "Harish"
@@ -86,7 +86,10 @@ StopIteration
 ````
 
 ## What is a generator?
-  - A Generator is an iterator and implemented using one or more `yield` statements  
+  - A generator is an iterator but not vice versa.
+  - A generator is a special kind of iterator — the elegant kind
+  - A generator allows you to write your __own iterator__ in an elegant succinct syntax using `yield` (and avoid writing classes with __iter__() and __next__() methods).
+  - A generator function is implemented by calling a function that has one or more yield expression
 ````python
 #generator function
 def something(a):

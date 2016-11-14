@@ -61,7 +61,7 @@ def outside():
 
 ## yield vs return
   - `return` returns control to its caller, that's it. Any work done by the function and stored in local variables is lost. A new call to the function creates everything from scratch.
-  - `yield` transfer of control is temporary and voluntary, and our function expects to regain it in the future - all the work done by the function is retained!
+  - `yield` transfer of control is temporary and voluntary, and our function expects to regain it in the future - all the work done by the function is **retained!**
   - `yield` is used with generators
 
 ## What is a iterator?

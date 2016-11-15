@@ -18,8 +18,8 @@
 
 ## Conditional Variables
   - A condition variable is always associated with some kind of lock
-  - `wait()` releases the lock, and then blocks until another thread awakens it by calling notify() or notify_all(). 
-  - Once awakened, wait() re-acquires the lock and returns. 
+  - `wait()` releases the lock, and then blocks until another thread awakens it by calling `notify()` or `notify_all()`. 
+  - Once awakened, `wait()` re-acquires the lock and returns. 
   - Example: Producer consumer problem
 
 
@@ -41,7 +41,7 @@
 
 ## Semaphores
   - Kernel resource that provide synchronization services (also called as synchronization primitives)
-  - A semaphore is a generalized mutex
+  - A semaphore is a **generalized mutex**
   - Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal)
   - Example: listening songs on your mobile and getting a call. Here the iterrupt wakes up the call processing task
   - A semaphore has **no concept of an owner**. Any process can unlock a semaphore.
@@ -70,7 +70,7 @@
   - Cpython, Python's implementation in C enforces GIL since CPython's memory management is not thread-safe
   - In CPython threads there are no priorities and no thread groups. Threads cannot be stopped and suspended, resumed or interrupted. 
   - Thread support provided is very much basic, however a lot can still be accomplished, using the threading module.
-  - In order to support multi-threaded Python programs, there's a global lock (GIL)that must be acquired by the current thread before it can safely access Python objects.
+  - In order to support multi-threaded Python programs, there's a global lock (GIL) that must be acquired by the current thread before it can safely access Python objects.
   - Thus only the thread that has acquired the GIL may operate on Python Objects or call Python C API functions.
   - The Python Interpreter keeps some book keeping info per thread, for which it uses a data structure called `PyThreadState`
   - To support multi threaded Python programs the interpreter regularly releases and reacquires the global lock, by default every **10 bytecode instructions**. This can however be changed using the `sys.setcheckinterval()`. 

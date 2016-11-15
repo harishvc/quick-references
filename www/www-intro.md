@@ -32,7 +32,7 @@ $> ord('A')  #get ASCII for letter 'A'
 * Data serialization is the concept of converting structured data into a format that allows it to be shared or stored in such a way that its original structure to be recovered. 
 * In some cases, the secondary intention of data serialization is to minimize the size of the serialized data which then minimizes disk space or bandwidth requirements. 
 
-In python you can use `pickle` or `json`. `pickle` stores in binary format while `json` stores in human readable format.
+In python you can use `pickle` or `json.dumps`. `pickle` stores in binary format while `json.dumps` stores in human readable format.
 ```
 #pickle
 import pickle
@@ -49,9 +49,41 @@ print(z)
 ```
 
 # What is JSON?
-* JavaScript Object Notation (JSON) is a format that encodes objects in a string. 
-* Serialization means to convert an object into that string, and deserialization is its inverse operation.
-
+* JavaScript Object Notation (JSON) is a format that encodes objects in a string
+* JSON objects can be of different types - str, int, list, dict, tuple which makes it very popular!
+* JSON contains data without any labels/descriptions - less data transferred over the network! 
+* Serialization means to convert an object into string (make it **flat**), and deserialization is its inverse operation.
+```
+https://docs.python.org/3/library/json.html
+>>> import json
+#
+#Example 1: int
+>>> a = 1234   #json object is integer
+>>> type(a)
+<class 'int'>
+>>> json.dumps(a)
+'1234'          #json object converted to string
+#
+#Example 2: Tuple
+>>> a = (1,2,3)
+>>> type(a)
+<class 'tuple'>
+>>> json.dumps(a)
+'[1, 2, 3]'
+#
+#Example 3: List of dict
+>>> a = ['foo', {'bar': ('baz', None, 1.0, 2)}]
+>>> type(a)
+<class 'list'>
+>>> json.dumps(a)
+'["foo", {"bar": ["baz", null, 1.0, 2]}]'
+#Example 4: dict
+>>> a = {"c": 0, "b": 0, "a": 0}
+>>> type(a)
+<class 'dict'>
+>>> json.dumps(a)
+'{"b": 0, "c": 0, "a": 0}'
+```
 ## JSON vs XML?
 
 ### XML

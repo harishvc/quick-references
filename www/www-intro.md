@@ -77,6 +77,7 @@ https://docs.python.org/3/library/json.html
 <class 'list'>
 >>> json.dumps(a)
 '["foo", {"bar": ["baz", null, 1.0, 2]}]'
+#
 #Example 4: dict
 >>> a = {"c": 0, "b": 0, "a": 0}
 >>> type(a)

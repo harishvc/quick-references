@@ -44,13 +44,15 @@ print(x[::-1])     #4,3,2,1 reverse
 ```
 
 ## Tuple
-Tuple are **immutable** lists. Ideal for values that don't change
+Tuple are **immutable** lists (can be referenced via index). Ideal for values that don't change
 ````
 days = ("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
 
-len(days)  #7
+>>>days[0] #Sunday
 
-for d in days:
+>>> len(days)  #7
+
+>>> for d in days:
 	print(d)
 ````
 

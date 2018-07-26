@@ -33,6 +33,11 @@ a.append(2)     #1,2,3,2
 a.insert(3,100) #insert 100 at position 3 or append 
 a.index(2)      #2 returns the index position of the first occurance of 2
 a.remove(2)     #remove first occurance of value 2
+#DEEP COPY
+b = a[:]        #deep copy a to b
+a.append(400)
+print(b)        #1,2,3,100
+#DELETE
 del a           #remove a, a is not defined
 del a[:]        #[] remove all values inside a 
 del a[0:1]      #remove value at index 0

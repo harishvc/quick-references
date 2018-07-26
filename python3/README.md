@@ -1,5 +1,5 @@
 # Python 3.x  
-  * [Python: Basic Data Structires](https://github.com/harishvc/quick-references/blob/master/python3/python-intro1.md)
+  * [Python: Basic Data Structures](https://github.com/harishvc/quick-references/blob/master/python3/python-intro1.md)
   * [Python: Sort](https://github.com/harishvc/quick-references/blob/master/python3/python-sort.md) 
   * [Python: Fundamentals (part 1)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4.md)  
   * [Python: Fundamentals (part 2)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4b.md)  
@@ -12,5 +12,5 @@
   * [Python: Decorators](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-9.md)  :art: :smile:    
   * [Python: Lambda](https://github.com/harishvc/challenges/blob/master/lambda.py) :rocket:   
  
-##Notes & Reference
+## Notes & Reference
   * [Python interview questions and answers](http://www.ilian.io/python-interview-question-and-answers/)  

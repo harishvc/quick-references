@@ -1,4 +1,23 @@
-#Python3: Fundamentals (part 1)
+# Python 3.x: Fundamentals (part 1)
+
+## Table of Contents
+- [Python Pros & Cons](#python-pros--cons)
+- [Few difference between Python2 and Python3](#few-difference-between-python2-and-python3)
+- [What is CPython?](#what-is-cpython)
+- [Explain nonlocal?](#yield-vs-return)
+- [What is a iterator?](#what-is-a-iterator)
+- [What is a generator?](#what-is-a-generator)
+- [Iterator vs Generator](#iterator-vs-generator)
+- [Is Python pass by value or reference or both?](#is-python-pass-by-value-or-reference-or-both?)
+- [Explain Mutable vs Immutable?](#explain-mutable-vs-immutable?)
+- [Are strings immutable? Explain](#are-strings-immutable?-explain)
+- [Explain Tuple](#explain-tuple)
+- [What is a set? frozen set vs set?](#what-is-a-set?-frozen-set-vs-set?)
+- [What is `None`?](#what-is-none?)
+- [What is `''`?](#what-is-'')
+- [How do you debug?](#how-do-you-debug?)
+- [References](references)
+
 
 ## Python Pros & Cons
   - PROS
@@ -83,15 +102,15 @@ while i:
 Traceback (most recent call last):
   File "<stdin>", line 2, in <module>
 StopIteration
-````
+```
 
 ## What is a generator?
   - A generator is an iterator but not vice versa.
   - A generator is a special kind of iterator — the elegant kind
   - A generator allows you to write your __own iterator__ in an elegant succinct syntax using `yield` (and avoid writing classes with __iter__() and __next__() methods).
   - A generator function is implemented by calling a function that has one or more yield expression
-````python
-#generator function
+```python
+# generator function
 def something(a):
   for i in a:
     yield i
@@ -102,7 +121,7 @@ print(next(myiterator))  #2
 print(next(myiterator))  #3
 ```
 
-##Iterator vs Generator
+## Iterator vs Generator
   - Generators & Iterators  consume **constant memory** and are **executed on demand** making them a critical ingredient for optimization and in memory intense tasks
   - Generator is a type of iterator
   - Generator is the easiest way to implement iteration on an object
@@ -112,7 +131,7 @@ print(next(myiterator))  #3
  - For example numbers and strings (immutabale) passed by value
  - Lists and Disctionary are passed by value (mutable)
 
-````python
+```python
 #example 1: pass by value
 def change(a):
   a = "hello2"
@@ -141,7 +160,7 @@ a = list("hello")
 b = a
 change(b)  #value referenced by variable b is changed!
 print(a) #['h', 'e', 'l', 'l', '2'] #value of variable a has changed to match b!
-````
+```
 
 ## Explain Mutable vs Immutable?
   - Mutable: Object can be modified after created. Example list, dictionary
@@ -153,7 +172,7 @@ print(a) #['h', 'e', 'l', 'l', '2'] #value of variable a has changed to match b!
      - Simplify memory allocation
      - More secure - no buffer over flow!
      - Expensive to "change", because doing so involves creating a copy & time
-````python
+```python
 #string  - immutable
 a = "hello"
 a[0] = "H"   #TypeError: 'str' object does not support item assignment
@@ -172,20 +191,20 @@ a = {1,2}
 a.add(3) #continue to add values after creation
 a.add(4) #continue to add values after creation
 print(a) #{1,2,3,4}
-````  
+```  
 
 ## Are strings immutable? Explain
   - Yes, strings are immutable. Once created, the value cannot be modified
   - When you "change" a string, you're actually rebinding it to a newly created string object. 
   - The original object remains unchanged, even though its possible that nothing refers to it anymore
   - String concatenation is slow because concatenating strings must allocate memory for a new string and copy the contents
-````python
+```python
 a = "Harish"  
 # 'a' is a label to the string object with value "Harish" 
 a = "Ryan"    
 # new string object is created and label 'a' ib pointing towards it.
 # string object "Harish" continues to exit and will be cleared by the garbage collector.
-````
+```
 
 ## Explain Tuple
   - A tuple is **an immutable list** enclosed in `( )`
@@ -227,12 +246,68 @@ a = {2,3,4}
 AttributeError: 'frozenset' object has no attribute 'add'
 ```
 
+## What is `None`?
+ - python-pros--cons`None` is a special object that represents nothing but it still uses memory in Python[2] 
+ - It’s a singleton, which means there is only one such object per interpreter. Example: True, False [2]
+ - `None` takes us space. 16 bytes in Python 3.x
+
+```python
+>>> None = 5
+File "<stdin>", line 1
+SyntaxError: cannot assign to None   #special object, singleton
+
+>>> import sys
+>>> sys.getsizeof(None)
+16 #bytes
+
+
+
+>>>a 
+NameError: name 'a' is not defined
+
+
+>>> a = None
+>>> if a:
+...  print "value"    #nothing is printed
+... 
+
+>>> if not a:
+...  print "empty"
+... 
+
+empty
+
+>>> if a is None:
+...  print "empty"
+... 
+empty
+```
+
+
+
+## What is `''`?
+ - `''` is an empty string object
+ - The truthiness of an empty string object `''` evaluates to `False` but probably because strings are defined as iterables and empty iterables are required to evaluate to `False` per iterator protocol[2] 
+```python
+>>> z = ''
+>>> if z:
+...  print "foo"
+... else:
+...  print "bar"
+... 
+bar
+
+>>> sys.getsizeof('')
+37
+```
+
+
 ## How do you debug?
   - `pdb` is a command line debugger available by default
   - `pudb` is a graphical debugger that show the stack information & supports remote debugging
   - Debug information can be printed from the program
   - 
-  ````python
+  ```python
   $>python -m pdb test.py   #you can then step, print stack etc
     help
 
@@ -242,8 +317,9 @@ AttributeError: 'frozenset' object has no attribute 'add'
     pdb.set_trace()
     ...
     ...
-  ````
+  ```
 
-##References
-- https://jeffknupp.com/blog/2013/02/14/drastically-improve-your-python-understanding-pythons-execution-model/
+## References
+1. https://jeffknupp.com/blog/2013/02/14/drastically-improve-your-python-understanding-pythons-execution-model/
+2. https://www.quora.com/What-is-the-difference-between-Null-and-empty-string-in-python
 

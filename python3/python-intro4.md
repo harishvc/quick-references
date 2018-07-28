@@ -4,19 +4,19 @@
 - [Python Pros & Cons](#python-pros--cons)
 - [Few difference between Python2 and Python3](#few-difference-between-python2-and-python3)
 - [What is CPython?](#what-is-cpython)
-- [Explain nonlocal?](#yield-vs-return)
+- [Explain nonlocal?](#explain-nonlocal)
 - [What is a iterator?](#what-is-a-iterator)
 - [What is a generator?](#what-is-a-generator)
 - [Iterator vs Generator](#iterator-vs-generator)
-- [Is Python pass by value or reference or both?](#is-python-pass-by-value-or-reference-or-both?)
-- [Explain Mutable vs Immutable?](#explain-mutable-vs-immutable?)
-- [Are strings immutable? Explain](#are-strings-immutable?-explain)
+- [Is Python pass by value or reference or both?](#is-python-pass-by-value-or-reference-or-both)
+- [Explain Mutable vs Immutable?](#explain-mutable-vs-immutable)
+- [Are strings immutable? Explain](#are-strings-immutable-explain)
 - [Explain Tuple](#explain-tuple)
-- [What is a set? frozen set vs set?](#what-is-a-set?-frozen-set-vs-set?)
-- [What is `None`?](#what-is-none?)
-- [What is `''`?](#what-is-'')
-- [How do you debug?](#how-do-you-debug?)
-- [References](references)
+- [What is a set? frozen set vs set?](#what-is-a-set-frozen-set-vs-set)
+- [What is `None`?](#what-is-none)
+- [What is `''`?](#what-is-)
+- [How do you debug?](#how-do-you-debug)
+- [References](#references)
 
 
 ## Python Pros & Cons
@@ -255,28 +255,21 @@ AttributeError: 'frozenset' object has no attribute 'add'
 >>> None = 5
 File "<stdin>", line 1
 SyntaxError: cannot assign to None   #special object, singleton
-
 >>> import sys
 >>> sys.getsizeof(None)
 16 #bytes
 
-
-
 >>>a 
 NameError: name 'a' is not defined
-
 
 >>> a = None
 >>> if a:
 ...  print "value"    #nothing is printed
 ... 
-
 >>> if not a:
 ...  print "empty"
 ... 
-
 empty
-
 >>> if a is None:
 ...  print "empty"
 ... 

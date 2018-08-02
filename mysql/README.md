@@ -10,4 +10,4 @@
 ## Notes & Reference
   * [11 Advance MySQL Database "Interview Questions and Answers" for Linux Users](http://www.tecmint.com/mysql-advance-interview-questions/)  
   * [MySQL Interview questions @ javaTpoint](http://www.javatpoint.com/mysql-interview-questions)  
-  * [The SQL Tutorial for Data Analysis from Mode Analytics|(https://community.modeanalytics.com/sql/tutorial/sql-in-mode/)
+  * [The SQL Tutorial for Data Analysis from Mode Analytics](https://community.modeanalytics.com/sql/tutorial/sql-in-mode/)

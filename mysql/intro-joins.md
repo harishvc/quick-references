@@ -1,8 +1,34 @@
-#MySQL JOIN Introduction
+# MySQL JOIN Introduction
 
+## Joins (7 types)
+![Types of Join](join-variations.png) [1]
+* INNER JOIN
+* LEFT JOIN
+* RIGHT JOIN
+* OUTER JOIN
+* LEFT JOIN EXCLUDING INNER JOIN
+* RIGHT JOIN EXCLUDING INNER JOIN
+* OUTER JOIN EXCLUDING INNER JOIN
+
+## Fundamentals
+* **LEFT JOIN** command tells the database to return all rows in the table in the FROM clause, regardless of whether or not they have matches in the table in the LEFT JOIN clause [2]
+* **RIGHT JOIN**  similar to left joins except they return all rows from the table in the RIGHT JOIN clause and only matching rows from the table in the FROM clause [2] . RIGHT JOIN is rarely used because you can achieve the results of a RIGHT JOIN by simply switching the two joined table names in a LEFT JOIN
+* 
+
+## Syntax
+```sql
+SELECT <select_list> 
+FROM Table_A A
+*join_type* Table_B B
+ON A.Key = B.Key
+WHERE B.Key IS NULL
+
+*join_type* = JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN
+```
+
+
+## Schema
 [Download the sample data to get started](https://github.com/harishvc/quick-references/blob/master/mysql/sql/test.sql) 
-
-##Schema
 ```
 CREATE TABLE DEPARTMENT 
 (
@@ -49,11 +75,11 @@ describe emp;
 6 rows in set (0.00 sec)
 ```
 
-##Reference
+## Reference
  * https://dwbi.org/database/sql/72-top-20-sql-interview-questions-with-answers
 
 
-##Inner Join (emulate INTERSECT operator)
+## Inner Join (emulate INTERSECT operator)
 Question 1: List employees and departments they belong 
 ```
 select emp.name as Employee, department.name as 'Employee Department' 
@@ -79,9 +105,9 @@ order by emp.name;
 ```
 
 
-##Left Outer Join (emulate MINUS operator)
+## Left Outer Join (emulate MINUS operator)
 
-###Question: Find the department with no employees 
+### Question: Find the department with no employees 
 ```
 select department.name as Department 
 from department 
@@ -96,7 +122,7 @@ where emp.name is NULL;
 1 row in set (0.00 sec)
 ```
 
-###Question: Find the head count in each department
+### Question: Find the head count in each department
 ```
 mysql> select d.name, count(e.name) from department d
     -> LEFT JOIN emp e
@@ -116,11 +142,11 @@ mysql> select d.name, count(e.name) from department d
 
 
 
-##RIGHT Outer Join (emulate MINUS operator)
+## RIGHT Outer Join (emulate MINUS operator)
 
 
 
-##Full Join (Union and Union All)
+## Full Join (Union and Union All)
 * UNION and UNION ALL both unify for add two **structurally similar data sets**, 
 * UNION operation returns only the unique records from the resulting data set 
 * UNION ALL will return all the rows, even if one or more rows are **duplicated** to each other.
@@ -185,3 +211,8 @@ WHERE e.mgr_id = m.id;
 +--------+---------+-------------+-----+
 6 rows in set (0.00 sec)
 ```
+
+## Additional Resource
+[1] https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins
+[2] https://community.modeanalytics.com/sql/tutorial/introduction-to-sql/
+

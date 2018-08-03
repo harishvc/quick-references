@@ -1,8 +1,45 @@
-#MySQL Introduction: Query
+# MySQL Introduction: Basic Queries
 
 [Download the sample data to get started](https://github.com/harishvc/quick-references/blob/master/mysql/sql/test.sql)
 
-##Schema
+## Clause
+* **DISTINCT** unique values in a particular column. Can slow your queries down!
+* **LIMIT** limit # of rows returned. Takes two arguments start (optional) and how many to return?
+* **ORDER BY** defines the rule showing result. Followed by column name and type (ASC, DESC)
+* **COUNT** simply counts the total number of non-null rows
+* **SUM** totals the values in a given column. you can only use SUM on columns containing numerical values.
+* **MIN** and **MAX** are SQL aggregation functions that return the lowest and highest values in a particular column
+* **AVG** is a SQL aggregate function that calculates the average of a selected. Can only be used on numerical columns and it ignores *NULL* values
+* **GROUP BY** allows you to separate data into groups, which can be aggregated independently of one another
+* **HAVING allow you to filter on aggregate. Used after **GROUP BY** 
+
+## Query Clause Order
+* SELECT
+* FROM
+* WHERE
+* GROUP BY
+* HAVING
+* ORDER BY
+* LIMIT
+
+## Query precedence
+```sql
+SELECT <select_list>
+FROM Table_A A
+FULL OUTER JOIN Table_B B
+ON A.Key = B.Key
+   AND A.key2 > x #1
+   AND b.key2 > z #2
+WHERE
+   A.key3 > y     #3
+LIMIT 1           #4  
+
+#1 & #2  are applied before the  FULL OUTER JOIN 
+#3 is applied to the result of FULL OUTER JOIN
+#4 is applied to final result
+```
+
+## Schema
 ```
 CREATE TABLE DEPARTMENT 
 (
@@ -49,10 +86,10 @@ describe emp;
 6 rows in set (0.00 sec)
 ```
 
-##Reference
+## Reference
  * https://dwbi.org/database/sql/72-top-20-sql-interview-questions-with-answers
 
-##Question: Find Employees with hourly salary in range 80-100 (inclusive)
+## Question: Find Employees with hourly salary in range 80-100 (inclusive)
 ```
 SELECT emp.Name as Employee, emp.sal as 'Hourly Salary' 
 FROM emp where emp.sal between 80 and 100;
@@ -67,7 +104,7 @@ FROM emp where emp.sal between 80 and 100;
 4 rows in set (0.00 sec)
 ```
 
-##Question: Find Employees with hourly salary in range 80-100 (inclusive) and the department name.
+## Question: Find Employees with hourly salary in range 80-100 (inclusive) and the department name.
 ```
 SELECT e.Name as Employee, e.sal as 'Hourly Salary', 
 (select d.name from department d where d.id = e.id) as 'Department Name' 
@@ -85,7 +122,7 @@ where e.sal between 80 and 100;
 ```
 
 
-##Question: Find employees and their managers
+## Question: Find employees and their managers
 **Self Join** is the act of joining one table with itself  - creating a **flat structure** from a table with hierarchy.
 ```
 #Solution 1:
@@ -132,7 +169,7 @@ Observation: "Hash" is not listed
 ```
 
 
-##Question: Find the head count in each department :thumbsup:
+## Question: Find the head count in each department :thumbsup:
 ```
 mysql> select d.id, d.name, count(e.name) 
     -> from emp e, department d
@@ -149,7 +186,7 @@ mysql> select d.id, d.name, count(e.name)
 4 rows in set (0.01 sec)
 ```
 
-##Question: Find the department with max head count
+## Question: Find the department with max head count
 ```
 #Solution 1:
 select dept_id, count(dept_id) as 'Head Count' 
@@ -165,7 +202,7 @@ desc LIMIT 1;
 1 row in set (0.00 sec)
 ```
 
-##Question: Find #employees with max salary
+## Question: Find #employees with max salary
 ```
 select sal, count(sal) 
 from emp 
@@ -180,7 +217,7 @@ limit 1;
 1 row in set (0.00 sec)
 ```
 
-##Question: Find deparments having head count > 2
+## Question: Find deparments having head count > 2
 ```
 select dept_id, count(dept_id) as 'Head Count' 
 from emp 
@@ -194,7 +231,7 @@ HAVING count(dept_id) > 2;
 1 row in set (0.01 sec)
 ```
 
-##Question: Find the Kth highest salary
+## Question: Find the Kth highest salary
 `limit` takes 2 parameters -  start index (starting 0,optional) and #rows to include.
 if K = 4, then start index = 3
 ```
@@ -215,7 +252,7 @@ select * from emp order by sal desc,doj limit 3,1;
 ```
 
 
-##Question: Find the newest employee
+## Question: Find the newest employee
 ```
  SELECT * from emp order by doj desc limit 1;
 +----+--------+---------+-------+-----+------------+
@@ -226,7 +263,7 @@ select * from emp order by sal desc,doj limit 3,1;
 1 row in set (0.00 sec)
 ```
 
-##Question: Find the total and average salary in each department
+## Question: Find the total and average salary in each department
 ```
 select emp.dept_id,sum(emp.sal) as 'total salary' ,count(emp.id) as 'head count' ,avg(emp.sal) from emp group by emp.dept_id;
 +---------+--------------+------------+--------------+
@@ -240,7 +277,7 @@ select emp.dept_id,sum(emp.sal) as 'total salary' ,count(emp.id) as 'head count'
 4 rows in set (0.00 sec)
 ```
 
-##Question: Find employees names starting with A
+## Question: Find employees names starting with A
 ```
 select name from emp where name LIKE 'a%';
 +------+
@@ -251,7 +288,7 @@ select name from emp where name LIKE 'a%';
 1 row in set (0.00 sec)
 ```
 
-##Question: Group employees by start year
+## Question: Group employees by start year
 ```
 SELECT SUBSTRING_INDEX(doj,"-",1) as Year, count(doj) from emp group by Year;
 +------+------------+

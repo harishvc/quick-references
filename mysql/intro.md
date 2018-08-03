@@ -1,5 +1,5 @@
 
-#MySQL Introduction
+#MySQL Fundamentals
 
 ## What is MySQL?
 MySQL is an open source, multithreaded, multi-user SQL database management system.
@@ -41,10 +41,10 @@ MyISAM
 
 ## What is ACID?
 ACID (Atomicity, Consistency, Isolation, Durability) is a set of properties of database transactions
-**Atomicity** - Atomicity requires that each transaction be "all or nothing": if one part of the transaction fails, then the entire transaction fails, and the database state is left unchanged
-**Consistency** -  Consistency property ensures that any transaction will bring the database from one valid state to another. Any data written to the database **must be valid** according to all defined rules, including constraints, cascades, triggers, etc
-**Isolation** -  Isolation property ensures that the concurrent execution of transactions results in a system state that would be obtained if transactions were executed serially
-**Durability** - Durability property ensures that once a transaction has been committed, it will remain so, even in the event of power loss, crashes, or errors.
+* **Atomicity** - Atomicity requires that each transaction be "all or nothing": if one part of the transaction fails, then the entire transaction fails, and the database state is left unchanged
+* **Consistency** -  Consistency property ensures that any transaction will bring the database from one valid state to another. Any data written to the database **must be valid** according to all defined rules, including constraints, cascades, triggers, etc
+* **Isolation** -  Isolation property ensures that the concurrent execution of transactions results in a system state that would be obtained if transactions were executed serially
+* **Durability** - Durability property ensures that once a transaction has been committed, it will remain so, even in the event of power loss, crashes, or errors.
 
 ## What is CRUD?
 CRUD stands for Create Read Update Delete
@@ -149,3 +149,24 @@ mysql>SHOW FULL TABLES WHERE TABLE_TYPE LIKE 'VIEW';
 1 row in set (0.02 sec)
 
 ```
+
+## Primary vs Foreign key?
+* Primary Key is the term used to identify one or more columns in table that make a row of data unique. Primary Key is assigned during table creation.
+* Foreign Key is a column that references a primary key in another table. A foreign Key constraint is the main mechanism used to enforce referential integrity between tables in a relational database.
+```
+CREATE TABLE EMP
+(
+ID INT NOT NULL PRIMARY KEY, 
+MGR_ID INT NOT NULL,
+DEPT_ID INT NOT NULL, 
+NAME VARCHAR(30), 
+SAL INT NOT NULL, 
+DOJ DATE, 
+FOREIGN KEY (MGR_ID) REFERENCES EMP (ID), 
+FOREIGN KEY (DEPT_ID) REFERENCES DEPARTMENT (ID)
+); 
+```
+
+## What is normalization?
+Database normalization, or simply normalization, is the process of organizing the columns (attributes) and tables (relations) of a relational database to reduce data redundancy and improve data integrity. Key benefits include flexible database design, better handle on security and data consistency. There may be performance issues.
+

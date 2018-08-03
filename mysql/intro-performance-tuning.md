@@ -1,5 +1,4 @@
-# MySQL Introduction: Schema
-
+# MySQL: Performance Tuning
 
 ## Data Integrity 
 Data Integrity constraints are used to ensure accuracy and consistency of data in a relational
@@ -74,7 +73,7 @@ describe emp;
 	* Avoid using LIKE, OR, HAVING, ORDER BY
 * Horizontal and vertical partitioning[1] 
   * Partitioning is the database process where very large tables are divided into multiple smaller parts - reduce peocessing time and easy maintenance
-  * Vertical partitioning splits a table into two or more tables containing **different columns** . Ideal when there is BLOB columns or sensitive information
+  * Vertical partitioning splits a table into two or more tables containing **different columns** . Ideal when there is BLOB columns or sensitive information :bulb:  
     ![Vertical partitioning](vertical_partitioning.png) 
   * Horizontal partitioning divides a table into multiple tables that contain the same number of columns, but fewer rows.
     ![Horizontal partitioning](horizontal_partitioning.png) 

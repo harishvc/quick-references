@@ -1,5 +1,5 @@
 
-#MySQL Fundamentals
+# MySQL Fundamentals
 
 ## What is MySQL?
 MySQL is an open source, multithreaded, multi-user SQL database management system.

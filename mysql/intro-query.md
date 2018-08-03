@@ -1,6 +1,5 @@
-# MySQL Introduction: Basic Queries
+# MySQL: Basic Queries
 
-[Download the sample data to get started](https://github.com/harishvc/quick-references/blob/master/mysql/sql/test.sql)
 
 ## Clause
 * **DISTINCT** unique values in a particular column. Can slow your queries down!
@@ -11,7 +10,7 @@
 * **MIN** and **MAX** are SQL aggregation functions that return the lowest and highest values in a particular column
 * **AVG** is a SQL aggregate function that calculates the average of a selected. Can only be used on numerical columns and it ignores *NULL* values
 * **GROUP BY** allows you to separate data into groups, which can be aggregated independently of one another
-* **HAVING allow you to filter on aggregate. Used after **GROUP BY** 
+* **HAVING** allow you to filter on aggregate. Used after **GROUP BY** 
 
 ## Query Clause Order
 * SELECT
@@ -39,6 +38,7 @@ LIMIT 1           #4
 #4 is applied to final result
 ```
 
+[Download the sample data to get started](https://github.com/harishvc/quick-references/blob/master/mysql/sql/test.sql)
 ## Schema
 ```
 CREATE TABLE DEPARTMENT 
@@ -85,9 +85,6 @@ describe emp;
 +---------+-------------+------+-----+---------+-------+
 6 rows in set (0.00 sec)
 ```
-
-## Reference
- * https://dwbi.org/database/sql/72-top-20-sql-interview-questions-with-answers
 
 ## Question: Find Employees with hourly salary in range 80-100 (inclusive)
 ```
@@ -391,3 +388,6 @@ mysql> select sum(sal) from sales_marketing_team;
 +----------+
 1 row in set (0.00 sec)
 ```
+
+## Reference
+ * https://dwbi.org/database/sql/72-top-20-sql-interview-questions-with-answers

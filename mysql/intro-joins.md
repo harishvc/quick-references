@@ -1,4 +1,4 @@
-# MySQL JOIN Introduction
+# MySQL: JOIN
 
 ## Joins (7 types)
 ![Types of Join](join-variations.png) [1]
@@ -13,7 +13,7 @@
 ## Fundamentals
 * **LEFT JOIN** command tells the database to return all rows in the table in the FROM clause, regardless of whether or not they have matches in the table in the LEFT JOIN clause [2]
 * **RIGHT JOIN**  similar to left joins except they return all rows from the table in the RIGHT JOIN clause and only matching rows from the table in the FROM clause [2] . RIGHT JOIN is rarely used because you can achieve the results of a RIGHT JOIN by simply switching the two joined table names in a LEFT JOIN
-* 
+
 
 ## Syntax
 ```sql
@@ -212,7 +212,7 @@ WHERE e.mgr_id = m.id;
 6 rows in set (0.00 sec)
 ```
 
-## Additional Resource
-[1] https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins
+## Additional Resources 
+[1] https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins 
 [2] https://community.modeanalytics.com/sql/tutorial/introduction-to-sql/
 

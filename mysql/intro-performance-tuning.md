@@ -1,7 +1,7 @@
-#MySQL Introduction: Schema
+# MySQL Introduction: Schema
 
 
-##Data Integrity 
+## Data Integrity 
 Data Integrity constraints are used to ensure accuracy and consistency of data in a relational
 database.
 
@@ -11,7 +11,7 @@ database.
 * **Denormalization** is the process of taking a normalized database and modifying the structure to add **controlled redundency** to improve performance.
 
 
-##Schema
+## Schema
 ```
 CREATE TABLE DEPARTMENT 
 (
@@ -60,7 +60,7 @@ describe emp;
 
 
 
-##SQL Performance Tuning
+## SQL Performance Tuning
 * **Index** is a pointer to data in a table. Index is a database is similar to the Index in the back of a book - you can find all pages with reference to a topic
    * Index is stored seperately from the table for which index was created
    * Main purpose of index is to improve performance
@@ -72,6 +72,12 @@ describe emp;
 	* Format SQL for readability
 	* Arrangement of tables in the FROM clause - smaller tables followed by larger tables
 	* Avoid using LIKE, OR, HAVING, ORDER BY
+* Horizontal and vertical partitioning[1] 
+  * Partitioning is the database process where very large tables are divided into multiple smaller parts - reduce peocessing time and easy maintenance
+  * Vertical partitioning splits a table into two or more tables containing **different columns** . Ideal when there is BLOB columns or sensitive information
+    ![Vertical partitioning](vertical_partitioning.png) 
+  * Horizontal partitioning divides a table into multiple tables that contain the same number of columns, but fewer rows.
+    ![Horizontal partitioning](horizontal_partitioning.png) 
 * **Views** are virtual tables. View looks and acts like a table as far a user is concerned.
     * View is a predefined query and **does not require physical memory**
     * A view can contain all rows of a table or select rows from a table. 
@@ -82,7 +88,7 @@ describe emp;
     * if data changes, view data change!
 
 
-##SQL Injection  
+## SQL Injection  
 * Source: https://www.interviewcake.com/article/javascript/sql
 * Example:  
   ``` 
@@ -98,4 +104,6 @@ describe emp;
 * Limit database access
 * Don't log messages for end-users . Log messages to log files on the server with severity level.
 
+## Reference
+[1] https://www.sqlshack.com/database-table-partitioning-sql-server/
 

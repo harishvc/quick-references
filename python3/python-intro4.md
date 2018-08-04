@@ -89,19 +89,20 @@ def outside():
   - The __iter()__ method, which must return the iterator object and the __next()__ method, which returns the next element from a sequence.
   - Iterators simplify code
 ```python
-a = "Harish"
-i = iter(a)
-while i:
- next(i)   #python3
- 'h'
-'a'
-'r'
-'i'
-'s'
+>>> name = "harish"
+>>> name_iterator = iter(name)
+>>> next(name_iterator)
 'h'
-Traceback (most recent call last):
-  File "<stdin>", line 2, in <module>
-StopIteration
+>>> next(name_iterator)
+'a'
+>>> next(name_iterator)
+'r'
+>>> for c in name_iterator:
+...  print(c)
+... 
+i
+s
+h
 ```
 
 ## What is a generator?

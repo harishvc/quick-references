@@ -9,6 +9,17 @@
 - [Queue](#queue)
 - [Deque](#deque)
 
+## Basic operations
+### Create
+### Insert
+### Retrieve - specific value
+### Delete - specific value
+### Delete - all
+### Lookup - exists
+### Lookup - index
+### size
+### empty?
+
 ## Strings
 Strings are **immutable** - cannot be modified after creation
 ```python

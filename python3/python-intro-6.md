@@ -1,9 +1,9 @@
-#Python Topics
+# Python Topics
 List Comprehension, lambda, map, filter, generator and error handling
 
 **List comprehension is an elegant way to define and create list in Python**
 
-##Example 1: 
+## Example 1: 
 Remove vowels from a sentence
 ````python
 input = "Hello World!"
@@ -13,7 +13,7 @@ print(input)  #Hello World!
 print(z)      #Hll Wrld!
 ````
 
-##Example 2:
+## Example 2:
 Flatten a matrix
 ````python
 #rows & cols
@@ -32,7 +32,7 @@ print([x for row in matrix for x in row ])
 #[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 ````
 
-##Example 3:
+## Example 3:
 Given two list of same length, return a dictionary with one as key and other as value
 ````python
 country = ['India', 'Pakistan', 'Nepal', 'Bhutan', 'China', 'Bangladesh']
@@ -41,7 +41,7 @@ q = {y:capital[x] for x,y in enumerate(country)}
 print(q)
 ````
 
-###Example 4:
+### Example 4:
 Given a list create a new list of squares
 ````python
 
@@ -50,7 +50,7 @@ print(a)   #[1,2,3,4,5]
 print(list(map(lambda x: x**2,a))) #[2, 4, 6, 8, 10]
 ````
 
-###Example 5:
+### Example 5:
 Given a list create a new list of squares with only even numbers
 ````python
 a = [1,2,3,4,5]
@@ -60,7 +60,7 @@ print(a)   #[1,2,3,4,5]
 print(list(filter(lambda x: x%2 == 0,map(lambda x: x**2,a))))
 ````
 
-###Example 6:
+### Example 6:
 Given a list integers create a list of characters
 ````python
 print (list(map(chr,[65,66,67,68,69])))             
@@ -78,7 +78,7 @@ print(next(z))  #2
 print(next(z))  #4
 ```
 
-###Example 8: Get file contents on demand
+### Example 8: Get file contents on demand
 ```python
 def gen():
 	filename = open("12345.txt","r")
@@ -105,7 +105,7 @@ Generator invoked!
 file handle closed
 ```
 
-###Example 9: Error handling and reporting
+### Example 9: Error handling and reporting
 ````python
 try:
 	a = 1
@@ -121,5 +121,5 @@ all done!!!
 
 
 
-#References
+# References
 * [Analytics Vidhya Tutorial on List Comprehension](http://www.analyticsvidhya.com/blog/2016/01/python-tutorial-list-comprehension-examples/)

@@ -1,16 +1,16 @@
-#Fun with Python List & String
+# Fun with Python List & String
 
-##LIST
+## LIST
 **Lists are mutable - values can be changed after creation**
 
-###Reverse a list
+### Reverse a list
 ````python
 a = [1,2,3,4,5]
 print(a[::-1])
 [5,4,3,2,1]
 ````
 
-###Reverse n elements of a list
+### Reverse n elements of a list
 ```python
 n = 3
 a = [200,50,10,5,1]
@@ -18,14 +18,14 @@ b = list(reversed(a[0:n]))
 print(b) #[10, 50, 200]
 ```
 
-###Delete all the contents
+### Delete all the contents
 ```python
 a = [1,2,3,4,5]
 del a[:]
 print(a) #[]
-````
+```
 
-###Copy list
+### Copy list
 ```python
 a = [200, 50, 10, 5, 1]
 b = a  #reference to a
@@ -40,10 +40,10 @@ print(b) #[200, 50, 10, 5, 1]
 ```
 
 
-##STRINGS
+## STRINGS
 **Strings are Immutable - Cannot change value once created**
 
-###Trim white spaces
+### Trim white spaces
 ```python
 a="   Hello   World!  "
 b = a.strip() #only works on start and end!

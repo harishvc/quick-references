@@ -1,4 +1,4 @@
-#Python3: Concurrency Fundamentals (part 1)
+# Python 3: Concurrency Fundamentals (part 1)
 
 
 ## Concurrency
@@ -38,6 +38,59 @@
   - Conditional variable is used for waiting for a condition to be true (state)
   - Mutex: Involves Kernal transition, two states - taken, free All waiters are woken up
   - Conditional Variables: Associated with mutex, ONE waiter is woken on free, Yield and re-wait on a state  
+```python
+#Example #1
+import threading
+l = threading.Lock()
+l.acquire()
+try:
+  print("hello world!")
+  #do something
+finally:
+  l.release()
+
+#Example 2
+import threading
+import time
+
+lock = threading.Lock()
+
+global counter
+counter = 10
+
+class Thread(threading.Thread):
+  def __init__(self, t, *args):
+    threading.Thread.__init__(self, target=t, args=args)
+    self.start()
+
+def help1():
+  with lock:
+    print("help1")
+    print("sleeping ......")
+    time.sleep(20) 
+    print("awake ......")
+    global counter 
+    counter = counter+15
+    print("help1", counter)
+
+def help2():
+  with lock:
+    global counter 
+    print("help2", counter)
+    counter = counter-25
+
+
+Thread(help1())
+Thread(help2())
+'''
+help1
+sleeping ......
+awake ......
+help1 25
+help2 25
+'''
+```
+
 
 ## Semaphores
   - Kernel resource that provide synchronization services (also called as synchronization primitives)

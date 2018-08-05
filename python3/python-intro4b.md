@@ -1,4 +1,4 @@
-#Python3: Fundamentals (part 2)
+# Python 3.x: Fundamentals (part 2)
 
 ## Explain `with`
   - `with` keyword is used when working with **unmanaged resources (like file streams)**. 
@@ -7,64 +7,51 @@
   - **syntactic sugar** for try/except blocks.
   - **guaranteed to close the file** no matter how the nested block exits
 
-````python
+```python
 filename = "README.md"
-#
-#using with
-with open(filename, "r") as fp:
-  for line in fp:
-    print(line)
-#no except
-print("done!")
 
 #not using with
 try:
     fp = open(filename, "r")
     for line in fp:
-	print(line)
+  print(line)
 except Exception as e:
-	print("oops!")
+  print("oops!")
 finally:
-	print("done!")
-````
+  print("done!")
 
-##Skip first line in a file
+#using with
+with open(filename, "r") as fp:
+  for line in fp:
+    print(line)  #important: additional empty line!       
+#no except
+print("done!")
 ```
+
+## Skip first line in a file
+```python
 with open(filename,"r") as f:
-	next(f)  #skip first line
+	next(f)  #iterator;skip first line
 	for line in f:
 	   print(line)
 ```
 
-##Read input stream
-```
-#$>cat something.txt | python a.py
-
-import sys
-try:
-   for line in sys.stdin:  #input stream
-     #do something
-except Exception as e:
-   print("oops! just handled exception")
-```
-
-
 ## Print Nth line
-```
+```python
 with open(filename) as f:
 	#readlines() returns a list with entries in each line (as values)
 	print(f.readlines()[N-1])
 ```
 
 ## Read N bytes at a time
-```
+```python
 bytes2Read = 2
 with open(filename) as f:   #"Hello World!"
 	#read() returns all entries as string
 	z = f.read(bytes2Read)
 	while z:
 		print(">>", z, "<<<")  #str
-		z = f.read(bytes2Read)
+		z = f.read(bytes2Read) #IMPORTANT!!!
 
 #output
 >> He <<<
@@ -73,6 +60,18 @@ with open(filename) as f:   #"Hello World!"
 >> Wo <<<
 >> rl <<<
 >> d! <<<
+```
+
+## Read input stream
+```python
+#$>cat something.txt | python a.py
+
+import sys
+try:
+   for line in sys.stdin:  #input stream
+     #do something
+except Exception as e:
+   print("oops! just handled exception")
 ```
 
 
@@ -89,43 +88,46 @@ with open(filename) as f:   #"Hello World!"
 
 
 ## Explain `*args` and `**kwargs`  
-  - * (aesteric) variable name (`*foo, *bar, *args - * matters but not name`) handles ALL input arguments, here input arguments are stored in a list
-  - ** (aesteric) variable name (`**foo, **bar, **args - ** matters but not name`) handle ALL key value input argument, here input arguments are stored in a dictionary
+  - `*` variable name (`*foo, *bar, *args - * matters but not name`) handles ALL input arguments, here input arguments are stored as **tuple**
+  - `**` variable name (`**foo, **bar, **args - ** matters but not name`) handle ALL key value input argument, here input arguments are stored as **dictionary**
 ```python
 #Example 1
-def test1(f_arg, *foo):
-    print("first normal arg:", f_arg)
-    for arg in foo:
-        print("another arg from *foo :", arg)
-test1('hello','world','!')
+def test(*ginput):
+  print(type(ginput))
+  print(ginput)
 
-output -
-first normal arg: hello
-another arg from *foo : world
-another arg from *foo : !
+test(1,2,3)
+
+<class 'tuple'>
+(1, 2, 3)
 
 #Example 2
-def test2(f_arg,**bar):
-    print("first normal arg:", f_arg)
-    for key,value in bar.items():
+def test(**ginput):
+  print(type(ginput))
+  print(ginput)
+
+test(name="harish")
+
+<class 'dict'>
+{'name': 'harish'}
+
+
+#Example 3
+def test(ginputA,*ginputB,**ginputC):
+  print(ginputA)
+  print(ginputB)
+  for key,value in ginputC.items():
         print(key, "-->", value)
 
-a = {"key1":"hello","key2":"world","key3":"!"}
-test2(1,key1="Hello",key2="World",key3="!")
+test("hello world!",1,2,3,4,5,name="harish")
 
-output -
-first normal arg: 1
-key1 --> Hello
-key2 --> World
-key3 --> !
-
-
-Reference:
-1. https://pythontips.com/2013/08/04/args-and-kwargs-in-python-explained/
-````
+hello world!
+(1, 2, 3, 4, 5)
+name --> harish
+```
 
 ## Explain GIL (Global Interpreter Lock)  
-  - Cpython, Python's implementation in C enforces GIL since CPython's memory management is not thread-safe. In order to support multi-threaded Python programs, there's a global lock (GIL)that must be acquired by the current thread before it can safely access Python objects. [More detailed notes on GIL](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4c.md) :notes: :thumbsup:
+  - Cpython, Python's implementation in C enforces GIL since CPython's memory management is not thread-safe. In order to support multi-threaded Python programs, there's a global lock (GIL) that must be acquired by the current thread before it can safely access Python objects. [More detailed notes on GIL](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4c.md) :notes: :thumbsup:
 
 
 ## Explain function decorator
@@ -136,14 +138,14 @@ Reference:
     https://github.com/harishvc/quick-references/blob/master/python3/python-intro-9.md
 
 ## How do you process input arguments (from command line)?
-````python
+```python
 import sys
 print("Number of arguments:", len(sys.argv))  #4
 print('Argument List:', sys.argv) # ['test.py', '1', '2', '3']
 print(sys.argv[2]) #2
 
 $>python test.py 1 2 3 
-````
+
 
 ## Python Libraries & Dependencies
 ```python
@@ -157,14 +159,7 @@ Metadata-Version: 2.0
 Name: selenium
 Version: 2.47.3
 ...
-````
-
-## Testing
-  - Unit testing - You unit test each individual piece of code (function/class)
-  - Integration testing -  several individual pieces of code are tested as a group
-  - Regression testing - make sure older functionality is still works with the new changes
-  - Appectance testing - customer validates so that the functionality meets requirements
-
+```
 
 ## How is memory managed?
   - Memory management in Python involves a private heap containing objects and data structures
@@ -177,14 +172,20 @@ Version: 2.47.3
   - The algorithm used for garbage collecting is called **Reference counting**
   - Python keeps an internal journal of how many references refer to an object, and automatically garbage collects it when there are no more references refering to it.
 
+## Testing
+  - Unit testing - You unit test each individual piece of code (function/class)
+  - Integration testing -  several individual pieces of code are tested as a group
+  - Regression testing - make sure older functionality is still works with the new changes
+  - Appectance testing - customer validates so that the functionality meets requirements
 
-##Python3 default modules?
+
+## Python3 default modules?
   - [Python3 default module index](https://docs.python.org/3/py-modindex.html)
 
-##Explain ```dir() and help()```
+## Explain ```dir() and help()```
   - ```help()``` provides information about a particular object directly from the interpreter
   - ```dir()``` will provide information about defined symbols - methods, errors
-````python
+```python
 >>> help('string')
 Help on module string:
 
@@ -204,10 +205,7 @@ MODULE REFERENCE
 >>>>>> dir(__builtins__)
 ['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BlockingIOError',  
 ...
-
-
-
-````
+```
 
 ## How much space is each object taking?
   - [Measure the Real Size of Any Python Object](https://goshippo.com/blog/measure-real-size-any-python-object/)

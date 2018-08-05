@@ -1,14 +1,11 @@
-#Python Topics
-
-##Python Decorators
+# Python Decorators
 Decorators wrap a function and modify the behaviour
 
-###Background
+## Background
 * Functions are first class object and can be passed around like variables
 * When functions are passed around and latter executed, they have **access** to the environment they were **defined**
 
-###Example 1: Determine how long it takes to run the function foo()
-
+### Example 1: Determine how long it takes to run the function foo()
 ````python
 
 import time
@@ -54,6 +51,6 @@ time taken= 3006  ms
 ````
 
 
-#References  
+# References  
 * [Primer on Python Decorators](https://realpython.com/blog/python/primer-on-python-decorators/)   :thumbsup:    
 * [Understanding Python Decorators in 12 Easy Steps!](http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/)     

@@ -121,7 +121,15 @@ print(list(a.keys()))           #[1,2,3]  all keys
 print(list(a.values()))         #[1,2,3]  all values
 len(a)                          #3
 a.pop(2)                        #2 return the value for key=2 , dict size reduces
-
+#
+for key,value in a.items():
+...  print(key,"--->",value)
+... 
+1 ---> 1
+2 ---> 2
+3 ---> 3
+#
+#
 if key in a.keys():             #Check if key exists
     print("key exists")
 if value in a.values():          #Check if value exists

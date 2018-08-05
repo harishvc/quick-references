@@ -1,7 +1,7 @@
-#Quick reference to JavaScript Functions
+# Quick reference to JavaScript Functions
 
 
-##Function Declaration
+## Function Declaration
 ````javascript
 function toCelsius(fahrenheit) {
     return (5/9) * (fahrenheit-32);
@@ -10,7 +10,7 @@ var a = toCelsius(78) //() Operator invokes the function and refers to function 
 console.log(a) //25.555555555555557
 ````
 
-##Function Expression
+## Function Expression
 * Stored in a variable
 * Also referred to as **anonymous** function (a function without a name)
 * Function expessions create anonymous fucntions adding debugging complexity
@@ -21,7 +21,7 @@ console.log(a(78)) //25.555555555555557
 ````
 
 
-##Self-invoking Functions
+## Self-invoking Functions
 Immediately invoke a function as soon as it's defined - **solution to avoid Closure**
 ````javascript
 (function () {
@@ -30,7 +30,7 @@ Immediately invoke a function as soon as it's defined - **solution to avoid Clos
 })();
 ````
 
-##First-class citizens
+## First-class citizens
 * JavaScript functions can be constructed at runtime, assigned to variables and returned by other functions. 
 * JavaScript functions also have their own properties and methods
 ````javascript
@@ -51,7 +51,7 @@ bar(foo)();
 //Hello World! is sent to console.log
 ````
 
-##Nested Functions (Inner Functions)
+## Nested Functions (Inner Functions)
 * Nested functions are functions inside another (outer) functions
 * Each time the outer function is called, an **instance** of the inner function is created
 * Inner functions have **implicit access to the outer function’s scope**
@@ -68,7 +68,7 @@ console.log(foo);  //8
 ````
 
 
-##References
+## References
 * [JavaScript Function Definitions@W3 Schools](http://www.w3schools.com/js/js_function_definition.asp)
 * [Closure discussion on Stack Overflow](http://stackoverflow.com/questions/111102/how-do-javascript-closures-work)
 * [JavaScript Closures Demystified](http://www.sitepoint.com/javascript-closures-demystified/)

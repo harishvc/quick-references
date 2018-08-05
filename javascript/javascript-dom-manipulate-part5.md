@@ -1,6 +1,6 @@
-#Quick reference to JavaScript &amp; DOM Elements
+# Quick reference to JavaScript &amp; DOM Elements
 
-##Example 1
+## Example 1
 ````
 <a id="demo" class="aaaa" style="font-size:15px" href="#">Click me!</a>
 <script>
@@ -21,7 +21,7 @@ Explanation
 * Change `font size`
 * Remove `underline`  - still using `a href`
 
-##Example 2
+## Example 2
 ````
 //Source: http://www.w3schools.com/js/js_htmldom_nodes.asp
 <div id="div1">
@@ -49,5 +49,5 @@ Explanation
 * New node is inserted before `child`
 
 
-##Future Reading
+## Future Reading
 * [JavaScript HTML DOM Elements](http://www.w3schools.com/js/js_htmldom_elements.asp)

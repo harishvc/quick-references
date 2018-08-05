@@ -1,7 +1,7 @@
-#Quick reference to JavaScript Functions
+# Quick reference to JavaScript functions
 
 
-##Function Hoisting & Scope
+## Function Hoisting & Scope
  - Hoisting is JavaScript's default behavior of hoisting **declarations** to the top of the **current scope**
  - Hoisting applies to variable declarations and to function declarations
 
@@ -13,6 +13,19 @@
  - If you `don't use var` the variable **scope bubbles up** until it encounters a variable by the given name or the global object (window, if you are doing it in the browser), where it then attaches. 
    *Traversing up the scope chain is a good thing, but adding it to the global scope if it doesn't find anything is a pitfall*.
 
+## Difference between `var` and `let`
+ - `let` is used to restrict scope to the block
+ - `var` is also used to restrict scope but can become global (due to **hoisting**)
+```javascript
+for(let li=1;li<2;li++){li;}
+1
+for(var vi=1;vi<2;vi++){vi;}
+1
+vi  //can be referenced!
+2
+li
+Uncaught ReferenceError: li is not defined    
+```
 
 ## Hoisting (example 1)
 ```
@@ -29,7 +42,7 @@ b();  //25
 ```
 
 ## Hoisting (example 2)
-````javascript
+```javascript
 //Example 1
 console.log(a)         //ReferenceError: a not defined  (NOT in memory)
 
@@ -52,10 +65,10 @@ b();  //Hello World!  - Entire function is stored in the memory
 function b(){
 	console.log("Hello World!");	
 }
-````
+```
 
 ## Hoisting (example 3)
-````javascript
+```javascript
 //Example 1
 function b() {
 	var a1;
@@ -127,7 +140,7 @@ console.log(a1);
 4
 2
 1
-````
+```
 
 ## Hoisting (example 4)
 ```
@@ -162,8 +175,8 @@ console.log("a=",a);
 ```
 
 
-##Hoisting (example 5)
-````javascript
+## Hoisting (example 5)
+```javascript
 //Access to global variables
 var count = 3
 for(i=1;i<count;i++){
@@ -175,28 +188,28 @@ function newI() {
 newI()
 ````
 
-##Function definition & execution
-````javascript
+## Function definition & execution
+```javascript
 var a = toCelsius //No () , refers to function definition
 console.log(a(78)) //execution
 
 function toCelsius(fahrenheit) {
     return (5/9) * (fahrenheit-32);
   }
-````
+```
 
-##Self-invoking functions
+## Self-invoking functions
 Immediately invoke a function as soon as it's defined - **solution to avoid Closure**
-````javascript
+```javascript
 (function () {
     var x = "Hello from JavaScript!";      // I will invoke myself
     console.log(x)
 })();
-````
+```
 
 
-##````undefined````
-````javascript
+##```undefined```
+```javascript
 //Variation 1
 var text = 'outside';
    function logIt(){
@@ -214,15 +227,15 @@ function logIt(){
     var text = 'inside';
 };
 logIt();
-````
+```
 
-##````NaN````
-````javascript
+## ```NaN```
+```javascript
 var a = 1;
 function myadd(){
     console.log(a + b);   //NaN - Not a Number
     var b = 2;
 };
 myadd();
-````
+```
 

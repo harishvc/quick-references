@@ -1,12 +1,12 @@
 ## OSI Layer
   Open Systems Interconnection (OSI)) is **reference model** that shows how  applications communicate over a network. A reference model is a **conceptual framework** for understanding relationships. 
-* Layer 1: Physical Layer provides the hardware for sending and receiving data 
-* Layer 2: The data link layer. Ethernet is the main data link layer
-* Layer 3: Network layer handles routing of the data. IP is the network layer for the Internet.
-* Layer 4: Transport layer. On the internet, TCP and UDP provide these services for most applications.
-* Layer 5: Session layer. Services include authentication and reconnection.
-* Layer 6: Presenation layer. This layer is usually part of an **operating system (OS)** and converts incoming and outgoing data from one presentation format to another 
-* Layer 7: Application layer.
+* Layer 1: Physical Layer provides the hardware for sending and receiving data (hub)
+* Layer 2: The data link layer. Ethernet is the main data link layer (switch)
+* Layer 3: Network layer handles routing of the data. IP is the network layer for the Internet (router)
+* Layer 4: Transport layer. On the internet, TCP and UDP provide these services for most applications
+* Layer 5: Session layer. Services include authentication and reconnection (IP)
+* Layer 6: Presenation layer. Data encryption is handled
+* Layer 7: Application layer
 
 
 ## What is ASCII?
@@ -130,6 +130,10 @@ f2299d98b8f3c86f90b1f80fca1822f504188656 clean up 2
 * Use by browsers to make the loading of web pages faster
 * Cache is kept in the client’s machine until they are removed manually by the user.
 
+## Session vs Token based Authentication 
+* In **Session based Authentication** heavy lifting is done on the server side. After successful login, `sessionID` is generated and stored in the browser in cookies.
+Future requests use this `sessionID`. Based on browser setting on expiration set by the server `sessionID` will expire and new one generated. Ideal for public - no prior signup needed
+* Token are ideal for API based requests. Tokens are included in the request header to various end-points. Tokens are usually associated with an user. Works well since it is stateless. Ideal for API requests - developers have to sign up for a token 
 
 ## What happens when a web page is requested?
 * http://programmers.stackexchange.com/questions/211176/in-need-of-a-more-technical-answer-for-an-interview-question-about-how-the-inter
@@ -156,7 +160,7 @@ f2299d98b8f3c86f90b1f80fca1822f504188656 clean up 2
 * CONNECT - Converts the request connection to a transparent TCP/IP tunnel
 
 
-##Explain TCP Flags
+## Explain TCP Flags
 
 There are 6 TCP flags. [More information about TCP Flags](http://www.firewall.cx/networking-topics/protocols/tcp/136-tcp-flag-options.html)  
 

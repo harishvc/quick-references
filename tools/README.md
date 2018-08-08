@@ -1,9 +1,9 @@
-#UNIX Command Line Tools
+# UNIX Command Line Tools
 
 `awk, find, sort, uniq, grep, sed, uptime`
 
 
-##AWK: Quick Reference
+## AWK: Quick Reference
 
 source: http://www.tutorialspoint.com/awk/
 
@@ -14,7 +14,8 @@ source: http://www.tutorialspoint.com/awk/
     4)    Kedar    English    85
     5)    Hari     History    89
     
-###Print contents of the file with text at start and end
+### Print contents of the file with text at start and end
+```bash
     $>awk 'BEGIN{print "start ..."} {print} END{print "end ..."}' marks.txt
              or
     $>awk 'BEGIN{print "start ..."} // END{print "end ..."}' marks.txt
@@ -27,8 +28,9 @@ source: http://www.tutorialspoint.com/awk/
     4)    Kedar    English    85
     5)    Hari     History    89
     end ...    	
+```
 
-###List only names
+### List only names
     $>awk 'BEGIN{printf "Name\n-----\n"} {print $2} ' marks.txt
     Name
     -----
@@ -38,28 +40,28 @@ source: http://www.tutorialspoint.com/awk/
     Kedar
     Hari
 
-###List lines that contain the pattern `ar`
+### List lines that contain the pattern `ar`
     $>cat marks.txt | awk '/ar/' 
     4)    Kedar    English    85
     5)    Hari     History    89
 
-###List lines that do not contain the pattern `ar`
+### List lines that do not contain the pattern `ar`
     $>cat marks.txt| awk '!/ar/'
     1)    Amit     Physics    80
     2)    Rahul    Maths      90
     3)    Shyam    Biology    87
 
-###Find #occurances of `ar`
+### Find #occurances of `ar`
     $>cat marks.txt| awk 'BEGIN{print "looking for pattern /ar/"} /ar/ {cnt++} END{print "#occurances =" , cnt}'
     looking for pattern /ar/
     #occurances = 2
 
-###List names (column #2) that contain the pattern `ar`
+### List names (column #2) that contain the pattern `ar`
     $>cat marks.txt| awk  ' $2 ~ /ar/ {print $2}'
     Kedar
     Hari
 
-###List all the files that contain the pattern `TODO` :notes:  
+### List all the files that contain the pattern `TODO` :notes:  
 `FILENAME` which contains the name of the file which is currently being worked on.   
 `nextfile` is a awk command to quit the current file and start working on a new file  
 File names are listed only once even when the pattern can occurs more than once       
@@ -143,13 +145,13 @@ $> lsof -u #pid#
 $> lsof -p #pid#
 ```
 
-##Find load average
+## Find load average
 ```uptime```  tell you how busy your system’s CPU, disk, and other resources are.    
 <i>To understand the load average number, you need to know how many CPUs your system has.   
 A load average of 6.03 would indicate a system with a single CPU was massively overloaded, but it would be fine on a computer with 8 CPUs.</i>
 
 
-##Additional Resources
+## Additional Resources
 * [grep vs awk : 10 examples of pattern search](http://www.theunixschool.com/2012/09/grep-vs-awk-examples-for-pattern-search.html)
 * [Understanding the Load Average on Linux and Other Unix-like Systems](http://www.howtogeek.com/194642/understanding-the-load-average-on-linux-and-other-unix-like-systems/)  
 

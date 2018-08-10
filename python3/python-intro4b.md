@@ -127,7 +127,9 @@ name --> harish
 ```
 
 ## What is JSON object?
-- JSON objects are surrounded by curly braces {}.
+- JSON (JavaScript Object Notation) is a lightweight data-interchange format
+- JSON is easy for humans to read and machines to parse
+- JSON objects are surrounded by curly braces {}
 - JSON objects are written in key/value pairs
 - Keys must be strings, and values must be a valid JSON data type (string, number, object, array, boolean or null)
 ```python

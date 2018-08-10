@@ -126,6 +126,33 @@ hello world!
 name --> harish
 ```
 
+## Explain json.load(), json.loads(), json.dumps()
+```python
+#https://stackoverflow.com/questions/32911336/what-is-the-difference-between-json-dumps-and-json-load
+a = {'name': 'harish', 'place': {'coordinates': [37.6624, 121.8747], 'name': 'pleasanton'}}
+>>> type(a)
+<class 'dict'>
+#
+#
+>>> import json
+>>> a_flat = json.dumps(a)
+>>> a_flat
+'{"name": "harish", "place": {"coordinates": [37.6624, 121.8747], "name": "pleasanton"}}'
+>>> type(a_flat)
+<class 'str'>
+#
+#
+#
+>>> b = json.loads(a_flat)
+>>> b
+{'name': 'harish', 'place': {'coordinates': [37.6624, 121.8747], 'name': 'pleasanton'}}
+>>> type(b)
+<class 'dict'>
+#
+#
+#
+``` 
+
 ## Explain GIL (Global Interpreter Lock)  
   - Cpython, Python's implementation in C enforces GIL since CPython's memory management is not thread-safe. In order to support multi-threaded Python programs, there's a global lock (GIL) that must be acquired by the current thread before it can safely access Python objects. [More detailed notes on GIL](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4c.md) :notes: :thumbsup:
 

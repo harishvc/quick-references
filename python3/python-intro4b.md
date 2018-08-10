@@ -126,9 +126,23 @@ hello world!
 name --> harish
 ```
 
+## What is JSON object?
+- JSON objects are surrounded by curly braces {}.
+- JSON objects are written in key/value pairs
+- Keys must be strings, and values must be a valid JSON data type (string, number, object, array, boolean or null)
+```python
+example_1 = { "name":"John", "age":30, "car":null }
+example_2 = {'name': 'harish', 'place': {'coordinates': [37.6624, 121.8747], 'name': 'pleasanton'}}
+```
+
+
 ## Explain json.load(), json.loads(), json.dumps()
+- json.load() read a json file
+- json.loads() converts a flat object into json object. json objects
+- json.dump() converts a json object to string
 ```python
 #https://stackoverflow.com/questions/32911336/what-is-the-difference-between-json-dumps-and-json-load
+#
 a = {'name': 'harish', 'place': {'coordinates': [37.6624, 121.8747], 'name': 'pleasanton'}}
 >>> type(a)
 <class 'dict'>
@@ -151,6 +165,12 @@ a = {'name': 'harish', 'place': {'coordinates': [37.6624, 121.8747], 'name': 'pl
 #
 #
 #
+>>> with open('test.json') as data_file:   
+...  data = json.load(data_file)
+>>> type(data)
+<class 'dict'>
+>>> data['menu']['value']
+'File'
 ``` 
 
 ## Explain GIL (Global Interpreter Lock)  

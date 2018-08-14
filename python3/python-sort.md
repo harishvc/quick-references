@@ -30,44 +30,42 @@ people = [
     ['Foo', 'Bar', 18],
 ]
 
+#sorted returns back a list and input is not modified
 from operator import itemgetter
 z = sorted(people,key=itemgetter(2),reverse=False)
 print(z)          #[['Foo', 'Bar', 18], ['Harish', 'Chakravarthy', 22], ['Jon', 'Doe', 27]]
+
 ````
 
 ## Sort dictionary by keys
 ```python
-d= {'a':2,'x':5,'c':3}
-for k in sorted(d):
-	print(k, d[k])
-
-a 2
-c 3
-x 5	
+>>> d= {'a':150,'z':200,'c':100}
+>>> sorted(d)  #default is sort by key; output is list                        
+['a', 'c', 'z']
 ````
 
 
 ## Sort dictionary by values
 ```python
-for k in sorted(d, key=d.get):
-	print(k, d[k])
-
-a 2
-c 3
-x 5
+>>> d= {'a':150,'z':200,'c':100}
+>>> sorted(d,key=d.get)
+['c', 'a', 'z']
 ````
 
 ## Find max and min key
 ```python
 >>> d= {'a':200,'x':5,'c':3,'z':1}
->>> min(d)
+>>> min(d)   #default is sort by key
 'a'
->>> max(d)
+>>> max(d)   #default is sort by key
 'z'
 ```
 
-## Find the key with max value
+## Find max and min value
 ```python
-d= {'a':2,'x':5,'c':3}
-print(max(d,key=d.get))  #x
+>>> d= {'c':200,'x':5,'a':3,'z':1}
+>>> max(d,key=d.get)
+'c'
+>>> min(d,key=d.get)
+'z'
 ```

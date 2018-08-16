@@ -1,11 +1,13 @@
 # Python 3.x  
-  * [Python: Basic Data Structures](https://github.com/harishvc/quick-references/blob/master/python3/python-intro1.md)
-      Strings, List, Tuple, Set, Dictionary, Queue, Deque
+  * [Python: Basic Data Structures](https://github.com/harishvc/quick-references/blob/master/python3/python-intro1.md)  
+    Strings, List, Tuple, Set, Dictionary, Queue, Deque
   * [Python: Sort](https://github.com/harishvc/quick-references/blob/master/python3/python-sort.md) 
   * [Python: Fundamentals (part 1)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4.md)  
+     Iterator, generator, None, pass by value, pass by reference, mutable and immutable
   * [Python: Fundamentals (part 2)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4b.md)  
+     `with`, reading from file, `*args` and `**kwargs`, function decorator, Global Interpreter Lock (GIL), Reference Counting (RC)   
   * [Python: Concurrency Fundamentals (part 1)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4c.md)  
-  * [Exercise 1: Simple problems to reinforce fundamentals - part1](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-7.md)
+  * [Exercise 1: Simple problems to reinforce fundamentals - part1](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-7.md)  
   * [Exercise 2: Simple problems to reinforce fundamentals - part2](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-12.md)      
   * [Exercise 3: List comprehension, lambda, map, filter, generator and error handling](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-6.md)  
   * [Exercise 4: List & String](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-8.md) 

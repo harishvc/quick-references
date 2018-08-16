@@ -1,5 +1,6 @@
 # Python 3.x  
   * [Python: Basic Data Structures](https://github.com/harishvc/quick-references/blob/master/python3/python-intro1.md)
+      Strings, List, Tuple, Set, Dictionary, Queue, Deque
   * [Python: Sort](https://github.com/harishvc/quick-references/blob/master/python3/python-sort.md) 
   * [Python: Fundamentals (part 1)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4.md)  
   * [Python: Fundamentals (part 2)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4b.md)  

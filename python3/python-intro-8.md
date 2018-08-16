@@ -48,15 +48,17 @@ print(b) #[200, 50, 10, 5, 1]
 a="   Hello   World!  "
 b = a.strip() #only works on start and end!
 print(b) #Hello   World!  
-````
-###Split a string
+```
+
+### Split a string
 ```python
 input="Hello World!"
 for x in input:
 	print(x,end=",") 
 #H,e,l,l,o, ,W,o,r,l,d,!,
-````
-###Split a split into K chunks
+```
+
+### Split a split into K chunks
 ```python
 def splitString(a,size,chunksize):
    new_input = [ a[start:start+chunksize] for start in range(0,size,chunksize)]	

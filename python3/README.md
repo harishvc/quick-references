@@ -5,7 +5,7 @@
   * [Python: Fundamentals (part 1)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4.md)  
      Iterator, generator, None, pass by value, pass by reference, mutable and immutable
   * [Python: Fundamentals (part 2)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4b.md)  
-     `with`, reading from file, `*args` and `**kwargs`, function decorator, Global Interpreter Lock (GIL), Reference Counting (RC)   
+     `with`, reading from file, `*args` and `**kwargs`, function decorator, Global Interpreter Lock (GIL), Reference Counting  
   * [Python: Concurrency Fundamentals (part 1)](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4c.md)  
   * [Exercise 1: Simple problems to reinforce fundamentals - part1](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-7.md)  
   * [Exercise 2: Simple problems to reinforce fundamentals - part2](https://github.com/harishvc/quick-references/blob/master/python3/python-intro-12.md)      

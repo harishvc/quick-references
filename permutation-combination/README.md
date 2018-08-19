@@ -1,24 +1,27 @@
-#Fun with Permuation and Combination
+# Fun with Permuation and Combination
 
-##Permutation
-Combinations where **order matters** is a Permutation. Example: lock combination. A Permutation is an **ordered Combination**    
+## Permutation
+* Combinations where **order matters** is a Permutation. Example: lock combination. A Permutation is an **ordered Combination**    
+* Permutation result has same length are original string (no empty string and strings of different length)
+* Permutation can be considered as a COMPLETE GRAPH TRAVERSAL problem without visiting any node twice
 * Two type of Permutations  
-  - Repetition is allowed  
-  - Repetition is not allowed
-  - P(n,r)    
-* Permutations with Repetition  
-  - Example: If the lock has a 3 digit (0...9) combination where digits can repeat. What is the # of permutations?
-  - 10 digits can each take 1 of the 3 slots 
-  - #permutations = `10^3` 
-  - #Permutations with Repetition = **n^r**  
-    n=total number of things to choose from, r=#slots/spots/openings 
-* Permutations without Repetition  
-  - Example: #permutations of choosing 3 pool balls (1...16) or P(16,3)?   
-  - #permutations = `16x15x14`
-  - #Permutations without Repetition = **n!/(n-r)!**  
+  - Repetition **allowed**  
+    #Permutations with repetition = **n^r**  
+    n=total number of things to choose from, r=#slots/spots/openings
+  - Repetition is **not allowed**  
+    #Permutations without Repetition = **n!/(n-r)!**  
     n=total number of things to choose from, r=#slots/spots/openings  
+* Problem #1: How many permutations are there in  `ABCD`  
+  - 4 unique characters. 4!
+* Problem #2: How many permutations are there in   `ABAD`  
+  - 4 characters, `A` repeats 2 times 
+  - 4!/2! = 4x3 = 12
+* Problem #3: How many permutations are there in   `ABADBB`  
+  - 6 characters, `A` repeats 2 times, `B` repeats 3 times 
+  - 6!/(2! * 3!) = 60
 
-##Combination
+
+## Combination
 Combinations where **order does NOT matter** is a Combination. Example lottery ticket.
 * Two types of Combinations  
   - Repetition is allowed  
@@ -35,5 +38,5 @@ Combinations where **order does NOT matter** is a Combination. Example lottery t
     n=total number of things to choose from, r=#slots/spots/openings  
   
 
-##References
+## References
 * [Combinations and Permutations](https://www.mathsisfun.com/combinatorics/combinations-permutations.html)

@@ -30,7 +30,8 @@ $>java -Xms256m -Xmx2048m
 ```
 
 ## Explain Garbage Collection (GC)
-![java heap](java-heap.png) [2]
+![java heap](java-heap.png) 
+Image source [2]
 * Garbage collector is a program which runs on the Java Virtual Machine (JVM) to rid of **objects** which are not being used anymore.
 * Garbage collection is an **Automatic memory management** scheme so the programmer does not have to worry  about it
 * Java objects are created in Heap and Heap is divided into three parts - Young (New) Generation, Tenured (Old) Generation and Permanenet Generation

@@ -1,6 +1,5 @@
 # UNIX Quick Reference
 
-
 # What is a process id?
 Process ID (PID) is unique identifier. A PID is automatically assigned to each process when it is created.
 
@@ -34,6 +33,7 @@ $kill -l
 25) SIGXFSZ	26) SIGVTALRM	27) SIGPROF	28) SIGWINCH
 29) SIGINFO	30) SIGUSR1	31) SIGUSR2	
 ``` 
+
 * `kill` sends a `TERM` signal to the process to terminate. However, the process can ignore this request!
 * A process can catch the`TERM` signal to handle termination gracefully and releasing resources
 * A `KILL` signal can be issued to a process. `KILL` signal cannot be ignored and the process will be killed immediately
@@ -93,6 +93,15 @@ $>cat help.txt 2> /tmp/null  #sent error to /dev/null
 ## What is `/dev` and `/proc`?
 * Files in `/dev` are either character or block devices connected to a device driver! They don't have a size. Example `stdin`, `stdout` & `stderr`
 * `/proc` is a special virtual filesystem in Linux to keep track of runtime system information. They have size 0.
+
+## What is a `core` dump?
+A process dumps core when it is terminated by the operating system due to a fault in the program.
+
+## What is a system call? [TODO]
+
+## Explain `ptrace`? [TODO]
+
+## Explain `strace`? [TODO]
 
 
 

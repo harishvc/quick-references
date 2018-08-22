@@ -13,12 +13,12 @@
 * Java
  	* [Java introduction, memory management, stack trace, startup flags](https://github.com/harishvc/quick-references/blob/master/java/intro-1.md)
 * Unix
-	* [Introduction to Unix](https://github.com/harishvc/quick-references/blob/master/unix/intro-1.md)
-	  process vs threads, kill process, sudo, i/o stream, core dump, `/dev`, `/proc`
+	* [Introduction to Unix](https://github.com/harishvc/quick-references/blob/master/unix/intro-1.md)  
+	  process vs thread, kill process, sudo, i/o stream, core dump, `/dev`, `/proc`
 * WWW
-	* [Introduction to WWW](https://github.com/harishvc/quick-references/blob/master/www/www-intro.md)
-	  OSI Layers, Digital Certificates, TCP, UPD, Firewall, Proxy, REST
-	* [Introduction to Networking](https://github.com/harishvc/quick-references/blob/master/www/www-intro2.md) 
-	  Data Serialization, JSON, XML, Parse JSON feed
+	* [Introduction to WWW](https://github.com/harishvc/quick-references/blob/master/www/www-intro.md)  
+	  OSI Layers, Digital Certificates, TCP, UPD, Firewall, Proxy, REST  
+	* [Introduction to Networking](https://github.com/harishvc/quick-references/blob/master/www/www-intro2.md)     
+	  Data Serialization, JSON, XML, Parse JSON feed  
 * Command Line (CMD) Tools
-	* [Introduction to Command Line Tools](https://github.com/harishvc/quick-references/blob/master/tools/README.md)  
+	* [Introduction to Command Line Tools](https://github.com/harishvc/quick-references/blob/master/tools/README.md)    

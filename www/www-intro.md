@@ -1,123 +1,100 @@
+# WWW Quick Reference - Part I
+
 ## OSI Layer
-  Open Systems Interconnection (OSI)) is **reference model** that shows how  applications communicate over a network. A reference model is a **conceptual framework** for understanding relationships. 
-* Layer 1: Physical Layer provides the hardware for sending and receiving data (hub)
-* Layer 2: The data link layer. Ethernet is the main data link layer (switch)
-* Layer 3: Network layer handles routing of the data. IP is the network layer for the Internet (router)
-* Layer 4: Transport layer. On the internet, TCP and UDP provide these services for most applications
-* Layer 5: Session layer. Services include authentication and reconnection (IP)
-* Layer 6: Presenation layer. Data encryption is handled
+ 
+Open Systems Interconnection (OSI)) is **reference model** that shows how  applications communicate over a network. A reference model is a **conceptual framework** for understanding relationships. 
 * Layer 7: Application layer
+* Layer 6: Presenation layer. Data encryption is handled
+* Layer 5: Session layer. Services include authentication and reconnection (IP)
+* Layer 4: Transport layer. On the internet, TCP and UDP provide these services for most applications
+* Layer 3: Network layer handles routing of the data. IP is the network layer for the Internet (router)
+* Layer 2: The data link layer. Ethernet is the main data link layer (switch)
+* Layer 1: Physical Layer provides the hardware for sending and receiving data (hub)
+
+## Why do we need SSL?
+SSL (Secure Sockets Layer) is a security protocol responsible for establishing an encrypted (secure) link between a web server and a browser
+
+## What is a digital certificate?
+* SSL digital certificates are signed by Certificate Authority (CA), after verifying identity of an applicant. 
+* After verification, digital certificates are issued along with Intermediate certificate that tie back to CA root certificate
+
+## Steps to create digital certificate?
+* Create private and public keys
+* Store private keys in a secure place accessible by webserver
+* Generate Certificate Signing Request (CSR) using the public key
+* Submit the CSR to a Certificate Authority (CA)
+* CA will provide you a SSL digital certificate for your domain and intermediate certificate
+* Upload the SSL digital certificate and intermediate certificate on your server and then configure your webserver
+* Intermediate certificate establishes the credibility of your certificate by tying it to your CA root certificate
+* SSL digital certificates are signed by Certificate Authority (CA), after verifying identity of an applicant
+
+References:
+1. https://www.digicert.com/ssl/
+2. https://blog.ragnarson.com/2013/10/18/why-do-we-need-ssl.html
+
+## TCP/IP vs UPD?
+TCP/IP
+* TCP is connection oriented - 3 way handshake
+* TCP guarantees (in-order) packet delivery
+* Example: HTTP,SMTP, SSH    
+
+UPD
+* UPD is connection less
+* Ideal for low latency
+* Examples: DNS, streaming movie, online gaming
 
 
-## What is ASCII?
-American Standard Code for Information Interchange (ASCII), was created in 1963 by the "American Standards Association" . There are 256 ASCII characters (from 0 to 255) which include control characters, printable characters and extended characters. [More information about ASCII](http://www.theasciicode.com.ar/ascii-printable-characters/capital-letter-a-uppercase-ascii-code-65.html)
+## What is Domain Name Service?
+* DNS is the phonebook of the Internet
+* In a nutshell DNS transalates URL's to IP address 
+
+References:
+1. https://www.cloudflare.com/learning/dns/what-is-dns/
+2. https://aws.amazon.com/route53/what-is-dns/
+3. https://developers.google.com/speed/public-dns/
+
+## Why is DNS propagation slow?
+* Entires in DNS have TTL that make take longer
+
+
+## How do you change DNS? [TODO]
+
+## How can you do a reverse lookup? [TODO]
+
+## What is firewall?
+Firewall is part of a computer system or network that is designed to *block unauthorized access* while permitting outward communication
+
+
+## What is REST API?
+* Representational State Transfer (REST)
+* Takes advantage of HTTP - no need to install libraries or additional software!
+* REST does not maintain state
+
+## Explain `no route to host`? [TODO]
+
+## Explain `request timedout`? [TODO]
+
+## Howto generate a TCP dump? [TODO]
+
+
+## Proxy vs Reverse Proxy
+* Proxy: Website retrieves information on-behalf of someone else. Example: People is specific subnet blocked from local news. Proxy server can access news.
+* Reverse Proxy: Load balancing traffic or running services on non-standard port
+
+Reference:
+1. https://stackoverflow.com/questions/224664/difference-between-proxy-server-and-reverse-proxy-server
+
+## What is a name based virtual server?
+* Webserver is configured to host name based virtual domains
+* DNS configured to resolve name name based virtual domains
 ```
-#python3.x
-$> ord('A')  #get ASCII for letter 'A'
-65
+Non-authoritative answer:
+Name:	harishvc.com
+Address: 104.31.65.151
+Name:	harishvc.com
+Address: 104.31.64.151
 ```
 
-## What is character encoding?
-* A charset is the set of characters you can use
-* Encoding is how these characters are stored into memory
-* A byte is 8 bits and can only have 256 distinct values!  
-* How can all the languages then be represented? This need has lead to several encodings and charsets. 
-* A popular charset is **Unicode**  that gives each character a codepoint in format ```u+xxxx```.  It has the ambition to contain all characters (and popular icons) used in the **entire world**.
-* **UTF-8, UTF-16 and UTF-32 are encodings** apply the Unicode character table and have a slightly different way on how to encode them. 
-* UTF-8 will only use 1 byte when encoding an ASCII character, for other characters, it will use the first bit to indicate that a 2nd byte will follow.
-
-
-
-## What is Data Serialization?
-* Data serialization is the concept of converting structured data into a format that allows it to be shared or stored in such a way that its original structure to be recovered. 
-* In some cases, the secondary intention of data serialization is to minimize the size of the serialized data which then minimizes disk space or bandwidth requirements. 
-
-In python you can use `pickle` or `json.dumps`. `pickle` stores in binary format while `json.dumps` stores in human readable format.
-```
-#pickle
-import pickle
->>> grades = { 'Alice': 89, 'Bob': 72, 'Charles': 87 }
->>> serial_grades = pickle.dumps( grades )
->>> serial_grades
-b'\x80\x03}q\x00(X\x03\x00\x00\x00Bobq\x01KHX\x05\x00\x00\x00Aliceq\x02KYX\x07\x00\x00\x00Charlesq\x03KWu.'
-
-#json
-grades = { 'Alice': 89, 'Bob': 72, 'Charles': 87 }
-z = json.dumps(grades)
-print(z)
-'{"Bob": 72, "Alice": 89, "Charles": 87}'
-```
-
-# What is JSON?
-* JavaScript Object Notation (JSON) is a format that encodes objects in a string
-* JSON objects can be of different types - str, int, list, dict, tuple which makes it very popular!
-* JSON contains data without any labels/descriptions - less data transferred over the network! 
-* Serialization means to convert an object into string (make it **flat**), and deserialization is its inverse operation.
-```
-https://docs.python.org/3/library/json.html
->>> import json
-#
-#Example 1: int
->>> a = 1234   #json object is integer
->>> type(a)
-<class 'int'>
->>> json.dumps(a)
-'1234'          #json object converted to string
-#
-#Example 2: Tuple
->>> a = (1,2,3)
->>> type(a)
-<class 'tuple'>
->>> json.dumps(a)
-'[1, 2, 3]'
-#
-#Example 3: List of dict
->>> a = ['foo', {'bar': ('baz', None, 1.0, 2)}]
->>> type(a)
-<class 'list'>
->>> json.dumps(a)
-'["foo", {"bar": ["baz", null, 1.0, 2]}]'
-#
-#Example 4: dict
->>> a = {"c": 0, "b": 0, "a": 0}
->>> type(a)
-<class 'dict'>
->>> json.dumps(a)
-'{"b": 0, "c": 0, "a": 0}'
-```
-## JSON vs XML?
-
-### XML
-* XML is a language
-* Generalized markup
-* Create new datatypes
-* XPath/XQuery for extracting information in deeply nested structures
-* Relatively wordy compared to JSON
-
-### JSON
-* Simple syntax, which results in less "markup" overhead compared to XML
-* Handful of different data types are supported
-* JSON generally better for server to client communication - browser understands JSON natively!
-
-## Parse JSON feed
-```
-import requests
-import simplejson
-
-r = requests.get('Https://api.github.com/users/harishvc/events/public')
-c = r.content
-j = simplejson.loads(c)
-
-for item in j:
-    for c in item['payload']['commits']:
-    	print(c['sha'], c['message'])
-
-d20bd606f4873d2a84383e04f8431253e8e99e02 update Concurrency notes location
-14b3aab151b0b04f355283163d4f178560f440ff add links to examples
-f2299d98b8f3c86f90b1f80fca1822f504188656 clean up 2
-...
-..
-```
 
 ## Cookie vs Cache  (```chrome://net-internals```)
 
@@ -140,7 +117,7 @@ Future requests use this `sessionID`. Based on browser setting on expiration set
 * http://www.howtogeek.com/138771/htg-explains-how-latency-can-make-even-fast-internet-connections-feel-slow/
 
 
-## HTTP status codes, HTTP redirect
+## HTTP status codes
 200 - Ok  
 301 - permament redirection (retains SEO juice!)  
 302 - temporary redirection  

@@ -60,16 +60,17 @@ $kill -s SIGCONT #Resume a suspended process
 
 
 ## What is the difference between process and thread?
-* Process 
-** Each process has a virtual address space, executable code, open handles to system objects, a security context, unique process identifier, 
-   environment variables and at least one thread of execution
-** Run in separate memory spaces
-** Each process is started with a single thread, often called the primary thread.
-* Threads 
-** A thread is a subset of the process.
-** It is termed as a ‘lightweight process’
-** All threads of a process share its virtual address space and system resource
-** Each thread maintains an unique identifier, own exception handlers, thread local storage and security context
+Process 
+* Each process has a virtual address space, executable code, open handles to system objects, a security context, unique process identifier, 
+  environment variables and at least one thread of execution
+* Run in separate memory spaces
+* Each process is started with a single thread, often called the primary thread.
+
+Threads 
+* A thread is a subset of the process.
+* It is termed as a ‘lightweight process’
+* All threads of a process share its virtual address space and system resource
+* Each thread maintains an unique identifier, own exception handlers, thread local storage and security context
 
 Reference:
 1. https://stackoverflow.com/questions/200469/what-is-the-difference-between-a-process-and-a-thread

@@ -1,55 +1,40 @@
 # Python 3: Concurrency Fundamentals (part 1)
 
-
 ## Concurrency
   Concurrency is the **execution of several instruction sequences at the same time**. In an operating system, this happens when there are several process threads running in parallel.
 
 ## Critical Section
-  Critical section contains shared resources and its access is protected  to prevent unexpected outcomes
+  - Critical section is a block of code that needs to be executed *atomically* - only one thread is executing the block of code at any give time
+  - Here the block of code could be accessing shared resources 
+  - Some *synchronization* mechanism is required at the entry and exit of the critical to prevent unexpected outcomes
 
 ## Locks
-  - A primitive lock is a synchronization primitive
-  - In Python, it is currently the **lowest level synchronization primitive available**, implemented directly by the _thread extension module
-  - A primitive lock is in one of two states, “locked” or “unlocked”. It is created in the unlocked state
+  - In Python `lock` it is currently the **lowest level synchronization primitive available**, implemented directly by the `_thread` extension module
+  - A primitive `lock` has two states, `locked` or `unlocked`. It is created in the unlocked state
   - A lock is not owned by a particular thread
-  - `acquire()` you can lock the critical section and then `release()` when complete. 
-  - When more than one thread is blocked in acquire() waiting for the state to turn to unlocked, only one thread proceeds when a release() call resets the state to unlocked; which one of the waiting threads proceeds is not defined, and may vary across implementations.
+  - `acquire()` you can lock the critical section and then `release()` when complete
+  - When `locked` all threads trying to `acquire()` wait for the state to turn to unlocked, only one thread proceeds when a `release()` call resets the state to unlocked - which one of the waiting threads proceeds is not defined, and may vary across implementations.
   - Example: multiple read and synchronous write
-
-## Conditional Variables
-  - A condition variable is always associated with some kind of lock
-  - `wait()` releases the lock, and then blocks until another thread awakens it by calling `notify()` or `notify_all()`. 
-  - Once awakened, `wait()` re-acquires the lock and returns. 
-  - Example: Producer consumer problem
-
-
+ 
 ## Mutex
-  - Kernel resource that provide synchronization services (also called as synchronization primitives)
-  - A mutex provides **mutual exclusion**. At any point of time, only **ONE** thread can work in the critical section
-  - Strictly speaking, a mutex is **locking mechanism** used to synchronize access to a resource.
-  - There is **ownership** associated with mutex, and only the owner can release the lock
-  - Mutux can be shared across **multiple processes**
-  - Mutex is costly operation due to protection protocols associated with it. Since the objective of mutex is **atomic access**.
-  - Mutex also provide **priority inversion safety**. Since the mutex knows its current owner, it is possible to promote the priority of the owner whenever a higher-priority task starts waiting on the mutex.
-  - Mutex provide deletion safety, where the process holding the mutex cannot be accidentally deleted. Semaphores do not provide this.
+  - Strictly speaking, Mutex is **locking mechanism** that allows only one thread can acquire the lock - ownership associated with mutex, and only the owner can release the lock
+  - A mutex can be implemented using a `lock`
+  - Mutex is costly operation due to protection protocols associated with it - **priority inversion safety** and **deletion safety**
 
-## Mutex vs Conditional Variables  
-  - Mutex are designed to provide exclusive access to a shared resource - synchronized resource access. Mutexes weren't designed for use as a notification/synchronization mechanism.
-  - Conditional variable is used for waiting for a condition to be true (state)
-  - Mutex: Involves Kernal transition, two states - taken, free All waiters are woken up
-  - Conditional Variables: Associated with mutex, ONE waiter is woken on free, Yield and re-wait on a state  
 ```python
-#Example #1
+#Example: Mutex using lock
 import threading
 l = threading.Lock()
-l.acquire()
 try:
+  l.acquire()
   print("hello world!")
   #do something
 finally:
   l.release()
+```
 
-#Example 2
+```python
+#Example2: "with" to accomplish mutex using lock
 import threading
 import time
 
@@ -64,7 +49,7 @@ class Thread(threading.Thread):
     self.start()
 
 def help1():
-  with lock:
+  with lock:  #acquire & release, "with" is a special keyword
     print("help1")
     print("sleeping ......")
     time.sleep(20) 
@@ -91,37 +76,140 @@ help2 25
 '''
 ```
 
+## Conditional Variables
+  - A condition variable is always associated with a `lock`
+  - `wait()` releases the lock, and then blocks until another thread awakens it by calling `notify()` or `notify_all()`. 
+  - Once awakened, `wait()` re-acquires the lock and returns
+  - Example: Producer consumer problem - Consumer needs to know that producer has produced! Producer needs to know there is consumer waiting!
+```python
+#example 3: Conditional variable implemented using lock
+
+#original: http://www.bogotobogo.com/python/Multithread/python_multithreading_Synchronization_Condition_Objects_Producer_Consumer.php
+import threading
+import time
+import logging
+
+logging.basicConfig(level=logging.DEBUG,format='(%(threadName)-9s) %(message)s')
+
+def consumer(cv):
+    logging.debug('Consumer thread started ...')
+    with cv:
+        logging.debug('Consumer waiting ...')
+        cv.wait() #release the lock and block until another thread awakens
+        logging.debug('Consumer consumed the resource')
+
+def producer(cv):
+    logging.debug('Producer thread started ...')
+    with cv:
+        logging.debug('Making resource available')
+        logging.debug('Notifying to all consumers')
+        cv.notifyAll() #awake threads waiting on the lock
+
+if __name__ == "__main__":
+    condition_variable = threading.Condition()
+    consumer1 = threading.Thread(name='consumer1', target=consumer, args=(condition_variable,))
+    consumer2 = threading.Thread(name='consumer2', target=consumer, args=(condition_variable,))
+    producer  = threading.Thread(name='producer', target=producer, args=(condition_variable,))
+
+
+consumer1.start()
+time.sleep(2)
+consumer2.start()
+time.sleep(2)
+producer.start()
+
+'''
+(consumer1) Consumer thread started ...
+(consumer1) Consumer waiting ...
+(consumer2) Consumer thread started ...
+(consumer2) Consumer waiting ...
+(producer ) Producer thread started ...
+(producer ) Making resource available
+(producer ) Notifying to all consumers
+(consumer1) Consumer consumed the resource
+(consumer2) Consumer consumed the resource
+'''
+```
 
 ## Semaphores
-  - Kernel resource that provide synchronization services (also called as synchronization primitives)
-  - A semaphore is a **generalized mutex**
-  - Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal)
-  - Example: listening songs on your mobile and getting a call. Here the iterrupt wakes up the call processing task
-  - A semaphore has **no concept of an owner**. Any process can unlock a semaphore.
-  - A semaphore can allow X threads to enter (example: DB Thread pool) and non selected threads are put to sleep
-  - A semaphore maintains a count between zero and some maximum value, limiting the number of threads that are simultaneously accessing a shared resource
+  - Semaphore is **signaling mechanism** (“I am done, you can carry on” kind of signal)
+  - A semaphore can allow X threads to enter (example: DB Thread pool) to enter critical section
+  - A semaphore maintains a count between zero and X threads, limiting the number of threads that are simultaneously accessing a shared resource
+```python
+#reference: https://stackoverflow.com/questions/30032398/how-to-know-python-semaphore-value
+#example 4: Semaphore
+>>> from threading import Semaphore
+>>> sem = Semaphore(5)
+>>> sem.acquire()
+True
+>>> sem._value
+4
+>>> sem.acquire()
+True
+>>> sem._value
+3
+>>> sem.release()
+>>> sem._value
+4
+>>> 
 
-## Lock vs Mutex vs Semaphore
-  - A lock allows only one thread to enter the part that's locked and the lock is not shared with any other processes.
-  - A Mutex is the same as a lock but it can **shared by multiple processes** and results in **kernel transition**
-  - A semaphore does the same as a mutex but allows X number of threads to enter the critical section and results in **kernel transition**  
+#example 5: Avoid deadlocks 
+if(sema.acquire(blocking=False)):
+    # Do something with lock taken
+    sema.release()
+else:
+    # Do something in case when lock is taken by other
+```
 
-## What is a deadlock? Tips to avoid deadlock.
-  - All threads are waiting to acquire a lock
+## Mutex vs Conditional Variable
+  - Mutex and Conditional Variable are implemented using `lock`
+  - Mutex is implemented using `acquire` and `release`
+  - Conditional Variable is implement using `wait`, `notify` , `notifyAll`
+  - Mutex don't have a notification mechanism - ideal for a sequence of operations to happen
+  - Conditional variable are used for waiting for a condition to be true (state) - inbuilt notification mechanism
+  - Condition variable is generally used to **avoid busy waiting** - looping repeatedly while checking a condition, wasting processor time
+ 
+## Semaphore vs Conditional Variable
+  - There is a overlap here - notification mechanism
+  - Semaphore is used when you have a shared resource that can be available for X threads (X >=1)
+
+
+## Mutex vs Semaphore
+  - Reference: `https://www.quora.com/What-is-the-difference-between-a-mutex-and-a-semaphore`
+  - Strictly speaking, Mutex is **locking mechanism** that allows only one thread can acquire the lock - ownership associated with mutex, and only the owner can release the lock
+  - There is no ordering while using mutex - any of the waiting threads can acquire the lock
+  - Strictly speaking, Semaphore is **signaling mechanism** than allows X threads to work in the critical section
+  - Ordering can be achieved using Semephores using `notify`
+
+## What is a deadlock? Tips to avoid deadlock
+  - Reference: https://stackoverflow.com/questions/34512/what-is-a-deadlock
+  - A deadlock happens when a thread is waiting for an event that **does not** occur!
   - Add timeouts to locks so the locks can be released and try again!
   - Define a lock order - obtain locks in a fixed order
   - Do not call external/third-party functions inside Critical Section without testing
   - Develop scripts that monitor thread state
 
+## What is a Livelock?
+  - Reference: https://stackoverflow.com/questions/6411803/differences-if-any-among-livelock-and-starvation-in-operating-systems
+  - Much less common a problem than deadlock
+  - Livelocked threads are **not blocked**  however thay are unable to make further progress - running in circles!
+  - Example: Comparable to two people attempting to pass each other in a corridor: X moves to his left to let Y pass, while Y moves to his right to let X pass. Seeing that they are still 
+    blocking each other, X moves to his right, while Y moves to his left - unable to make progress!
+
+## What is Starvation?
+  - Reference: https://stackoverflow.com/questions/6411803/differences-if-any-among-livelock-and-starvation-in-operating-systems
+  - Much less common a problem than deadlock
+  - Starvation describes a situation where a thread is unable to **gain regular access** to shared resources and is unable to make progress
+
+
 ## What is a race condition?
-  - When multiple threads access the same resources could produce unanticiated outcomes.
+  - When multiple threads access the same resources producing **unanticiated outcomes**
   - Identify the critical section and apply concurrency primitives on the critical section
-  - Random sleep in on waiting threads so the kernal doesn't wake up all the waiting threads
 
 
 ##  Muli-threading Support & Global Interpreter Lock (GIL)
-  - Cpython, Python's implementation in C enforces GIL since CPython's memory management is not thread-safe
-  - In CPython threads there are no priorities and no thread groups. Threads cannot be stopped and suspended, resumed or interrupted. 
+  - Cpython, Python's implementation in C enforces GIL since **memory management is not thread-safe**
+  - In CPython, there are **no priorities and no thread groups**. Threads **cannot be stopped and suspended, resumed or interrupted** 
   - Thread support provided is very much basic, however a lot can still be accomplished, using the threading module.
   - In order to support multi-threaded Python programs, there's a global lock (GIL) that must be acquired by the current thread before it can safely access Python objects.
   - Thus only the thread that has acquired the GIL may operate on Python Objects or call Python C API functions.
@@ -133,8 +221,8 @@ help2 25
 
 ## Thread vs Process
   - A process is an executing instance of an application. A thread is a path of execution within a process. A process can contain many threads. 
-  - Threads are easy to create, consume less resources since they share the same address space as the process creating the threads
-  - Threads are used for small tasks, whereas processes are used for more ‘heavyweight’ tasks – basically the execution of applications - threads are light weight processes.
+  - Threads are easy to create, consume less resources since they share the same **address space** as the process creating the threads
+  - Threads are used for small tasks, whereas processes are used for more ‘heavyweight’ tasks
   - Threads within the same process share the same address space, whereas different processes do not. This allows threads to read from and write to the same data structures and variables, and also facilitates communication between threads. 
   - Communication between processes – also known as IPC, or inter-process communication – is quite difficult and resource-intensive
   - Processes are independent of each other.  Threads, since they share the same address space are interdependent

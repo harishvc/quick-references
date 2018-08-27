@@ -28,14 +28,14 @@ Combinations where **order does NOT matter** is a Combination. Example lottery t
   - Repetition is not allowed    
   - `n choose r`  
 * Combinations with Repetition  
-  - Example: Pick 3 scoops from 5 different ice-cream flavors. `(5+3-1)!/(3!*(5-1)!)`  
   - #combinations = **(n+r-1)!/r! * (n-1)!**  
+  - Example: Pick 3 scoops from 5 different ice-cream flavors. ` (5+3-1)!/(3!*(5-1)!)`  
 * Combinations without Repetition  
+  - #combinations = **n!/(n-r)! * r!**  
+    n=total number of things to choose from, r=#slots/spots/openings  
   - Example: Lottery, Committee members   
   - #Combinations for getting 123 = 1   
   - Example: `150 choose 1 = 150!/(150-1)!*1!`
-  - #combinations = **n!/(n-r)! * r!**  
-    n=total number of things to choose from, r=#slots/spots/openings  
   
 
 ## References

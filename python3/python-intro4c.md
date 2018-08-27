@@ -1,4 +1,4 @@
-# Python 3: Concurrency Fundamentals (part 1)
+# Python 3: Concurrency Fundamentals
 
 ## Concurrency
   Concurrency is the **execution of several instruction sequences at the same time**. In an operating system, this happens when there are several process threads running in parallel.
@@ -22,7 +22,7 @@
   - Mutex is costly operation due to protection protocols associated with it - **priority inversion safety** and **deletion safety**
 
 ```python
-#Example: Mutex using lock
+#Example 1: Mutex using lock
 import threading
 l = threading.Lock()
 try:
@@ -75,6 +75,114 @@ help1 25
 help2 25
 '''
 ```
+## Event
+  - Reference: https://graysonkoonce.com/waiting-until-a-thread-is-ready-in-python/
+  - Event object is one of the simplest mechanisms for communication between threads
+  - One thread signals an event and other thread waits for it
+```python
+#Example 3: event object
+#source: https://graysonkoonce.com/waiting-until-a-thread-is-ready-in-python/
+from threading import Event, Thread
+
+class ChildProgram:
+    def __init__(self, ready=None):
+        self.ready = ready
+        self.connection = None
+
+    def connect(self):
+        # lets make connection, expensive
+        self.connection = SomeConnection()
+        
+        # then fire the ready event
+        self.ready.set()
+
+    def some_logic(self):
+        # do something with self.connection
+        pass
+
+ready = Event()
+program = ChildProgram(ready)
+
+# configure & start thread
+thread = Thread(target=program.connect)
+thread.start()  #non blocking!
+
+# block until ready
+ready.wait()
+
+# now we can safely use program
+program.some_logic()
+``` 
+
+## `join`
+  - Reference: https://stackoverflow.com/questions/15085348/what-is-the-use-of-join-in-python-threading
+  - `join` blocks the calling thread until the thread whose join() method is called is `terminated`
+  - example: `main thread`  waiting for child thread to terminate
+```python
+#example 4: join
+def doSomething1():
+  print("doSomething1 here ...")
+
+def doSomething2():
+  print("doSomething2 here ...")
+
+t = Thread(name="childThread",target=doSomething)
+print("starting child thread")
+t.start()
+t.join()  #main thread waiting for child thread "t" to terminate
+doSomething2()
+
+'''
+starting child thread
+doSomething1 here ...
+doSomething2 here ...
+```  
+
+```python
+#example 5: enumerate & join 
+#source: http://www.bogotobogo.com/python/Multithread/python_multithreading_Enumerating_Active_threads.php
+
+import threading
+import time
+import logging
+import random
+
+logging.basicConfig(level=logging.DEBUG,
+                    format='(%(threadName)-9s) %(message)s',)
+
+def f():
+    r = random.randint(1,5)
+    logging.debug('sleeping %s', r)
+    time.sleep(r)
+    logging.debug('ending')
+    return
+
+if __name__ == '__main__':
+    main_thread = threading.current_thread()
+    for i in range(0,3):
+        t = threading.Thread(target=f)
+        t.setDaemon(True)
+        t.start()
+
+
+    #enumerate() gathers all active threads including the calling thread     
+    for t in threading.enumerate():
+        if t is main_thread:
+            continue
+        logging.debug('joining %s', t.getName())
+        t.join()
+'''
+(Thread-1 ) sleeping 3
+(Thread-2 ) sleeping 2
+(Thread-3 ) sleeping 1
+(MainThread) joining Thread-1
+(Thread-3 ) ending
+(Thread-2 ) ending
+(Thread-1 ) ending
+(MainThread) joining Thread-2
+(MainThread) joining Thread-3
+'''
+```
 
 ## Conditional Variables
   - A condition variable is always associated with a `lock`
@@ -82,7 +190,7 @@ help2 25
   - Once awakened, `wait()` re-acquires the lock and returns
   - Example: Producer consumer problem - Consumer needs to know that producer has produced! Producer needs to know there is consumer waiting!
 ```python
-#example 3: Conditional variable implemented using lock
+#example 6: Conditional variable implemented using lock
 
 #original: http://www.bogotobogo.com/python/Multithread/python_multithreading_Synchronization_Condition_Objects_Producer_Consumer.php
 import threading
@@ -137,7 +245,7 @@ producer.start()
   - A semaphore maintains a count between zero and X threads, limiting the number of threads that are simultaneously accessing a shared resource
 ```python
 #reference: https://stackoverflow.com/questions/30032398/how-to-know-python-semaphore-value
-#example 4: Semaphore
+#example 7: Semaphore
 >>> from threading import Semaphore
 >>> sem = Semaphore(5)
 >>> sem.acquire()
@@ -153,7 +261,7 @@ True
 4
 >>> 
 
-#example 5: Avoid deadlocks 
+#example 8: Avoid deadlocks 
 if(sema.acquire(blocking=False)):
     # Do something with lock taken
     sema.release()
@@ -204,7 +312,7 @@ else:
 
 ## What is a race condition?
   - When multiple threads access the same resources producing **unanticiated outcomes**
-  - Identify the critical section and apply concurrency primitives on the critical section
+  - Identify the critical section and apply *synchronization* techniques
 
 
 ##  Muli-threading Support & Global Interpreter Lock (GIL)
@@ -216,14 +324,14 @@ else:
   - The Python Interpreter keeps some book keeping info per thread, for which it uses a data structure called `PyThreadState`
   - To support multi threaded Python programs the interpreter regularly releases and reacquires the global lock, by default every **10 bytecode instructions**. This can however be changed using the `sys.setcheckinterval()`. 
   - The lock is also **released and reacquired around potentially blocking I/O operations** like reading or writing a file, so that other threads can run while the thread that requests the I/O is waiting for the I/O operation to complete
-  - Potentially blocking or long-running operations, such as I/O, image processing, and NumPy number crunching, happen outside the GIL.
+  - Long running operations such as I/O, image processing, and NumPy number crunching, happen outside the GIL.
 
 
 ## Thread vs Process
   - A process is an executing instance of an application. A thread is a path of execution within a process. A process can contain many threads. 
   - Threads are easy to create, consume less resources since they share the same **address space** as the process creating the threads
-  - Threads are used for small tasks, whereas processes are used for more ‘heavyweight’ tasks
-  - Threads within the same process share the same address space, whereas different processes do not. This allows threads to read from and write to the same data structures and variables, and also facilitates communication between threads. 
+  - Threads are used for small tasks, whereas processes are used for more heavyweight tasks
+  - Threads within the same process share the same **address space**, whereas different processes do not. This allows threads to read from and write to the same data structures and variables, and also facilitates communication between threads. 
   - Communication between processes – also known as IPC, or inter-process communication – is quite difficult and resource-intensive
   - Processes are independent of each other.  Threads, since they share the same address space are interdependent
 

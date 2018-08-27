@@ -37,14 +37,13 @@ $> chr(65)   #convert int to chr
 * Reference: https://www.quora.com/What-is-UTF8 
 * Encoding is how these characters are **stored**
 * A byte is 8 bits and can only have 256 distinct values (2^8)!  
-* `Unicode`
-  ** How can all the languages then be represented? `Unicode` is a **standard** for representing a great variety of characters from many languages.
-* `UTF`   
-  ** `Unicode Transfer Format (UTF)` is a *method* for encoding `Unicode` characters
-* `UTF-8`
-  ** `UTF-8` popular format for data transfer online.  Here `8` means that `8-bits` are used in the encoding
-  ** A character in `UTF-8` can be  `1 to 4 bytes` 
-  ** `UTF-8` will only use 1 byte when encoding an ASCII character for other characters, first bit to indicate that a `2nd byte` will follow
+* `Unicode` is a **standard** for representing a great variety of characters from many languages  
+* `Unicode Transfer Format (UTF)` is a *method* for encoding `Unicode` characters
+* `UTF-8` is a popular format for data transfer online  
+	* Here `8` means that `8-bits` are used in the encoding
+	* A character in `UTF-8` can be `1 to 4 bytes` 
+	* `UTF-8` will only use 1 byte when encoding an ASCII character for other characters, first bit to indicate that a `2nd byte` will follow
+
 
 ## What is decoding?
 * Convert a **encoded data**  to text

@@ -327,24 +327,20 @@ else:
   - Long running operations such as I/O, image processing, and NumPy number crunching, happen outside the GIL.
 
 
-## Thread vs Process
-  - A process is an executing instance of an application. A thread is a path of execution within a process. A process can contain many threads. 
-  - Threads are easy to create, consume less resources since they share the same **address space** as the process creating the threads
-  - Threads are used for small tasks, whereas processes are used for more heavyweight tasks
-  - Threads within the same process share the same **address space**, whereas different processes do not. This allows threads to read from and write to the same data structures and variables, and also facilitates communication between threads. 
-  - Communication between processes – also known as IPC, or inter-process communication – is quite difficult and resource-intensive
-  - Processes are independent of each other.  Threads, since they share the same address space are interdependent
-
 ## Concurrency vs Parallel   
   - A parallel program is one that uses a multiplicity of computational hardware (e.g. multiple processor cores) in order to perform computation more quickly. Different parts of the computation are delegated to different processors that execute at the same time (in parallel), so that results may be delivered earlier than if the computation had been performed sequentially. **Parallel programming is concerned only with efficiency**
   - Concurrency is a program-structuring technique in which there are multiple threads of control. Here threads share and modify shared resources. Concurrent program can execute on a single processor or on multiple physical processors.
   - Concurrency is hard to implement and slow since it involves Kernal transition (mutex,semaphores) and by definition block other threads.
+
+## Additional Questions
+  - [Thread and Process](https://github.com/harishvc/quick-references/blob/master/unix/intro-1.md#what-is-the-difference-between-process-and-thread)
 
 ## Examples
   - [Lock objects introduction](https://github.com/harishvc/quick-references/blob/master/python3/concurrency/locks-1.py)  
   - [Lock objects (read & write)](https://github.com/harishvc/quick-references/blob/master/python3/concurrency/locks-2.py)
   - [Conditional Variables (producer and consumer)](https://github.com/harishvc/quick-references/blob/master/python3/concurrency/conditional-variables.py)
   - [Queue object (producer and consumer)](https://github.com/harishvc/quick-references/blob/master/python3/concurrency/using-queue.py)  
+
 
 ## References
   - http://www.geeksforgeeks.org/mutex-vs-semaphore/

@@ -114,7 +114,7 @@ SMTP: 25
 - On Linux/OS X issue `netstat`
 - Additional flags to filter by `listening sockets`, `port number`, `tcp ports`, `udp ports`
 
-## Is a specific service running on a traget machine?
+## Is a specific service running on a target machine?
 - Use `nmap`
 - `nmap` ("Network Mapper") is an open source tool for network exploration and security auditing. It was designed to rapidly scan large networks.
 - Example: Check if port 80 is open in `harishvc.com`
@@ -147,11 +147,6 @@ PORT   STATE SERVICE
 ## Anatomy of TCP packet [TODO]
 - Reference: https://www.techrepublic.com/article/exploring-the-anatomy-of-a-data-packet/
 
-## What is Name Based Server?
-- **Name based virtual server** hosting refers to hosting multiple domains on `1` IP address
-- DNS can be configured to have a `CNAME` entry that maps the name based server to the IP address
-- Apache can be then configured to resolve the name based server
-- Name based virtual hosting also eases the demand for scarce IP addresses
 
  
 ## TCP/IP vs UPD?
@@ -165,8 +160,17 @@ UPD
 * Ideal for low latency
 * Examples: `traceroute`, DNS, streaming movie, online gaming
 
-## Explain TCP Flags
-There are 6 TCP flags. [More information about TCP Flags](http://www.firewall.cx/networking-topics/protocols/tcp/136-tcp-flag-options.html)  
+## Explain TCP Connection Establishment
+- Reference #1: https://en.wikipedia.org/wiki/Transmission_Control_Protocol
+- Reference #2: https://www.geeksforgeeks.org/computer-network-tcp-3-way-handshake-process/
+
+- Before a client attempts to connect with a server, the server must first bind to and listen on port - **passive open**. Once the passive open is established, a client may initiate an **active open**.
+- `SYN`: The active open is performed by the client sending a `SYN` to the server. The client sets the segment **sequence number** to a random value A.
+- `SYN-ACK`: server replies with  `SYN-ACK`. The acknowledgment number is set to **one more than the received sequence number i.e. A+1**, Server chooses nother random number, B as the sequence number.
+- `ACK`: 
+
+## Explain TCP Connection Termination
+- Reference: https://en.wikipedia.org/wiki/Transmission_Control_Protocol
 
 
 ## What is Domain Name Service?
@@ -185,6 +189,12 @@ References:
 ## How do you change DNS? [TODO]
 
 ## How can you do a reverse lookup? [TODO]
+
+## What is Name Based Server?
+- **Name based virtual server** hosting refers to hosting multiple domains on `1` IP address
+- DNS can be configured to have a `CNAME` entry that maps the name based server to the IP address
+- Apache can be then configured to resolve the name based server
+- Name based virtual hosting also eases the demand for scarce IP addresses
 
 
 ## What happens when a web page is requested?
@@ -215,7 +225,8 @@ Address: 104.31.64.151
 200 - Ok  
 301 - permament redirection (retains SEO juice!)  
 302 - temporary redirection  
-304 - not modified  
+304 - not modified 
+401 - Unauthorized Error - check credentials 
 403 - Directory index listing not allowed    
 404 - Page not found  
 500 - Server Error  
@@ -297,4 +308,8 @@ SSL (Secure Sockets Layer) is a security protocol responsible for establishing a
 References:
 1. https://www.digicert.com/ssl/
 2. https://blog.ragnarson.com/2013/10/18/why-do-we-need-ssl.html
+
+
+## IMAP vs POP? [TODO]
+- Reference: https://www.youtube.com/watch?v=BK4ng6Gcits
 

@@ -5,13 +5,13 @@
 
 Run Level   | Mode   |  Action
 ---           ---       ---
-0   |  Halt                               |  Shuts down system
-1   |  Single-User Mode  	              |  Does not configure network interfaces, start daemons, or allow non-root logins
-2   |  Multi-User Mode	                  |  Does not configure network interfaces or start daemons.
-3   |  Multi-User Mode with Networking	  |  Starts the system normally (**default for server**)
-4   |  Undefined	                      |  Not used/User-definable
-5   |  Run level 3 + display manager(X)   |  Start system normally with display manager (**default for desktops**)
-6   |  Reboot                             |  Reboots the system
+0 |  Halt| Shuts down system  
+1   |  Single-User Mode |  Does not configure network interfaces, start daemons, or allow non-root logins  
+2   |  Multi-User Mode  |  Does not configure network interfaces or start daemons  
+3   |  Multi-User Mode with Networking | Starts the system normally (**default for server**)  
+4   |  Undefined | Not used/User-definable  
+5   |  Run level 3 + display manager(X)   |  Start system normally with display manager (**default for desktops**)  
+6   |  Reboot |  Reboots the system
 
 - file `/etc/inittab` tells the `init` daemon what run level the system should enter by default
 - `init` deamon is the first process that starts in a Linux system after the machine boots 

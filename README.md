@@ -4,21 +4,21 @@
 	* [Fun with bits & bytes, back of the envelope math](https://github.com/harishvc/quick-references/blob/master/bits-bytes/README.md)  
 * Permuation and Combination  
 	* [Fun with Permuation and Combination](https://github.com/harishvc/quick-references/blob/master/permutation-combination/README.md)  
-* Concurrency
-    * [Concurrency Fundamentals](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4c.md)  
-* Networking
-	* [Introduction to Networking](https://github.com/harishvc/quick-references/blob/master/www/www-intro.md)  
-	  OSI Layers, Digital Certificates, TCP, UPD, Firewall, Proxy, REST  
+* Java
+ 	* [Java introduction, memory management, stack trace, startup flags](https://github.com/harishvc/quick-references/blob/master/java/intro-1.md)  
 * Unix
 	* [Introduction to Unix](https://github.com/harishvc/quick-references/blob/master/unix/intro-1.md)  
 	  process vs thread, kill process, sudo, i/o stream, core dump, `/dev`, `/proc`
-	* [Introduction to Command Line Tools](https://github.com/harishvc/quick-references/blob/master/tools/README.md)    
+	* [Introduction to Command Line Tools (CLT)](https://github.com/harishvc/quick-references/blob/master/tools/README.md)    
       `awk, find, sort, uniq, grep, sed, uptime`
+* Concurrency
+    * [Concurrency Fundamentals](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4c.md)  
+* Networking
+	* [Introduction to Networking (part 1)](https://github.com/harishvc/quick-references/blob/master/www/www-intro.md)  
+	  OSI Layers, Digital Certificates, TCP, UPD, Firewall, Proxy, REST  
 * WWW
-	* [Data transfer & storage](https://github.com/harishvc/quick-references/blob/master/www/www-intro2.md)     
-	  Data Serialization, JSON, XML, Parse JSON feed  
-* Java
- 	* [Java introduction, memory management, stack trace, startup flags](https://github.com/harishvc/quick-references/blob/master/java/intro-1.md)  
+	* [Introduction to Networking (part 2)](https://github.com/harishvc/quick-references/blob/master/www/www-intro2.md)     
+	  REST API, authentication, cookie, data serialization, JSON, XML, parse JSON feed  
 * Python 3.x 
 	* [Python fundamentals, Concurrency and fun problems](https://github.com/harishvc/quick-references/blob/master/python3/README.md)  
 * MySQL

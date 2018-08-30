@@ -14,9 +14,9 @@ Open Systems Interconnection (OSI)) is **reference model** that shows how  appli
 ## Protocols & PORT
 ```
 HTTP:  80 ,443
-DNS (named): 53
+DNS (named server): 53
 SSH: 22
-SMTP: 25
+IMAP (secure): 993 
 ```
 
 ## What is MAC address? How is it used?
@@ -173,7 +173,7 @@ UPD
 
 ## Explain TCP Connection Establishment
 
-![TCP/IP connection and termination](tcp-ip-setup-disconnect.png)
+![TCP/IP connection and termination](tcp-ip-setup-disconnect.jpg)
 
 ### Working
 - Before a client attempts to connect with a server, the server must first bind to and listen on port - **passive open**. Once the passive open is established, a client may initiate an **active open**.
@@ -182,10 +182,10 @@ UPD
 - `ACK`: Client sends `ACK` with `B+1` back to the server. Connection is established on server side.
 
 ### References
-- 1. https://en.wikipedia.org/wiki/Transmission_Control_Protocol
-- 2. https://www.geeksforgeeks.org/computer-network-tcp-3-way-handshake-process/
-- 3. https://www.youtube.com/watch?v=Ad38n2hYOuA  
-- 4. http://www.cs.northwestern.edu/~agupta/cs340/project2/TCPIP_State_Transition_Diagram.pdf
+- https://en.wikipedia.org/wiki/Transmission_Control_Protocol
+- https://www.geeksforgeeks.org/computer-network-tcp-3-way-handshake-process/
+- https://www.youtube.com/watch?v=Ad38n2hYOuA  
+- http://www.cs.northwestern.edu/~agupta/cs340/project2/TCPIP_State_Transition_Diagram.pdf
 
 ## Explain TCP Connection Termination
 - `CLOSE_WAIT` indicates that the remote endpoint (server) has closed the connection [4] 
@@ -194,10 +194,10 @@ UPD
 - The connections will be removed when they time out [4]
 
 ### References
-- 1. https://en.wikipedia.org/wiki/Transmission_Control_Protocol
-- 2. https://www.performancevision.com/blog/close-tcp-sessions-diagnose-disconnections
-- 3. https://www.youtube.com/watch?v=Ad38n2hYOuA
-- 4. https://superuser.com/questions/173535/what-are-close-wait-and-time-wait-states
+- https://en.wikipedia.org/wiki/Transmission_Control_Protocol
+- https://www.performancevision.com/blog/close-tcp-sessions-diagnose-disconnections
+- https://www.youtube.com/watch?v=Ad38n2hYOuA
+- https://superuser.com/questions/173535/what-are-close-wait-and-time-wait-states
 
 
 ## What is Domain Name Service?

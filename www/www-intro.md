@@ -173,7 +173,7 @@ UPD
 
 ## Explain TCP Connection Establishment
 
-![TCP/IP connection and termination](tcp-ip-setup-disconnect.jpg)
+![TCP/IP connection and termination](tcp-ip-setup-disconnect.jpg) <!-- .element height="50%" width="50%" -->
 
 ### Working
 - Before a client attempts to connect with a server, the server must first bind to and listen on port - **passive open**. Once the passive open is established, a client may initiate an **active open**.

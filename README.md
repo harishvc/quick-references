@@ -15,10 +15,10 @@
     * [Concurrency Fundamentals](https://github.com/harishvc/quick-references/blob/master/python3/python-intro4c.md)  
 * Networking
 	* [Introduction to Networking (part 1)](https://github.com/harishvc/quick-references/blob/master/www/www-intro.md)  
-	  OSI Layers, Digital Certificates, TCP, UPD, Firewall, Proxy, REST  
+	  OSI Layers, ARP, ICMP, TCP, UPD, DHCP, NAT, DNS, POP3, SMPT, IMAP,Firewall, Proxy vs ReverseProxy   
 * WWW
 	* [Introduction to Networking (part 2)](https://github.com/harishvc/quick-references/blob/master/www/www-intro2.md)     
-	  REST API, authentication, cookie, data serialization, JSON, XML, parse JSON feed  
+	  HTTP Methods, HTTP error codes, digital certificates, REST API, authentication, cookie, data serialization, JSON vs XML 
 * Python 3.x 
 	* [Python fundamentals, Concurrency and fun problems](https://github.com/harishvc/quick-references/blob/master/python3/README.md)  
 * MySQL

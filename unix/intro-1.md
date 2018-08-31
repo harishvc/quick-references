@@ -53,7 +53,7 @@ $chmod -R 755 ./test_dir  #recursively apply permission on a directory
 ```
 
 ## Explain `sticky` bit?
-- A `sticky` bit is a permission bit that is set on a **directory** that allows only the owner of the file within that directory or the root user to delete or rename the file(s)
+- A `sticky` bit is a permission bit that is set on **directory** or **file** that allows only the owner of the file within that directory or the root user to delete or rename the file(s)
 - `/tmp` folder is where `sticky` is enabled since all users of the system have temporary files
 ```bash
 $ls -l | grep delete-dir

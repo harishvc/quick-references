@@ -208,6 +208,13 @@ $kill -s SIGQUIT #Terminates a process using CTRL + D . Generates a core dump of
 $kill -s SIGSTP  #Suspends a process
 $kill -s SIGCONT #Resume a suspended process
 ```
+## What happens when a process is killed?
+Reference: https://stackoverflow.com/questions/389927/does-the-unix-kill-command-ensure-that-dynamically-allocated-memory-will-return
+- When a process exits (normal or killed), the Unix OS does cleans up its memory allocations, file handles and other resources
+- Each process runs in its own protected address space, and when the process ends (whether it exits voluntarily or is killed by an external signal) that address space is fully reclaimed by the OS
+- The only resources that do not get cleaned up are those that are supposed to be shared, like the contents of files and of shared memory
+- Many programs do not need to do any special cleanup on exit
+
 
 ## Can you ignore signals?
 ```bash
@@ -221,8 +228,6 @@ $> trap '' 2   #ignore signal 2 (SIGINT)
 
 ## What happens when a new process is created?
 - Reference: https://stackoverflow.com/questions/496702/can-a-shell-script-set-environment-variables-of-the-calling-shell
-- Process has a **copy of the parent's environment** and no access to the parent process's environment whatsoever. 
-- When the process terminates any changes to the **environment are lost**. 
 
 
 ## What is `sudo`?
@@ -232,13 +237,14 @@ $> trap '' 2   #ignore signal 2 (SIGINT)
 
 
 ## What is the difference between process and thread?
-Process 
-* Each process has a virtual address space, executable code, open handles to system objects, a security context, unique process identifier, 
-  environment variables and at least one thread of execution
-* Run in separate memory spaces
-* Each process is started with a single thread, often called the primary thread.
+### Process 
+* Each process has a unique identifier, protected address space and **copy of parent's environment**
+* Each process runs in its own **protected address space**, and when the process ends (whether it exits voluntarily or is killed by a signal) that address space is fully reclaimed
+* Process has a **copy of the parent's environment** and no access to the parent process and environment. When the process terminates any changes to the **environment are lost**. 
+* Each process is started with a single thread, often called the **primary thread**
 
-Threads 
+
+### Thread
 * A thread is a subset of the process.
 * It is termed as a ‘lightweight process’
 * All threads of a process share its virtual address space and system resource
@@ -317,7 +323,8 @@ $>strace -c -p #pid#        #generate report of total time, calls, errors
 
 
 ## Hardlink vs Softlink
-Hard Link: 
+
+### Hard Link 
  - Builds on **inode** (unique identifier for each file)
  - File content and name changes are picked up
  - When file is deleted, **content is still retained!**
@@ -326,7 +333,7 @@ Hard Link:
   - No visual indication
   - Does not work across different file systems
   - Extra care while deleting - delete more than one file
-   ```bash
+```bash
 	$>ls -i h1.txt 
 	8830981 h1.txt
 	#
@@ -340,8 +347,9 @@ Hard Link:
 	$>mkdir test
 	$>ln test test2222
 	ln: test: Is a directory
-   ```
-Softlink (Symbolic link):
+```
+
+### Softlink (Symbolic link):
  - Changes to file contents are picked up
  - file rename or file deletion breaks the symlink
  - clear visual indication (blinking red when broken)
@@ -351,7 +359,7 @@ Softlink (Symbolic link):
 $>ls -i s1.txt 
 8831201 s1.txt
 #
-$> ln -s s1.txt s2.txt  #create sym link
+$> ln -s s1.txt s2.txt  #create symlink
 #
 $>ls -i s2.txt 
 8831213 s2.txt
@@ -360,13 +368,11 @@ $>ls -l s2.txt
 lrwxr-xr-x  1 harishvc  staff  6 Aug 27 02:37 s2.txt -> s1.txt
 $>rm s1.txt                  
 $>ls -l s2.txt 
-lrwxr-xr-x  1 harishvc  staff  6 Aug 27 02:37 s2.txt -> s1.txt     #visual indication in some flavors on Linux
+lrwxr-xr-x  1 harishvc  staff  6 Aug 27 02:37 s2.txt -> s1.txt   #broken
 #
 #
 $>less s2.txt 
 s2.txt: No such file or directory
-#
-#
 ```
 
 

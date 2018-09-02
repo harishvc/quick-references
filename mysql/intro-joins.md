@@ -212,7 +212,7 @@ WHERE e.mgr_id = m.id;
 6 rows in set (0.00 sec)
 ```
 
-## Additional Resources 
-[1] https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins 
-[2] https://community.modeanalytics.com/sql/tutorial/introduction-to-sql/
+## Additional Resources    
+[1] https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins    
+[2] https://community.modeanalytics.com/sql/tutorial/introduction-to-sql/   
 

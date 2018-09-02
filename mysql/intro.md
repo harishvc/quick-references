@@ -151,7 +151,7 @@ mysql>SHOW FULL TABLES WHERE TABLE_TYPE LIKE 'VIEW';
 ```
 
 ## Primary vs Foreign key?
-* Primary Key is the term used to identify one or more columns in table that make a row of data unique. Primary Key is assigned during table creation.
+* Primary Key is the term used to identify one or more columns in table that **make a row of data unique**. Primary Key is assigned during table creation.
 * Foreign Key is a column that references a primary key in another table. A foreign Key constraint is the main mechanism used to enforce referential integrity between tables in a relational database.
 ```
 CREATE TABLE EMP
@@ -168,5 +168,16 @@ FOREIGN KEY (DEPT_ID) REFERENCES DEPARTMENT (ID)
 ```
 
 ## What is normalization?
-Database normalization, or simply normalization, is the process of organizing the columns (attributes) and tables (relations) of a relational database to reduce data redundancy and improve data integrity. Key benefits include flexible database design, better handle on security and data consistency. There may be performance issues.
+There are three main reasons to normalize a database
+- Minimize or avoid **duplicate data**
+- Avoid **data modification** issues
+- **Simplify** query - performance impact!
 
+There are three common forms of normalization: 1st, 2nd, and 3rd normal form
+- First Normal Form – Each column contains **atomic values** (cannot be divided or split in smaller parts) and there are not repeating groups of columns
+- Second Normal Form – The table is in first normal form and all the columns **depend on the primary key**
+- Third Normal Form – the table is in second normal form and all of its columns are **not transitively dependent** (no indirect relationship) on the primary key
+
+Reference:
+1. https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/    
+2. https://www.quora.com/What-is-normalization-and-what-are-the-types-of-normalization-in-DBMS

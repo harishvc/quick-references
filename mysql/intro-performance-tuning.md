@@ -44,6 +44,6 @@
 * Limit database access
 * Don't log messages for end-users . Log messages to log files on the server with severity level.
 
-## References
-[1] https://www.sqlshack.com/database-table-partitioning-sql-server/
-[2] https://stackoverflow.com/questions/1582161/how-does-a-preparedstatement-avoid-or-prevent-sql-injection
+## References  
+[1] https://www.sqlshack.com/database-table-partitioning-sql-server/  
+[2] https://stackoverflow.com/questions/1582161/how-does-a-preparedstatement-avoid-or-prevent-sql-injection  
